@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Alamofire-SwiftyJSON (3.0.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0.0)
+  - iOSDropDown (0.3.4)
+  - IQKeyboardManagerSwift (6.5.4)
+  - Kingfisher (4.10.1)
+  - KSToastView (0.5.7)
+  - NVActivityIndicatorView (4.6.1):
+    - NVActivityIndicatorView/Presenter (= 4.6.1)
+  - NVActivityIndicatorView/Presenter (4.6.1)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
+  - SideMenu (6.4.7)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire-SwiftyJSON
+  - iOSDropDown
+  - IQKeyboardManagerSwift
+  - Kingfisher (~> 4.0)
+  - KSToastView (= 0.5.7)
+  - NVActivityIndicatorView (~> 4.6.1)
+  - SDWebImage (~> 4.0)
+  - SideMenu (~> 6.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Alamofire-SwiftyJSON
+    - iOSDropDown
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - KSToastView
+    - NVActivityIndicatorView
+    - SDWebImage
+    - SideMenu
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  KSToastView: aeb0ca50b44e9568b6f95b2d1ec53a3f016b50fc
+  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: 3edc79fb4f0a6948c3832a77cc5ad9dfb7d7c62a
+
+COCOAPODS: 1.8.4
