@@ -10,10 +10,22 @@ import UIKit
 
 class CompanyPageViewController: UIViewController {
 
+    @IBOutlet var btnUpdateInfo: UIButton!
+    @IBOutlet var btnUpdateAbout: UIButton!
+    @IBOutlet var btnUpdateAddress: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if userType == "User" {
+            self.btnUpdateInfo.isHidden = true
+            self.btnUpdateAbout.isHidden = true
+            self.btnUpdateAddress.isHidden = true
+        } else {
+            self.btnUpdateInfo.isHidden = false
+            self.btnUpdateAbout.isHidden = false
+            self.btnUpdateAddress.isHidden = false
+        }
     }
     
     // MARK: - Back Click

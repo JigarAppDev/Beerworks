@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class ResumeViewController: UIViewController {
 
@@ -21,4 +22,13 @@ class ResumeViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //MARK: Side menu click
+    @IBAction func btnSideMenuClick(sender: UIButton) {
+        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let menu = userStoryBoard.instantiateViewController(withIdentifier: "LeftMenu") as! SideMenuNavigationController
+        menu.statusBarEndAlpha = 0
+        menu.menuWidth = self.view.frame.width - (self.view.frame.width / 3)
+        menu.presentationStyle = .menuSlideIn
+        present(menu, animated: true, completion: nil)
+    }
 }
