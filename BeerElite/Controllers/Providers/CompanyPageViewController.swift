@@ -35,13 +35,13 @@ class CompanyPageViewController: UIViewController {
 
     //MARK: Edit Company Info
     @IBAction func btnAddAboutUs(sender: UIButton) {
-        let aboutVC = self.storyboard?.instantiateViewController(identifier: "AddAboutCompanyViewController") as! AddAboutCompanyViewController
+        let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "AddAboutCompanyViewController") as! AddAboutCompanyViewController
         self.navigationController?.pushViewController(aboutVC, animated: true)
     }
     
     //MARK: Edit Location & URL
     @IBAction func btnEditWebLocation(sender: UIButton) {
-        let webVC = self.storyboard?.instantiateViewController(identifier: "AddWebLocationViewController") as! AddWebLocationViewController
+        let webVC = self.storyboard?.instantiateViewController(withIdentifier: "AddWebLocationViewController") as! AddWebLocationViewController
         self.navigationController?.pushViewController(webVC, animated: true)
     }
 }

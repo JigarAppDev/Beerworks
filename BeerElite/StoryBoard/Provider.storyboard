@@ -997,32 +997,32 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="876"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VX8-Ts-y3P">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="876"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="926"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2k-hk-8LI" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="20" width="290" height="184"/>
+                                                        <rect key="frame" x="15" y="20" width="290" height="234"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Molive Bar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7iz-FV-8F3">
-                                                                <rect key="frame" x="15" y="85" width="260" height="18"/>
+                                                                <rect key="frame" x="15" y="135" width="260" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="BbZ-4R-6Jz">
-                                                                <rect key="frame" x="120" y="20" width="50" height="50"/>
+                                                                <rect key="frame" x="95" y="20" width="100" height="100"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="UNK-Eo-KG1"/>
-                                                                    <constraint firstAttribute="height" constant="50" id="vvF-Ug-lwb"/>
+                                                                    <constraint firstAttribute="width" constant="100" id="UNK-Eo-KG1"/>
+                                                                    <constraint firstAttribute="height" constant="100" id="vvF-Ug-lwb"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bar@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wrL-PZ-RVE">
-                                                                <rect key="frame" x="15" y="108" width="260" height="16"/>
+                                                                <rect key="frame" x="15" y="158" width="260" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAG-El-2ZS" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                                <rect key="frame" x="95" y="139" width="100" height="25"/>
+                                                                <rect key="frame" x="95" y="189" width="100" height="25"/>
                                                                 <color key="backgroundColor" red="0.99154418710000003" green="0.65787959100000004" blue="0.2028020918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="9jW-Dv-eEO"/>
@@ -1042,7 +1042,7 @@
                                                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="eAG-El-2ZS" firstAttribute="top" secondItem="wrL-PZ-RVE" secondAttribute="bottom" constant="15" id="19D-2N-yXv"/>
-                                                            <constraint firstAttribute="height" constant="184" id="Ea0-IK-4pp"/>
+                                                            <constraint firstAttribute="height" constant="234" id="Ea0-IK-4pp"/>
                                                             <constraint firstAttribute="trailing" secondItem="wrL-PZ-RVE" secondAttribute="trailing" constant="15" id="HrJ-CO-acW"/>
                                                             <constraint firstItem="wrL-PZ-RVE" firstAttribute="leading" secondItem="a2k-hk-8LI" secondAttribute="leading" constant="15" id="W8Z-al-5tx"/>
                                                             <constraint firstItem="BbZ-4R-6Jz" firstAttribute="top" secondItem="a2k-hk-8LI" secondAttribute="top" constant="20" id="ZES-mg-UEW"/>
@@ -1061,7 +1061,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCp-xZ-94D" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="214" width="290" height="200"/>
+                                                        <rect key="frame" x="15" y="264" width="290" height="200"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBc-Kh-41j">
                                                                 <rect key="frame" x="15" y="15" width="43.5" height="18"/>
@@ -1108,7 +1108,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-Kv-Wpx" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="424" width="290" height="184"/>
+                                                        <rect key="frame" x="15" y="474" width="290" height="184"/>
                                                         <subviews>
                                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jFe-4d-fwV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="184"/>
@@ -1129,7 +1129,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvI-sq-AF2" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="618" width="290" height="157"/>
+                                                        <rect key="frame" x="15" y="668" width="290" height="157"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNv-YE-kWc">
                                                                 <rect key="frame" x="255" y="15" width="20" height="20"/>
@@ -1191,7 +1191,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaF-ox-Z78" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="806" width="200" height="50"/>
+                                                        <rect key="frame" x="60" y="856" width="200" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="Poz-Dj-oE8"/>

@@ -61,7 +61,7 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsVC = self.storyboard?.instantiateViewController(identifier: "JobDetailsViewController") as! JobDetailsViewController
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

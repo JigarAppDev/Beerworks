@@ -65,7 +65,7 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let resumeVC = userStoryBoard.instantiateViewController(identifier: "ResumeViewController") as! ResumeViewController
+        let resumeVC = userStoryBoard.instantiateViewController(withIdentifier: "ResumeViewController") as! ResumeViewController
         self.navigationController?.pushViewController(resumeVC, animated: true)
     }
 }

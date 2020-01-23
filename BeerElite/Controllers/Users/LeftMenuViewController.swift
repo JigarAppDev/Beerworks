@@ -53,21 +53,21 @@ class LeftMenuViewController: UIViewController {
         if userType == "User" {
             if sender.tag == 101 {
                 //JobList
-                let homeVC = userStoryBoard.instantiateViewController(identifier: "UserHomeViewController") as! UserHomeViewController
+                let homeVC = userStoryBoard.instantiateViewController(withIdentifier: "UserHomeViewController") as! UserHomeViewController
                 self.navigationController?.pushViewController(homeVC, animated: true)
             } else if sender.tag == 102 {
                 //My Resume
-                let resumeVC = userStoryBoard.instantiateViewController(identifier: "ResumeViewController") as! ResumeViewController
+                let resumeVC = userStoryBoard.instantiateViewController(withIdentifier: "ResumeViewController") as! ResumeViewController
                 self.navigationController?.pushViewController(resumeVC, animated: true)
             } else if sender.tag == 103 {
                 //Messages
-                let msgVC = proStoryBoard.instantiateViewController(identifier: "MessagesViewController") as! MessagesViewController
+                let msgVC = proStoryBoard.instantiateViewController(withIdentifier: "MessagesViewController") as! MessagesViewController
                 self.navigationController?.pushViewController(msgVC, animated: true)
             } else if sender.tag == 104 {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
-                    let loginVC = mainStoryBoard.instantiateViewController(identifier: "UserSelectionViewController") as! UserSelectionViewController
+                    let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
                     self.navigationController?.pushViewController(loginVC, animated: true)
                 }
                 let noAction = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
@@ -76,7 +76,7 @@ class LeftMenuViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else if sender.tag == 105 {
                 //Support
-                let supportVC = proStoryBoard.instantiateViewController(identifier: "SupportViewController") as! SupportViewController
+                let supportVC = proStoryBoard.instantiateViewController(withIdentifier: "SupportViewController") as! SupportViewController
                 self.navigationController?.pushViewController(supportVC, animated: true)
                 
             }
@@ -84,21 +84,21 @@ class LeftMenuViewController: UIViewController {
             //Provider
             if sender.tag == 101 {
                 //AddJob
-                let homeVC = proStoryBoard.instantiateViewController(identifier: "ProviderHomeViewController") as! ProviderHomeViewController
+                let homeVC = proStoryBoard.instantiateViewController(withIdentifier: "ProviderHomeViewController") as! ProviderHomeViewController
                 self.navigationController?.pushViewController(homeVC, animated: true)
             } else if sender.tag == 102 {
                 //Browse
-                let browseVC = proStoryBoard.instantiateViewController(identifier: "BrowseViewController") as! BrowseViewController
+                let browseVC = proStoryBoard.instantiateViewController(withIdentifier: "BrowseViewController") as! BrowseViewController
                 self.navigationController?.pushViewController(browseVC, animated: true)
             } else if sender.tag == 103 {
                 //Messages
-                let msgVC = proStoryBoard.instantiateViewController(identifier: "MessagesViewController") as! MessagesViewController
+                let msgVC = proStoryBoard.instantiateViewController(withIdentifier: "MessagesViewController") as! MessagesViewController
                 self.navigationController?.pushViewController(msgVC, animated: true)
             } else if sender.tag == 104 {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
-                    let loginVC = mainStoryBoard.instantiateViewController(identifier: "UserSelectionViewController") as! UserSelectionViewController
+                    let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
                     self.navigationController?.pushViewController(loginVC, animated: true)
                 }
                 let noAction = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
@@ -107,15 +107,15 @@ class LeftMenuViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else if sender.tag == 105 {
                 //Support
-                let supportVC = proStoryBoard.instantiateViewController(identifier: "SupportViewController") as! SupportViewController
+                let supportVC = proStoryBoard.instantiateViewController(withIdentifier: "SupportViewController") as! SupportViewController
                 self.navigationController?.pushViewController(supportVC, animated: true)
             } else if sender.tag == 106 {
                 //Notification
-                let notiVC = proStoryBoard.instantiateViewController(identifier: "NotificationsViewController") as! NotificationsViewController
+                let notiVC = proStoryBoard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
                 self.navigationController?.pushViewController(notiVC, animated: true)
             } else if sender.tag == 107 {
                 //Company Page
-                let pageVC = proStoryBoard.instantiateViewController(identifier: "CompanyPageViewController") as! CompanyPageViewController
+                let pageVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
                 self.navigationController?.pushViewController(pageVC, animated: true)
             }
         }

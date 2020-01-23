@@ -52,7 +52,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
-        let chatVC = proStoryBoard.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
+        let chatVC = proStoryBoard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }

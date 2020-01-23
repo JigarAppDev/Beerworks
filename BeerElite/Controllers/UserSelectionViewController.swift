@@ -25,7 +25,7 @@ class UserSelectionViewController: UIViewController {
             //Employer
             userType = "Provider"
         }
-        let onboradVC = self.storyboard?.instantiateViewController(identifier: "OnBoardingViewController") as! OnBoardingViewController
+        let onboradVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
         self.navigationController?.pushViewController(onboradVC, animated: true)
     }
 

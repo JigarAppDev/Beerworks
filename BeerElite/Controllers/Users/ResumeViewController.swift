@@ -69,31 +69,31 @@ class ResumeViewController: UIViewController {
     
     @objc func updateLevelClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let levelVC = userStoryBoard.instantiateViewController(identifier: "AddCertiLevelViewController") as! AddCertiLevelViewController
+        let levelVC = userStoryBoard.instantiateViewController(withIdentifier: "AddCertiLevelViewController") as! AddCertiLevelViewController
         self.navigationController?.pushViewController(levelVC, animated: true)
     }
     
     @objc func addWorkClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let expVC = userStoryBoard.instantiateViewController(identifier: "AddExperienceViewController") as! AddExperienceViewController
+        let expVC = userStoryBoard.instantiateViewController(withIdentifier: "AddExperienceViewController") as! AddExperienceViewController
         self.navigationController?.pushViewController(expVC, animated: true)
     }
     
     @objc func updateBioClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let bioVC = userStoryBoard.instantiateViewController(identifier: "BeerBioViewController") as! BeerBioViewController
+        let bioVC = userStoryBoard.instantiateViewController(withIdentifier: "BeerBioViewController") as! BeerBioViewController
         self.navigationController?.pushViewController(bioVC, animated: true)
     }
     
     @objc func updateInterestClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let interestVC = userStoryBoard.instantiateViewController(identifier: "AddInterestViewController") as! AddInterestViewController
+        let interestVC = userStoryBoard.instantiateViewController(withIdentifier: "AddInterestViewController") as! AddInterestViewController
         self.navigationController?.pushViewController(interestVC, animated: true)
     }
     
     @objc func addEducationClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let eduVC = userStoryBoard.instantiateViewController(identifier: "AddEducationViewController") as! AddEducationViewController
+        let eduVC = userStoryBoard.instantiateViewController(withIdentifier: "AddEducationViewController") as! AddEducationViewController
         self.navigationController?.pushViewController(eduVC, animated: true)
     }
 }
