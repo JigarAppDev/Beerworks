@@ -82,6 +82,7 @@
 		04A5294323CC7623003E2EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAboutCompanyViewController.swift; sourceTree = "<group>"; };
 		04E982CC23D5B80600F7CC26 /* AddWebLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebLocationViewController.swift; sourceTree = "<group>"; };
+		04E992EA23E003C90029644A /* BeerElite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeerElite.entitlements; sourceTree = "<group>"; };
 		04EC733F23D085750076666A /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		04EC734123D085810076666A /* Provider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Provider.storyboard; sourceTree = "<group>"; };
 		04EC734523D086800076666A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		04A5293423CC7620003E2EDA /* BeerElite */ = {
 			isa = PBXGroup;
 			children = (
+				04E992EA23E003C90029644A /* BeerElite.entitlements */,
 				048A91CC23CC833D00BDAFC3 /* ServiceClass */,
 				04A5294A23CC76C5003E2EDA /* Controllers */,
 				04A5294D23CC76C5003E2EDA /* Models */,
@@ -553,18 +555,19 @@
 			baseConfigurationReference = 59D016CFCBCE812BD03F28E2 /* Pods-BeerElite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = BeerElite/BeerElite.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Mora (R586PW7HW6)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3K6936RR9D;
+				DEVELOPMENT_TEAM = 93392H49X2;
 				INFOPLIST_FILE = BeerElite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matesrates.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = MR_Dev_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dev_Profile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -575,18 +578,19 @@
 			baseConfigurationReference = 21DC54056C362E9E82D5E174 /* Pods-BeerElite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = BeerElite/BeerElite.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: David Mora (93392H49X2)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3K6936RR9D;
+				DEVELOPMENT_TEAM = 93392H49X2;
 				INFOPLIST_FILE = BeerElite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matesrates.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = MR_Dev_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dist_Profile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
