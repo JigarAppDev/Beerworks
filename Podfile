@@ -11,4 +11,5 @@ target 'BeerElite' do
     pod 'Kingfisher', '~> 4.0'
     pod 'KSToastView', '0.5.7'
     pod 'SideMenu', '~> 6.0'
+    pod 'GoogleSignIn'
 end

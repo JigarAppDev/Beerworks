@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-var BASEURL: String = "http://198.199.79.233/materates_api/api/"
+var BASEURL: String = "http://159.89.236.101/beer_elite/api/"
 let App_Title: String = "Beer Elite"
 
 var LoaderType:Int = 14
@@ -23,6 +23,10 @@ var WrongMsg:String = "Something went wrong, please try again"
 //MARK: Api list
 let LOGINAPI                       = "login"
 let SIGNAPI                        = "register"
+let LOGINBYSOCIAL                  = "login_by_thirdparty"
+let RESETPASSWORD                  = "reset_password"
+let FORGOTPASSWORD                 = "forgotPassword"
+let LOGOUT                         = "logout"
 
 //MARK: Global Variables
 var userType = ""

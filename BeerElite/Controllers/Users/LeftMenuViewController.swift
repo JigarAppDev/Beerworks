@@ -8,8 +8,10 @@
 
 import UIKit
 import SideMenu
+import NVActivityIndicatorView
+import SwiftyJSON
 
-class LeftMenuViewController: UIViewController {
+class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet var btnMenu1: UIButton!
     @IBOutlet var btnMenu2: UIButton!
@@ -67,6 +69,7 @@ class LeftMenuViewController: UIViewController {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
+                    self.clearAllUserDefault()
                     let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
                     self.navigationController?.pushViewController(loginVC, animated: true)
                 }
@@ -98,6 +101,7 @@ class LeftMenuViewController: UIViewController {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
+                    self.clearAllUserDefault()
                     let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
                     self.navigationController?.pushViewController(loginVC, animated: true)
                 }
@@ -119,5 +123,44 @@ class LeftMenuViewController: UIViewController {
                 self.navigationController?.pushViewController(pageVC, animated: true)
             }
         }
+    }
+    
+    //MARK:- Logout API
+    /*func LogoutAPI(){
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        let identifier = UUID()
+        let token = Defaults.value(forKey: "token")as! String
+        param.setValue(identifier.uuidString, forKey: "device_id")
+        headers = ["Authorization": "Bearer \(token)"]
+        let successed = {(responseObject: AnyObject) -> Void in
+        self.stopAnimating()
+            if responseObject != nil{
+                       let dataObj : JSON = JSON.init(responseObject)
+                       if(dataObj["status"].stringValue == "1") {
+                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                            let navigationController = UINavigationController(rootViewController: nextViewController)
+                            navigationController.navigationBar.isHidden = true
+                        self.view.window!.rootViewController = navigationController
+                       }else{
+                           self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "success") as! String)
+                       }
+                   }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], header: headers as [String : AnyObject], action: LOGOUT as NSString, success: successed, failure: failure)
+    }*/
+    
+    func clearAllUserDefault() {
+        Defaults.removeObject(forKey: "user_type")
+        Defaults.removeObject(forKey: "user_id")
+        Defaults.removeObject(forKey: "user_email")
+        Defaults.removeObject(forKey: "user_name")
+        Defaults.removeObject(forKey: "is_logged_in")
+        Defaults.synchronize()
     }
 }
