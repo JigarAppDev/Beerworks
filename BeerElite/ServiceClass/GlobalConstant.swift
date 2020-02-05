@@ -20,13 +20,35 @@ var ToastDuration:TimeInterval = 2.0
 var InternetMessage:String = "No internet connection, please try again later"
 var WrongMsg:String = "Something went wrong, please try again"
 
-//MARK: Api list
+//MARK: API list
 let LOGINAPI                       = "login"
 let SIGNAPI                        = "register"
 let LOGINBYSOCIAL                  = "login_by_thirdparty"
 let RESETPASSWORD                  = "reset_password"
 let FORGOTPASSWORD                 = "forgotPassword"
 let LOGOUT                         = "logout"
+
+//Provider
+let POSTJOBAPI                     = "add_job"
+let ADDCOMPANYPAGEAPI              = "add_company_page"
+let GETUSERPROFILEAPI              = "get_users_profile"
+let LISTAPPLIEDUSERSAPI            = "list_applied_users_list"
+
+//Users
+let GETJOBLIST                     = "list_jobs"
+let GETJOBLISTBYJOBIDAPI           = "get_jobs_list"
+let VIEWCOMPANYAPI                 = "view_company"
+let APPLYFORJOBAPI                 = "apply_for_job"
+let GETJOBSBYFILTERAPI             = "get_jobs_list_by_filter"
+let ADDBEERBIOAPI                  = "add_beer_bio"
+let ADDINTERESTAPI                 = "add_interest"
+let ADDEXPERIENCEAPI               = "add_experiance"
+let ADDCERTILEVELAPI               = "add_certification_level"
+let GETJOBDETIALSAPI               = "get_jobs_detail"
+let ADDEDUCATIONAPI                = "add_education"
+let GETMYPROFILEAPI                = "get_my_profile"
+let APPLYFORJOBBYUSERAPI           = "apply_job_user"
+
 
 //MARK: Global Variables
 var userType = ""

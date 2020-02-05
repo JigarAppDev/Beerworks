@@ -18,6 +18,10 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var btnMenu3: UIButton!
     @IBOutlet var btnMenu4: UIButton!
     @IBOutlet var btnMenu5: UIButton!
+    @IBOutlet var lblName: UILabel!
+    @IBOutlet var lblEmail: UILabel!
+    @IBOutlet var btnCity: UIButton!
+    @IBOutlet var imgProfile: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,17 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     }
 
     func setupUI() {
+        let name = Defaults.value(forKey: "user_name") as! String
+        let email = Defaults.value(forKey: "user_email") as! String
+        
+        if let picUrl: String = Defaults.value(forKey: "profile_pic") as? String, picUrl != "" {
+            self.imgProfile.kf.setImage(with: URL(string: picUrl))
+        } else {
+            self.imgProfile.image = UIImage.init(named: "ios_icon")
+        }
+        self.lblName.text = name
+        self.lblEmail.text = email
+        
         self.btnMenu1.isHidden = false
         self.btnMenu2.isHidden = false
         self.btnMenu3.isHidden = false

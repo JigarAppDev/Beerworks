@@ -73,9 +73,7 @@ class ResetPasswordViewController: UIViewController, NVActivityIndicatorViewable
             if responseObject != nil{
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    if (responseObject.value(forKeyPath: "data")) != nil{
-                        self.showAlertNavigate(title: "OK", msg: responseObject.value(forKeyPath: "mesage")as! String)
-                    }
+                    self.showAlertNavigate(title: "OK", msg: dataObj["message"].stringValue)
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }
@@ -92,7 +90,11 @@ class ResetPasswordViewController: UIViewController, NVActivityIndicatorViewable
     func showAlertNavigate(title: String, msg: String){
         let alert = UIAlertController.init(title: title, message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction.init(title: "OK", style: .default) { (UIAlertAction) in
-            self.navigationController?.popToRootViewController(animated: true)
+            for vc in self.navigationController!.viewControllers {
+                if vc.isKind(of: LoginViewController.classForCoder()) {
+                    self.navigationController?.popToViewController(vc, animated: true)
+                }
+            }
         }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)

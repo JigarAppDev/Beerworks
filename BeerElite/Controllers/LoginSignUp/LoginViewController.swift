@@ -105,13 +105,13 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
             userData = uData
         }
         let userRole = userData["user_type"].stringValue
-        let user_ID = userData["id"].intValue
+        let user_ID = userData["id"].stringValue
         let user_Email = userData["email"].stringValue
         let profilePic = userData["profile_pic"].stringValue
         if profilePic != "" {
             Defaults.setValue(profilePic, forKey: "profile_pic")
         }
-        let user_Name = userData["name"].stringValue
+        let user_Name = userData["username"].stringValue
         Defaults.setValue(user_Name, forKey: "user_name")
         Defaults.setValue(userRole, forKey: "user_type")
         Defaults.setValue(user_ID, forKey: "user_id")

@@ -182,6 +182,56 @@ class ServiceCall{
         
     }
     
+    func PostWithAlamofireHeader(Parameters params : [String : AnyObject]? ,action : NSString, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void){
+        var base_url = BASEURL
+        base_url.append(action as String)
+        print(base_url)
+    
+        var headers : HTTPHeaders = [:]
+        if let token = UserDefaults.standard.value(forKey: "token"){
+            headers = ["Accept":"application/json","Authorization": "Bearer \(token)"]
+        }
+        
+        print(headers)
+        
+        if (Alamofire.NetworkReachabilityManager()?.isReachable)! {
+            Alamofire.request(base_url, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: headers as HTTPHeaders).authenticate(user: "", password: "").responseSwiftyJSON { respones in
+                
+                print(respones.result.error?.localizedDescription ?? "No Error")
+                
+                if let json1 = respones.result.value {
+                    print("json \(json1)")
+                    let responseString = String(data: respones.data!, encoding: String.Encoding.utf8)
+                    var dictonary:NSDictionary?
+                    if let data = responseString?.data(using: String.Encoding.utf8) {
+                        do {
+                            dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as NSDictionary?
+                            DispatchQueue.main.async() {
+                                return success(dictonary as AnyObject)
+                            }
+                        }catch let error as NSError {
+                            print(error)
+                        }
+                    }else {
+                        KSToastView.ks_showToast(WrongMsg, duration: ToastDuration)
+                        DispatchQueue.main.async() {
+                            return failure(respones.result.error as AnyObject)
+                        }
+                        
+                    }
+                }else{
+                    KSToastView.ks_showToast(WrongMsg, duration: ToastDuration)
+                    DispatchQueue.main.async() {
+                        return failure(respones.result.error as AnyObject)
+                    }
+                }
+            }
+        }else {
+            AppUtilities.sharedInstance.openSettingsInternet()
+        }
+        
+    }
+    
     func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {

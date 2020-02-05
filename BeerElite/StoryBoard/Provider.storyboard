@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lqD-Xc-O7y">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,6 +74,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Aqh-N8-cS6"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -118,6 +120,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="gwa-p9-Rxn"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -163,6 +166,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="biE-cm-aok"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -250,6 +254,9 @@
                                                                 <real key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnPostJobClickWithSender:" destination="QwY-dX-PeA" eventType="touchUpInside" id="mpj-bR-3t6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -309,6 +316,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="S2O-56-FCk"/>
                     <size key="freeformSize" width="320" height="700"/>
+                    <connections>
+                        <outlet property="txtCompanyName" destination="d4e-IA-cyK" id="Dx1-xd-7qI"/>
+                        <outlet property="txtJobTitle" destination="Qa6-Ea-WY2" id="RjW-Ns-VKE"/>
+                        <outlet property="txtSalary" destination="chJ-gs-nh1" id="UAj-xF-dhq"/>
+                        <outlet property="txvDescription" destination="MU0-u4-YJe" id="Sfx-IR-xGp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9T-uQ-5ga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
