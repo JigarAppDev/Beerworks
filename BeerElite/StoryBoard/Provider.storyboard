@@ -416,12 +416,37 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDj-eU-OUQ" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="60" y="454" width="200" height="50"/>
+                                                        <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Edr-Mp-P1g"/>
+                                                            <constraint firstAttribute="width" constant="200" id="uF4-ce-cKj"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <state key="normal" title="Submit">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="25"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnSendEmailWithSender:" destination="gI8-1B-K5S" eventType="touchUpInside" id="iGN-OB-luX"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="dDj-eU-OUQ" secondAttribute="bottom" constant="20" id="Ahk-dT-K0K"/>
                                                     <constraint firstItem="g2R-uM-cni" firstAttribute="leading" secondItem="KRg-oe-fg9" secondAttribute="leading" constant="15" id="DsX-gT-D0a"/>
                                                     <constraint firstItem="g2R-uM-cni" firstAttribute="top" secondItem="KRg-oe-fg9" secondAttribute="top" constant="25" id="I0F-Xz-zPc"/>
                                                     <constraint firstAttribute="trailing" secondItem="g2R-uM-cni" secondAttribute="trailing" constant="15" id="W2L-Rx-RTe"/>
+                                                    <constraint firstItem="dDj-eU-OUQ" firstAttribute="centerX" secondItem="KRg-oe-fg9" secondAttribute="centerX" id="rSR-fU-J2A"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -460,6 +485,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cAX-ig-fH2"/>
                     </view>
+                    <connections>
+                        <outlet property="txtEmail" destination="SNI-BA-bW5" id="5Fl-fV-Zxz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpW-CO-zO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1315,6 +1343,9 @@
                         <outlet property="btnUpdateAbout" destination="Qb0-v0-Bge" id="hsa-xg-AK1"/>
                         <outlet property="btnUpdateAddress" destination="kNv-YE-kWc" id="OZa-0M-sxp"/>
                         <outlet property="btnUpdateInfo" destination="XaF-ox-Z78" id="E5g-jy-b4R"/>
+                        <outlet property="lblAddress" destination="zsU-is-E6u" id="Sqb-6d-7zQ"/>
+                        <outlet property="lblWebsite" destination="RHv-Gb-vBZ" id="pH0-ZB-feB"/>
+                        <outlet property="txvAbout" destination="Eqd-SI-pCJ" id="Ez6-Ea-CsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8I-mg-sf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

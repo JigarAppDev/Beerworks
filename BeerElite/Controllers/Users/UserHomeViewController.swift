@@ -104,6 +104,7 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
+        detailsVC.dataObj = self.jobList[indexPath.row]
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

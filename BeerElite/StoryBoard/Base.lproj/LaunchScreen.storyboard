@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,21 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="TD1-tR-bGS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EOS-vC-Gej">
-                                <rect key="frame" x="45" y="60.5" width="230" height="447"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EOS-vC-Gej">
+                                <rect key="frame" x="15" y="-228" width="290" height="1024"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TD1-tR-bGS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="8ub-l4-9gK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EOS-vC-Gej" secondAttribute="trailing" constant="45" id="AJC-rW-hmZ"/>
-                            <constraint firstAttribute="bottom" secondItem="TD1-tR-bGS" secondAttribute="bottom" id="GJl-r4-b0f"/>
-                            <constraint firstItem="TD1-tR-bGS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kxy-gJ-jfO"/>
-                            <constraint firstItem="TD1-tR-bGS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RBM-yo-hUY"/>
-                            <constraint firstItem="EOS-vC-Gej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="obc-wP-2un"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EOS-vC-Gej" secondAttribute="trailing" constant="15" id="AJC-rW-hmZ"/>
+                            <constraint firstItem="EOS-vC-Gej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="obc-wP-2un"/>
                             <constraint firstItem="EOS-vC-Gej" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rnY-Ym-yBn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -41,7 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg" width="720" height="1280"/>
-        <image name="logo" width="447" height="447"/>
+        <image name="ios_icon" width="1024" height="1024"/>
     </resources>
 </document>

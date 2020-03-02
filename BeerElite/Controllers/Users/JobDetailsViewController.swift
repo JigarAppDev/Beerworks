@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class JobDetailsViewController: UIViewController {
 
+    @IBOutlet var imgBar: UIImageView!
+    @IBOutlet var lblBarName: UILabel!
+    @IBOutlet var lblSubName: UILabel!
+    @IBOutlet var lblSalary: UILabel!
+    @IBOutlet var lblDescr: UILabel!
+    
+    var dataObj: JobsDataModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupData()
+    }
+    
+    func setupData() {
+        if self.dataObj.profile_pic == "" {
+            self.imgBar.image = UIImage.init(named: "ios_icon")
+        } else {
+            self.imgBar.kf.setImage(with: URL(string: self.dataObj.profile_pic!))
+        }
+        self.lblBarName.text = self.dataObj.jobTitle
+        self.lblDescr.text = self.dataObj.description
+        self.lblSubName.text = self.dataObj.company_name
+        self.lblSalary.text = "Salary/hourly wage " + self.dataObj.salary!
     }
 
     // MARK: - Back Click
@@ -38,6 +60,7 @@ class JobDetailsViewController: UIViewController {
     @IBAction func btnViewCompanyClick(sender: UIButton) {
         let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
         let compVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
+        compVC.companyId = self.dataObj.company_id!
         self.navigationController?.pushViewController(compVC, animated: true)
     }
 }

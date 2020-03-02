@@ -37,6 +37,8 @@
 		04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5293B23CC7620003E2EDA /* Main.storyboard */; };
 		04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A5293E23CC7623003E2EDA /* Assets.xcassets */; };
 		04A5294223CC7623003E2EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5294023CC7623003E2EDA /* LaunchScreen.storyboard */; };
+		04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */; };
+		04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */; };
 		04E982CB23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */; };
 		04E982CD23D5B80600F7CC26 /* AddWebLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E982CC23D5B80600F7CC26 /* AddWebLocationViewController.swift */; };
 		04EC734023D085750076666A /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EC733F23D085750076666A /* User.storyboard */; };
@@ -82,6 +84,10 @@
 		04A5293E23CC7623003E2EDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A5294123CC7623003E2EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A5294323CC7623003E2EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
+		04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
+		04C941EF23FA8D06003BF1D1 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
+		04C941F223FA8D25003BF1D1 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAboutCompanyViewController.swift; sourceTree = "<group>"; };
 		04E982CC23D5B80600F7CC26 /* AddWebLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebLocationViewController.swift; sourceTree = "<group>"; };
 		04E992EA23E003C90029644A /* BeerElite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeerElite.entitlements; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 				04A5293923CC7620003E2EDA /* ViewController.swift */,
 				04A5293E23CC7623003E2EDA /* Assets.xcassets */,
 				04A5294323CC7623003E2EDA /* Info.plist */,
+				04C941F223FA8D25003BF1D1 /* Header.h */,
 			);
 			path = BeerElite;
 			sourceTree = "<group>";
@@ -190,6 +197,7 @@
 		04A5294B23CC76C5003E2EDA /* OtherLibs */ = {
 			isa = PBXGroup;
 			children = (
+				04C941EA23FA8D06003BF1D1 /* SBPickerSelector */,
 			);
 			path = OtherLibs;
 			sourceTree = "<group>";
@@ -211,6 +219,32 @@
 				0473044723EAE91D0090068A /* JobsModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04C941EA23FA8D06003BF1D1 /* SBPickerSelector */ = {
+			isa = PBXGroup;
+			children = (
+				04C941EB23FA8D06003BF1D1 /* Resources */,
+				04C941ED23FA8D06003BF1D1 /* Source */,
+			);
+			path = SBPickerSelector;
+			sourceTree = "<group>";
+		};
+		04C941EB23FA8D06003BF1D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04C941ED23FA8D06003BF1D1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */,
+				04C941EF23FA8D06003BF1D1 /* SBPickerSelector.h */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		04EC734323D0866D0076666A /* Users */ = {
@@ -328,6 +362,7 @@
 				04A5294223CC7623003E2EDA /* LaunchScreen.storyboard in Resources */,
 				04EC734023D085750076666A /* User.storyboard in Resources */,
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
+				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,
 			);
@@ -400,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EC734623D086800076666A /* UserHomeViewController.swift in Sources */,
+				04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */,
 				045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */,
 				040C28B423D732B6009211BB /* AddExperienceViewController.swift in Sources */,
 				048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */,
@@ -590,6 +626,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dev_Profile;
+				SWIFT_OBJC_BRIDGING_HEADER = BeerElite/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -613,6 +650,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dist_Profile;
+				SWIFT_OBJC_BRIDGING_HEADER = BeerElite/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

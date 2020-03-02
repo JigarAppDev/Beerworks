@@ -48,6 +48,7 @@ let GETJOBDETIALSAPI               = "get_jobs_detail"
 let ADDEDUCATIONAPI                = "add_education"
 let GETMYPROFILEAPI                = "get_my_profile"
 let APPLYFORJOBBYUSERAPI           = "apply_job_user"
+let ADDSUPPORTAPI                  = "add_support_mail"
 
 
 //MARK: Global Variables

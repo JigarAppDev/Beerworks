@@ -7,18 +7,168 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import SwiftyJSON
+import Kingfisher
 
-class AddEducationViewController: UIViewController {
-
+class AddEducationViewController: UIViewController, NVActivityIndicatorViewable, UITextViewDelegate, SBPickerSelectorDelegate {
+    
+    @IBOutlet var btnFrom: UIButton!
+    @IBOutlet var btnUpto: UIButton!
+    @IBOutlet var txtEduType: UITextField!
+    @IBOutlet var txtUniName: UITextField!
+    @IBOutlet var txvDetails: UITextView!
+    var fromDate: Date!
+    var upToDate: Date!
+    var selectedObj: JSON!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.txvDetails.delegate = self
+        
+        if self.selectedObj.isNull == false {
+            self.btnFrom.setTitle(self.selectedObj["study_period_from"].stringValue, for: .normal)
+            self.btnUpto.setTitle(self.selectedObj["study_period_to"].stringValue, for: .normal)
+            self.txtEduType.text = self.selectedObj["education_type"].stringValue
+            self.txtUniName.text = self.selectedObj["university_name"].stringValue
+            self.txvDetails.text = self.selectedObj["education_detail"].stringValue
+        }
     }
     
     // MARK: - Back Click
     @IBAction func btnBackClick(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    //MARK:- Select From date
+    @IBAction func btnFromClick(sender: UIButton) {
+        self.view.endEditing(true)
+        let picker = SBPickerSelector()
+        picker.tag = 101
+        picker.delegate = self
+        picker.pickerType = SBPickerSelectorType.date
+        picker.datePickerType = .onlyDay
+        picker.doneButtonTitle = "Done"
+        picker.cancelButtonTitle = "Cancel"
+        picker.doneButton?.tintColor = .black
+        picker.cancelButton?.tintColor = .black
+        picker.datePickerView.backgroundColor = UIColor.init(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
+        picker.datePickerView.setValue(UIColor.white, forKeyPath: "textColor")
+        picker.optionsToolBar?.barTintColor = UIColor(red: 223/255, green: 167/255, blue: 72/255, alpha: 1.0)
+        picker.showPickerOver(self)
+    }
+    
+    //MARK:- Select Upto date
+    @IBAction func btnUpToClick(sender: UIButton) {
+        self.view.endEditing(true)
+        if self.fromDate == nil {
+            self.showAlert(title: App_Title, msg: "Select from date first!")
+            return
+        }
+        let picker = SBPickerSelector()
+        picker.tag = 102
+        picker.delegate = self
+        picker.pickerType = SBPickerSelectorType.date
+        picker.datePickerType = .onlyDay
+        picker.doneButtonTitle = "Done"
+        picker.cancelButtonTitle = "Cancel"
+        picker.doneButton?.tintColor = .black
+        picker.cancelButton?.tintColor = .black
+        picker.datePickerView.backgroundColor = UIColor.init(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
+        picker.datePickerView.setValue(UIColor.white, forKeyPath: "textColor")
+        picker.optionsToolBar?.barTintColor = UIColor(red: 223/255, green: 167/255, blue: 72/255, alpha: 1.0)
+        picker.datePickerView.minimumDate = self.fromDate
+        picker.showPickerOver(self)
+    }
+    
+    //MARK:- Picker delegate methods
+    func pickerSelector(_ selector: SBPickerSelector, dateSelected date: Date) {
+        print(date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if selector.tag == 101 {
+            //From
+            self.fromDate = date
+            self.btnFrom.setTitle(dateFormatter.string(from: date), for: .normal)
+        } else {
+            //Upto
+            self.upToDate = date
+            self.btnUpto.setTitle(dateFormatter.string(from: date), for: .normal)
+        }
+    }
+    
+    //MARK: - Validate Data Method
+    func validateData() -> Bool {
+        var boolVal : Bool = true
+        if self.fromDate == nil {
+            showAlert(title: App_Title, msg: "Please Select From Date")
+            boolVal = false
+        }else if self.upToDate == nil {
+            showAlert(title: App_Title, msg: "Please Select UpTo Date")
+            boolVal = false
+        }else if txtEduType.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Education Type")
+            boolVal = false
+        }else if txtUniName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter University Name")
+            boolVal = false
+        }else if txvDetails.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Some Details")
+            boolVal = false
+        }
+        return boolVal
+    }
+    
+    //MARK: API Calling on Submit
+    @IBAction func submitEducation(sender: UIButton) {
+        self.view.endEditing(true)
+        if self.selectedObj.isNull == false {
+            //Update API
+            return
+        }
+        if self.validateData() == false {
+            return
+        }
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        //let uid = Defaults.value(forKey: "user_id") as? String
+        param.setValue(self.btnFrom.titleLabel?.text!, forKey: "study_period_from")
+        param.setValue(self.btnUpto.titleLabel?.text!, forKey: "study_period_to")
+        param.setValue(self.txtEduType.text!, forKey: "education_type")
+        param.setValue(self.txtUniName.text!, forKey: "university_name")
+        param.setValue(self.txvDetails.text!, forKey: "education_detail")
+        print(param)
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: ADDEDUCATIONAPI as NSString, success: successed, failure: failure)
+    }
+    
+    //MARK: Textfield delegate methods
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Enter education details" {
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Enter education details"
+        }
+    }
+    
 }

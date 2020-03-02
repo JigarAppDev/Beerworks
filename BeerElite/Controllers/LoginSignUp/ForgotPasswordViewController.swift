@@ -39,6 +39,9 @@ class ForgotPasswordViewController: UIViewController, NVActivityIndicatorViewabl
         if txtEmail.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Email Address")
             boolVal = false
+        }else if AppUtilities.sharedInstance.isValidEmail(emailAddressString: txtEmail.text!) == false {
+            showAlert(title: App_Title, msg: "Please Enter Valid Email")
+            boolVal = false
         }
         return boolVal
     }

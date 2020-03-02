@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         if txtFullname.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Username")
             boolVal = false
-        } else if txtEmail.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+        }else if txtEmail.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Email Address")
             boolVal = false
         }else if AppUtilities.sharedInstance.isValidEmail(emailAddressString: txtEmail.text!) == false {
@@ -56,6 +56,9 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             boolVal = false
         }else if txtPassword.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Password")
+            boolVal = false
+        }else if txtPassword.text!.count < 6 {
+            showAlert(title: App_Title, msg: "Password should be of 6 characters atleast")
             boolVal = false
         }else if txtPassword.text != txtConfirmPassword.text {
             showAlert(title: App_Title, msg: "Confirm Password is Mismatch!")
