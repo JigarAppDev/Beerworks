@@ -13,6 +13,8 @@ import Kingfisher
 
 class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable, SBPickerSelectorDelegate, UITextViewDelegate {
 
+    @IBOutlet var lblTitle: UILabel!
+    @IBOutlet var btnAdd: UIButton!
     @IBOutlet var btnFrom: UIButton!
     @IBOutlet var btnUpto: UIButton!
     @IBOutlet var txtCompany: UITextField!
@@ -21,13 +23,21 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
     var fromDate: Date!
     var upToDate: Date!
     var selectedObj: JSON!
+    var formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.txvDetails.delegate = self
         
-        if self.selectedObj.isNull == false {
+        if self.selectedObj != nil {
+            self.lblTitle.text = "Update Experience"
+            self.btnAdd.setTitle("Update Experience", for: .normal)
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dtFrom = formatter.date(from: self.selectedObj["work_period_from"].stringValue)
+            self.fromDate = dtFrom
+            let dtupTo = formatter.date(from: self.selectedObj["work_period_to"].stringValue)
+            self.upToDate = dtupTo
             self.btnFrom.setTitle(self.selectedObj["work_period_from"].stringValue, for: .normal)
             self.btnUpto.setTitle(self.selectedObj["work_period_to"].stringValue, for: .normal)
             self.txtCompany.text = self.selectedObj["company"].stringValue
@@ -127,6 +137,7 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
         self.view.endEditing(true)
         if self.selectedObj.isNull == false {
             //Update API
+            self.updateExpAPI()
             return
         }
         if self.validateData() == false {
@@ -157,6 +168,38 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
             self.showAlert(title: App_Title, msg: WrongMsg)
         }
         service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: ADDEXPERIENCEAPI as NSString, success: successed, failure: failure)
+    }
+    
+    func updateExpAPI() {
+        self.view.endEditing(true)
+        if self.validateData() == false {
+            return
+        }
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(self.selectedObj["id"].stringValue, forKey: "id")
+        param.setValue(self.btnFrom.titleLabel?.text!, forKey: "work_period_from")
+        param.setValue(self.btnUpto.titleLabel?.text!, forKey: "work_period_to")
+        param.setValue(self.txtCompany.text!, forKey: "company")
+        param.setValue(self.txtPosition.text!, forKey: "position")
+        param.setValue(self.txvDetails.text!, forKey: "jobs_detail")
+        print(param)
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: EDITEXPERIENCEAPI as NSString, success: successed, failure: failure)
     }
     
     //MARK: Textfield delegate methods

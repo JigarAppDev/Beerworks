@@ -33,12 +33,14 @@ let POSTJOBAPI                     = "add_job"
 let ADDCOMPANYPAGEAPI              = "add_company_page"
 let GETUSERPROFILEAPI              = "get_users_profile"
 let LISTAPPLIEDUSERSAPI            = "list_applied_users_list"
+let VIEWCOMPANYBYPROAPI            = "view_company_by_provider"
+let UPDATECOMPANYAPI               = "update_company_page"
 
 //Users
 let GETJOBLIST                     = "list_jobs"
 let GETJOBLISTBYJOBIDAPI           = "get_jobs_list"
 let VIEWCOMPANYAPI                 = "view_company"
-let APPLYFORJOBAPI                 = "apply_for_job"
+let APPLYFORJOBAPI                 = "apply_job_user"
 let GETJOBSBYFILTERAPI             = "get_jobs_list_by_filter"
 let ADDBEERBIOAPI                  = "add_beer_bio"
 let ADDINTERESTAPI                 = "add_interest"
@@ -49,7 +51,8 @@ let ADDEDUCATIONAPI                = "add_education"
 let GETMYPROFILEAPI                = "get_my_profile"
 let APPLYFORJOBBYUSERAPI           = "apply_job_user"
 let ADDSUPPORTAPI                  = "add_support_mail"
-
+let EDITEDUCATIONAPI               = "edit_education"
+let EDITEXPERIENCEAPI              = "edit_experiance"
 
 //MARK: Global Variables
 var userType = ""

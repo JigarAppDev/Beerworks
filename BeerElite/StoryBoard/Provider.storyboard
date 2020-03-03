@@ -564,7 +564,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="290" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Molive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GzE-OV-d1y">
-                                                            <rect key="frame" x="80" y="15" width="195" height="18"/>
+                                                            <rect key="frame" x="90" y="15" width="185" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="HnT-YG-3Kr"/>
                                                             </constraints>
@@ -572,15 +572,20 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="t5y-K2-ugB">
-                                                            <rect key="frame" x="15" y="15" width="50" height="50"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="t5y-K2-ugB">
+                                                            <rect key="frame" x="15" y="15" width="60" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="2J9-kG-bdE"/>
-                                                                <constraint firstAttribute="height" constant="50" id="3PD-Tt-BOL"/>
+                                                                <constraint firstAttribute="width" constant="60" id="2J9-kG-bdE"/>
+                                                                <constraint firstAttribute="height" constant="60" id="3PD-Tt-BOL"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elo-zC-hpS">
-                                                            <rect key="frame" x="80" y="41" width="195" height="34"/>
+                                                            <rect key="frame" x="90" y="41" width="185" height="34"/>
                                                             <string key="text">A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, or truncate the text, depending on the size of the bounding rectangle and properties you set.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -593,6 +598,7 @@
                                                         <constraint firstItem="elo-zC-hpS" firstAttribute="leading" secondItem="t5y-K2-ugB" secondAttribute="trailing" constant="15" id="ASQ-iq-ser"/>
                                                         <constraint firstItem="t5y-K2-ugB" firstAttribute="top" secondItem="khp-cm-pV8" secondAttribute="top" constant="15" id="AqP-d4-ROd"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="elo-zC-hpS" secondAttribute="bottom" constant="15" id="GKe-mM-geB"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="t5y-K2-ugB" secondAttribute="bottom" constant="15" id="UHS-Yy-Knf"/>
                                                         <constraint firstAttribute="trailing" secondItem="GzE-OV-d1y" secondAttribute="trailing" constant="15" id="WX9-Wr-bJU"/>
                                                         <constraint firstItem="GzE-OV-d1y" firstAttribute="leading" secondItem="t5y-K2-ugB" secondAttribute="trailing" constant="15" id="hxo-Sr-ffW"/>
                                                         <constraint firstAttribute="trailing" secondItem="elo-zC-hpS" secondAttribute="trailing" constant="15" id="k5U-UW-MZb"/>
@@ -679,7 +685,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="290" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Molive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-0c-uEl">
-                                                            <rect key="frame" x="80" y="18" width="195" height="18"/>
+                                                            <rect key="frame" x="90" y="18" width="185" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="Vfi-He-tab"/>
                                                             </constraints>
@@ -687,15 +693,20 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-2V-iUA">
-                                                            <rect key="frame" x="15" y="15" width="50" height="50"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-2V-iUA">
+                                                            <rect key="frame" x="15" y="15" width="60" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="HAW-Ck-6LD"/>
-                                                                <constraint firstAttribute="width" constant="50" id="uuY-83-T4i"/>
+                                                                <constraint firstAttribute="height" constant="60" id="HAW-Ck-6LD"/>
+                                                                <constraint firstAttribute="width" constant="60" id="uuY-83-T4i"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A label can contain an arbitrary text." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6e-5N-7Eb">
-                                                            <rect key="frame" x="80" y="44" width="195" height="21"/>
+                                                            <rect key="frame" x="90" y="44" width="185" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -893,7 +904,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="290" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Molive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y66-gz-V3A">
-                                                            <rect key="frame" x="80" y="18" width="195" height="18"/>
+                                                            <rect key="frame" x="90" y="18" width="185" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="hUo-WB-bGd"/>
                                                             </constraints>
@@ -901,15 +912,20 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="AI8-vw-o8Z">
-                                                            <rect key="frame" x="15" y="15" width="50" height="50"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="AI8-vw-o8Z">
+                                                            <rect key="frame" x="15" y="15" width="60" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="GYJ-SC-RAQ"/>
-                                                                <constraint firstAttribute="width" constant="50" id="OL1-YS-SWW"/>
+                                                                <constraint firstAttribute="height" constant="60" id="GYJ-SC-RAQ"/>
+                                                                <constraint firstAttribute="width" constant="60" id="OL1-YS-SWW"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A label can contain an arbitrary text." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ve-rx-UN6">
-                                                            <rect key="frame" x="80" y="44" width="195" height="21"/>
+                                                            <rect key="frame" x="90" y="44" width="185" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1049,12 +1065,17 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="BbZ-4R-6Jz">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="BbZ-4R-6Jz">
                                                                 <rect key="frame" x="95" y="20" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="UNK-Eo-KG1"/>
                                                                     <constraint firstAttribute="height" constant="100" id="vvF-Ug-lwb"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="50"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bar@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wrL-PZ-RVE">
                                                                 <rect key="frame" x="15" y="158" width="260" height="16"/>
@@ -1340,10 +1361,14 @@
                     </view>
                     <size key="freeformSize" width="320" height="920"/>
                     <connections>
+                        <outlet property="btnMessage" destination="eAG-El-2ZS" id="nfF-Dh-XOp"/>
                         <outlet property="btnUpdateAbout" destination="Qb0-v0-Bge" id="hsa-xg-AK1"/>
                         <outlet property="btnUpdateAddress" destination="kNv-YE-kWc" id="OZa-0M-sxp"/>
                         <outlet property="btnUpdateInfo" destination="XaF-ox-Z78" id="E5g-jy-b4R"/>
+                        <outlet property="imgProfile" destination="BbZ-4R-6Jz" id="cQP-GD-QRb"/>
                         <outlet property="lblAddress" destination="zsU-is-E6u" id="Sqb-6d-7zQ"/>
+                        <outlet property="lblEmail" destination="wrL-PZ-RVE" id="Zsx-SS-nYi"/>
+                        <outlet property="lblName" destination="7iz-FV-8F3" id="MuU-nF-qNi"/>
                         <outlet property="lblWebsite" destination="RHv-Gb-vBZ" id="pH0-ZB-feB"/>
                         <outlet property="txvAbout" destination="Eqd-SI-pCJ" id="Ez6-Ea-CsW"/>
                     </connections>
@@ -1429,6 +1454,9 @@
                                                                 <real key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnSaveClickWithSender:" destination="OEB-YO-wSW" eventType="touchUpInside" id="mnO-9g-fpO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1507,6 +1535,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wPh-IG-WhQ"/>
                     </view>
+                    <connections>
+                        <outlet property="txvAboutView" destination="S4X-XW-bay" id="h9o-Pa-7nj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuM-pb-DRz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1547,6 +1578,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="LVi-BD-Dbp"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -1592,6 +1624,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Kld-nx-o6f"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -1641,6 +1674,9 @@
                                                                 <real key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnSaveClickWithSender:" destination="olZ-oY-XuL" eventType="touchUpInside" id="mI3-P7-i1o"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1722,6 +1758,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bqZ-Uc-fyy"/>
                     </view>
+                    <connections>
+                        <outlet property="txtAddr" destination="p1V-6o-YeV" id="ROW-yJ-nR3"/>
+                        <outlet property="txtWeb" destination="Poj-X0-gsL" id="U4R-b7-GaM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrV-OL-f4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1750,6 +1790,7 @@
         <image name="bg" width="720" height="1280"/>
         <image name="edit" width="170" height="170"/>
         <image name="filtar" width="216" height="216"/>
+        <image name="ios_icon" width="1024" height="1024"/>
         <image name="menu" width="333" height="229"/>
         <image name="profile_pic" width="96" height="95"/>
     </resources>

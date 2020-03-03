@@ -53,6 +53,7 @@ class JobDetailsViewController: UIViewController {
     //MARK: Apply Click
     @IBAction func btnApplyClick(sender: UIButton) {
         let applyVC = self.storyboard?.instantiateViewController(withIdentifier: "ApplyViewController") as! ApplyViewController
+        applyVC.dataObj = self.dataObj
         self.navigationController?.pushViewController(applyVC, animated: true)
     }
     

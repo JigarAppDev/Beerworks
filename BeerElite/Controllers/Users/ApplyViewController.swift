@@ -17,6 +17,7 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var txtLastName: UITextField!
     @IBOutlet var txtCurOccupation: UITextField!
     @IBOutlet var txtCityState: UITextField!
+    var dataObj: JobsDataModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +60,13 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable {
     func applyForJob() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
-        
-        let uid = Defaults.value(forKey: "user_id") as? String
-        param.setValue(uid, forKey: "job_added_by")
+        //user_image
+        //user_resume
+        param.setValue(self.dataObj.jobId, forKey: "job_id")
+        param.setValue(self.txtFirstName.text!, forKey: "first_name")
+        param.setValue(self.txtLastName.text!, forKey: "last_name")
+        param.setValue(self.txtCurOccupation.text!, forKey: "occupation")
+        param.setValue(self.txtCityState.text!, forKey: "address")
         
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()

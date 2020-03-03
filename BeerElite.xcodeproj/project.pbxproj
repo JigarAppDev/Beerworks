@@ -20,6 +20,7 @@
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
 		045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C223D3413A007BA29A /* ResumeViewController.swift */; };
 		0473044823EAE91D0090068A /* JobsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473044723EAE91D0090068A /* JobsModel.swift */; };
+		047B8F82240E617400361F10 /* UserListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B8F81240E617400361F10 /* UserListModels.swift */; };
 		048A91C123CC79C800BDAFC3 /* UserSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */; };
 		048A91C323CC79D800BDAFC3 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91C223CC79D800BDAFC3 /* OnBoardingViewController.swift */; };
 		048A91C523CC79F500BDAFC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91C423CC79F500BDAFC3 /* LoginViewController.swift */; };
@@ -65,6 +66,7 @@
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
 		045B82C223D3413A007BA29A /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		0473044723EAE91D0090068A /* JobsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsModel.swift; sourceTree = "<group>"; };
+		047B8F81240E617400361F10 /* UserListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModels.swift; sourceTree = "<group>"; };
 		048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionViewController.swift; sourceTree = "<group>"; };
 		048A91C223CC79D800BDAFC3 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		048A91C423CC79F500BDAFC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				0473044723EAE91D0090068A /* JobsModel.swift */,
+				047B8F81240E617400361F10 /* UserListModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				040C28B423D732B6009211BB /* AddExperienceViewController.swift in Sources */,
 				048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */,
 				048A91CB23CC7A1D00BDAFC3 /* ResetPasswordViewController.swift in Sources */,
+				047B8F82240E617400361F10 /* UserListModels.swift in Sources */,
 				04EC734C23D08E0C0076666A /* FilterViewController.swift in Sources */,
 				04EC734823D086900076666A /* ProviderHomeViewController.swift in Sources */,
 				048A91C923CC7A1100BDAFC3 /* ForgotPasswordViewController.swift in Sources */,

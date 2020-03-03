@@ -125,6 +125,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var btnUpdateBio: UIButton!
     @IBOutlet var btnBack: UIButton!
     @IBOutlet var btnMenu: UIButton!
+    var selectedObj: UserDataModel!
     
     //Level
     var levelArray = ["BarTending","Bar-back","Bar Tending(Full Liquor)"]
@@ -138,6 +139,8 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     
     var eduArray = [JSON]()
     var expArray = [JSON]()
+    var email = ""
+    var address = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,8 +230,12 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     func getProfileData() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
-        let uid = Defaults.value(forKey: "user_id") as? String
-        param.setValue(uid, forKey: "user_id")
+        if userType == "User" {
+            let uid = Defaults.value(forKey: "user_id") as? String
+            param.setValue(uid, forKey: "user_id")
+        } else {
+            param.setValue(self.selectedObj.user_id!, forKey: "user_id")
+        }
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
             if responseObject != nil{
@@ -241,6 +248,8 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
                     let eduData = data["user_education"]?.arrayValue
                     let expData = data["work_experience"]?.arrayValue
                     let intData = data["user_interest"]?.dictionaryValue
+                    self.email = data["email"]!.stringValue
+                    self.address = data["city"]!.stringValue
                     
                     //Set All Ques & Answers for Beer Bio
                     self.ansArray.removeAll()
@@ -339,8 +348,18 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 profCell.lblName.text = name
                 profCell.lblEmail.text = email
+                profCell.btnCity.setTitle(self.address, for: .normal)
             } else {
-                
+                let name = self.selectedObj.username
+                let email = self.email
+                if let picUrl: String = self.selectedObj.profile_pic, picUrl != "" {
+                    profCell.imgProfile.kf.setImage(with: URL(string: picUrl))
+                } else {
+                    profCell.imgProfile.image = UIImage.init(named: "ios_icon")
+                }
+                profCell.lblName.text = name
+                profCell.lblEmail.text = email
+                profCell.btnCity.setTitle(self.address, for: .normal)
             }
             return profCell
         } else if indexPath.row == 1 {
@@ -442,7 +461,7 @@ extension ResumeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var skill = self.levelArray[indexPath.row]
+        var skill = ""
         if collectionView.tag == 102 {
             skill = self.interestArray[indexPath.row]
         } else {

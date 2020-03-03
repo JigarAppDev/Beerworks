@@ -13,6 +13,8 @@ import Kingfisher
 
 class AddEducationViewController: UIViewController, NVActivityIndicatorViewable, UITextViewDelegate, SBPickerSelectorDelegate {
     
+    @IBOutlet var lblTitle: UILabel!
+    @IBOutlet var btnAdd: UIButton!
     @IBOutlet var btnFrom: UIButton!
     @IBOutlet var btnUpto: UIButton!
     @IBOutlet var txtEduType: UITextField!
@@ -21,13 +23,21 @@ class AddEducationViewController: UIViewController, NVActivityIndicatorViewable,
     var fromDate: Date!
     var upToDate: Date!
     var selectedObj: JSON!
+    var formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.txvDetails.delegate = self
         
-        if self.selectedObj.isNull == false {
+        if self.selectedObj != nil {
+            self.lblTitle.text = "Update Education"
+            self.btnAdd.setTitle("Update Education", for: .normal)
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dtFrom = formatter.date(from: self.selectedObj["study_period_from"].stringValue)
+            self.fromDate = dtFrom
+            let dtupTo = formatter.date(from: self.selectedObj["study_period_to"].stringValue)
+            self.upToDate = dtupTo
             self.btnFrom.setTitle(self.selectedObj["study_period_from"].stringValue, for: .normal)
             self.btnUpto.setTitle(self.selectedObj["study_period_to"].stringValue, for: .normal)
             self.txtEduType.text = self.selectedObj["education_type"].stringValue
@@ -126,6 +136,7 @@ class AddEducationViewController: UIViewController, NVActivityIndicatorViewable,
         self.view.endEditing(true)
         if self.selectedObj.isNull == false {
             //Update API
+            self.updateEduAPI()
             return
         }
         if self.validateData() == false {
@@ -156,6 +167,39 @@ class AddEducationViewController: UIViewController, NVActivityIndicatorViewable,
             self.showAlert(title: App_Title, msg: WrongMsg)
         }
         service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: ADDEDUCATIONAPI as NSString, success: successed, failure: failure)
+    }
+    
+    func updateEduAPI() {
+        self.view.endEditing(true)
+        if self.validateData() == false {
+            return
+        }
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        //let uid = Defaults.value(forKey: "user_id") as? String
+        param.setValue(self.selectedObj["id"].stringValue, forKey: "id")
+        param.setValue(self.btnFrom.titleLabel?.text!, forKey: "study_period_from")
+        param.setValue(self.btnUpto.titleLabel?.text!, forKey: "study_period_to")
+        param.setValue(self.txtEduType.text!, forKey: "education_type")
+        param.setValue(self.txtUniName.text!, forKey: "university_name")
+        param.setValue(self.txvDetails.text!, forKey: "education_detail")
+        print(param)
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: EDITEDUCATIONAPI as NSString, success: successed, failure: failure)
     }
     
     //MARK: Textfield delegate methods

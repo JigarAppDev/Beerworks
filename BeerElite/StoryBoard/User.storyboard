@@ -313,7 +313,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-In-Mav">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-In-Mav">
                                                             <rect key="frame" x="95" y="20" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="d56-UB-MJi"/>
@@ -2363,8 +2363,10 @@
                     </view>
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
+                        <outlet property="btnAdd" destination="C0S-i0-Gu2" id="itn-TB-K9l"/>
                         <outlet property="btnFrom" destination="rLK-wa-iTv" id="YL3-Ae-dy4"/>
                         <outlet property="btnUpto" destination="yC5-h6-db8" id="1be-MG-Wv3"/>
+                        <outlet property="lblTitle" destination="FVs-WH-QUd" id="lcA-NG-jzp"/>
                         <outlet property="txtCompany" destination="PP4-CG-w37" id="Req-eU-xx5"/>
                         <outlet property="txtPosition" destination="hdX-4B-3ZL" id="U4j-Gn-GoO"/>
                         <outlet property="txvDetails" destination="YV6-M8-cRl" id="KLx-fR-JpC"/>
@@ -3165,8 +3167,10 @@
                     </view>
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
+                        <outlet property="btnAdd" destination="nCh-dt-O1X" id="viw-R8-0qq"/>
                         <outlet property="btnFrom" destination="P8t-gD-Iiv" id="dq9-Vq-beH"/>
                         <outlet property="btnUpto" destination="JSB-nA-DnI" id="5Hd-X5-KAm"/>
+                        <outlet property="lblTitle" destination="Ree-0G-xHR" id="oHa-Yp-LjM"/>
                         <outlet property="txtEduType" destination="oFf-YL-LXD" id="2nD-xd-LQ9"/>
                         <outlet property="txtUniName" destination="h1u-uA-PiY" id="zdl-w5-5gp"/>
                         <outlet property="txvDetails" destination="iQs-4t-pbw" id="bbO-FZ-3VT"/>
@@ -3466,6 +3470,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="in3-mE-AXy"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -3511,6 +3516,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="HKs-bV-xva"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -3556,6 +3562,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="sH9-IT-Bg3"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -3601,6 +3608,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="whg-YG-yrA"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -3703,6 +3711,9 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <real key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnAddInfoWithSender:" destination="Qtb-Tm-6XS" eventType="touchUpInside" id="XBb-Vs-Uu7"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3o-ke-XX0" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="635" width="290" height="108"/>
@@ -3853,6 +3864,12 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                         <viewLayoutGuide key="safeArea" id="RWl-HX-Zqf"/>
                     </view>
                     <size key="freeformSize" width="320" height="890"/>
+                    <connections>
+                        <outlet property="txtCityState" destination="V42-Fu-snH" id="bMe-1f-Qvz"/>
+                        <outlet property="txtCurOccupation" destination="e0s-38-zs3" id="eTK-lN-T7C"/>
+                        <outlet property="txtFirstName" destination="ico-s3-UPV" id="4KZ-94-AYV"/>
+                        <outlet property="txtLastName" destination="kGq-wr-jdf" id="C04-wd-YWg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23t-gh-g4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
