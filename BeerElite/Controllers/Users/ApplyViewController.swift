@@ -10,14 +10,20 @@ import UIKit
 import NVActivityIndicatorView
 import SwiftyJSON
 import Kingfisher
+import CoreServices
 
-class ApplyViewController: UIViewController, NVActivityIndicatorViewable {
+class ApplyViewController: UIViewController, NVActivityIndicatorViewable, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentPickerDelegate {
 
     @IBOutlet var txtFirstName: UITextField!
     @IBOutlet var txtLastName: UITextField!
     @IBOutlet var txtCurOccupation: UITextField!
     @IBOutlet var txtCityState: UITextField!
+    @IBOutlet var lblImageName: UILabel!
+    @IBOutlet var lblFileName: UILabel!
+    
     var dataObj: JobsDataModel!
+    var selectedImage = UIImage()
+    var selectedFileData = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,13 +66,21 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable {
     func applyForJob() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
-        //user_image
-        //user_resume
         param.setValue(self.dataObj.jobId, forKey: "job_id")
         param.setValue(self.txtFirstName.text!, forKey: "first_name")
         param.setValue(self.txtLastName.text!, forKey: "last_name")
         param.setValue(self.txtCurOccupation.text!, forKey: "occupation")
         param.setValue(self.txtCityState.text!, forKey: "address")
+        //image
+        let profileArray : NSMutableDictionary =  NSMutableDictionary()
+        if self.selectedImage != nil {
+            profileArray.setValue(self.selectedImage, forKey: "user_image")
+        }
+        //file
+        let fileArray : NSMutableDictionary =  NSMutableDictionary()
+        if self.selectedFileData != nil {
+            fileArray.setValue(self.selectedFileData, forKey: "user_resume")
+        }
         
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
@@ -84,6 +98,90 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable {
             self.showAlert(title: App_Title, msg: WrongMsg)
         }
         
-        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: APPLYFORJOBAPI as NSString, success: successed, failure: failure)
+        service.uploadWithAlamofire(Parameters: param as? [String : AnyObject], ImageParameters: profileArray as [NSObject : AnyObject], VideoParameters: nil, FileParameters: fileArray as [NSObject : AnyObject], Action: APPLYFORJOBAPI as NSString, success: successed, failure: failure)
+    }
+    
+    //MARK: Upload picture to attach
+    @IBAction func clkAddImages(sender : UIButton){
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Upload Image", message: "Select your option!", preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let saveActionButton = UIAlertAction(title: "Camera", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                let imag = UIImagePickerController()
+                imag.delegate = self
+                imag.sourceType = UIImagePickerController.SourceType.camera;
+                imag.allowsEditing = true
+                self.present(imag, animated: true, completion: nil)
+            } else {
+                self.showAlert(title: App_Title, msg: "Device has no camera!")
+            }
+        }
+        actionSheetControllerIOS8.addAction(saveActionButton)
+        
+        let deleteActionButton = UIAlertAction(title: "Library", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+                let imag = UIImagePickerController()
+                imag.delegate = self
+                imag.sourceType = UIImagePickerController.SourceType.photoLibrary
+                imag.allowsEditing = true
+                self.present(imag, animated: true, completion: nil)
+            }
+            
+        }
+        actionSheetControllerIOS8.addAction(deleteActionButton)
+        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+    }
+    
+    @IBAction func clkAddFiles(sender : UIButton){
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Upload Resume", message: "Select your option!", preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let iCloudActionButton = UIAlertAction(title: "PDF File", style: .default) { _ in
+            let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [kUTTypePDF as String], in: UIDocumentPickerMode.import)
+            documentPicker.delegate = self
+            documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(documentPicker, animated: true, completion: nil)
+        }
+        actionSheetControllerIOS8.addAction(iCloudActionButton)
+        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+    }
+    
+    //MARK: - Image Picker Delegate Method
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //guard let imageData = tempImage.jpegData(compressionQuality: 0.75) else { return }
+        self.selectedImage = tempImage
+        let url = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+        self.lblImageName.text = url.lastPathComponent
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        do {
+            let filePath = urls[0]
+            let fileData = try Data.init(contentsOf: filePath)
+            self.selectedFileData = fileData
+            self.lblFileName.text = urls[0].lastPathComponent
+        } catch let error {
+            self.showAlert(title: App_Title, msg: error.localizedDescription)
+        }
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("dismiss files")
     }
 }

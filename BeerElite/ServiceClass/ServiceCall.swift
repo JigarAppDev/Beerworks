@@ -30,10 +30,15 @@ class TableViewHelper {
 
 class ServiceCall{
     
-    func uploadWithAlamofire(Parameters params : [String: Any]?,ImageParameters imgparams :  [NSObject : AnyObject]?,VideoParameters vidoparam :  [NSObject : AnyObject]?,Action action : NSString, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+    func uploadWithAlamofire(Parameters params : [String: Any]?,ImageParameters imgparams :  [NSObject : AnyObject]?,VideoParameters vidoparam :  [NSObject : AnyObject]?,FileParameters fileparam :  [NSObject : AnyObject]?,Action action : NSString, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         var base_url = BASEURL
         base_url.append(action as String)
         print(base_url)
+        
+        var headers : HTTPHeaders = [:]
+        if let token = UserDefaults.standard.value(forKey: "token"){
+            headers = ["Accept":"application/json","Authorization": "Bearer \(token)"]
+        }
         
         Alamofire.upload(multipartFormData: { multipartFormData in
             if imgparams != nil{
@@ -41,6 +46,11 @@ class ServiceCall{
                     if let imageData = (value as! UIImage).jpegData(compressionQuality: 0.50) {
                         multipartFormData.append(imageData, withName: key as! String, fileName: "\(NSDate().timeIntervalSince1970 * 1000)).jpg", mimeType: "image/jpg")
                     }
+                }
+            }
+            if fileparam != nil{
+                for (key, value) in fileparam! {
+                    multipartFormData.append(value as! Data, withName: key as! String, fileName: "\(NSDate().timeIntervalSince1970 * 1000)).pdf", mimeType: "application/pdf")
                 }
             }
             if vidoparam != nil{
@@ -52,7 +62,7 @@ class ServiceCall{
                 for (key, value) in params! {
                     multipartFormData.append((value as! String).data(using: .utf8)!, withName: key)
                 }
-            } }, to: base_url, method: .post, headers: nil,
+            } }, to: base_url, method: .post, headers: headers,
                  encodingCompletion: { encodingResult in
                     switch encodingResult {
                     case .success(let upload, _, _):
@@ -70,10 +80,11 @@ class ServiceCall{
                                     dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as NSDictionary?
                                     if dictonary != nil{
                                         print(dictonary ?? nil!)
-                                        if dictonary?.value(forKey: "flag") as! NSNumber != 0{
+                                        let status = dictonary?.value(forKey: "status")
+                                        if "\(status)" != "0" {
                                             return success(dictonary!)
                                         }else{
-                                            print(dictonary?.value(forKey: "flag")! as Any)
+                                            print(dictonary?.value(forKey: "status")! as Any)
                                             return success(dictonary!)
                                         }
                                     }

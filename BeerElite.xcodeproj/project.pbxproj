@@ -15,6 +15,7 @@
 		040C28B623D732CF009211BB /* AddCertiLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C28B523D732CF009211BB /* AddCertiLevelViewController.swift */; };
 		040C28B823D732E4009211BB /* AddEducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C28B723D732E4009211BB /* AddEducationViewController.swift */; };
 		040FFB6B23D337BA00D9B296 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FFB6A23D337BA00D9B296 /* MessagesViewController.swift */; };
+		04364CB5240FD0EC00A198E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04364CB4240FD0EC00A198E3 /* ProfileViewController.swift */; };
 		04497A9E23D1EB9700CBE3F1 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04497A9D23D1EB9700CBE3F1 /* SupportViewController.swift */; };
 		045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */; };
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
@@ -61,6 +62,7 @@
 		040C28B523D732CF009211BB /* AddCertiLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertiLevelViewController.swift; sourceTree = "<group>"; };
 		040C28B723D732E4009211BB /* AddEducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEducationViewController.swift; sourceTree = "<group>"; };
 		040FFB6A23D337BA00D9B296 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		04364CB4240FD0EC00A198E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04497A9D23D1EB9700CBE3F1 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				040C28B323D732B6009211BB /* AddExperienceViewController.swift */,
 				040C28B523D732CF009211BB /* AddCertiLevelViewController.swift */,
 				040C28B723D732E4009211BB /* AddEducationViewController.swift */,
+				04364CB4240FD0EC00A198E3 /* ProfileViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				04497A9E23D1EB9700CBE3F1 /* SupportViewController.swift in Sources */,
 				04A5293823CC7620003E2EDA /* SceneDelegate.swift in Sources */,
 				040C28AE23D7181D009211BB /* ApplyViewController.swift in Sources */,
+				04364CB5240FD0EC00A198E3 /* ProfileViewController.swift in Sources */,
 				048A91D123CC833D00BDAFC3 /* Global.swift in Sources */,
 				048A91C323CC79D800BDAFC3 /* OnBoardingViewController.swift in Sources */,
 			);

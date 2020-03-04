@@ -27,13 +27,19 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.setupUI()
     }
 
     func setupUI() {
         let name = Defaults.value(forKey: "user_name") as! String
         let email = Defaults.value(forKey: "user_email") as! String
-        
+        let city = Defaults.value(forKey: "user_city") as! String
+        if city == "" {
+            
+        }
         if let picUrl: String = Defaults.value(forKey: "profile_pic") as? String, picUrl != "" {
             self.imgProfile.kf.setImage(with: URL(string: picUrl))
         } else {
@@ -41,6 +47,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         }
         self.lblName.text = name
         self.lblEmail.text = email
+        self.btnCity.setTitle(city, for: .normal)
         
         self.btnMenu1.isHidden = false
         self.btnMenu2.isHidden = false
@@ -60,6 +67,13 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.btnMenu4.setTitle("Notifications", for: .normal)
             self.btnMenu5.setTitle("Company Page", for: .normal)
         }
+    }
+    
+    //MARK: gotoProfile
+    @IBAction func btnOpenProfile(sender: UIButton) {
+        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        self.navigationController?.pushViewController(proVC, animated: true)
     }
     
     //MARK: Left Menu Click Events

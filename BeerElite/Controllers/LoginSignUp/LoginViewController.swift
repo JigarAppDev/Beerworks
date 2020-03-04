@@ -11,17 +11,35 @@ import KSToastView
 import NVActivityIndicatorView
 import SwiftyJSON
 import GoogleSignIn
+import MapKit
 
 class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate {
     
     @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtPassword: UITextField!
     var isForSocial = false
+    var locManager = CLLocationManager()
+    var currentLocation: CLLocation!
+    var lati = "21.17"
+    var longi = "72.83"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        locManager.requestWhenInUseAuthorization()
+
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            guard let currentLocation = locManager.location else {
+                return
+            }
+            print(currentLocation.coordinate.latitude)
+            print(currentLocation.coordinate.longitude)
+            self.lati = "\(currentLocation.coordinate.latitude)"
+            self.longi = "\(currentLocation.coordinate.longitude)"
+        }
     }
     
     //MARK: Sign Up Click
@@ -117,6 +135,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
         Defaults.setValue(user_ID, forKey: "user_id")
         Defaults.setValue(user_Email, forKey: "user_email")
         Defaults.setValue(true, forKey: "is_logged_in")
+        Defaults.setValue(userData["city"].stringValue, forKey: "user_city")
         Defaults.synchronize()
         
         //Navigate to home
@@ -183,7 +202,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
         } else {
             uType = "2" //user_type = 1 = user , 2 = provider
         }
-        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=123456789&device_type=2&device_id=\(deviceId)&latitude=\("21.17")&longitude=\("72.83")&user_type=\(uType)"
+        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=123456789&device_type=2&device_id=\(deviceId)&latitude=\(self.lati)&longitude=\(self.longi)&user_type=\(uType)"
         request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let session = URLSession.shared

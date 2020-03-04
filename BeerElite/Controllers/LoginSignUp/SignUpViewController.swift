@@ -11,6 +11,7 @@ import KSToastView
 import NVActivityIndicatorView
 import SwiftyJSON
 import GoogleSignIn
+import MapKit
 
 class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate {
     
@@ -18,11 +19,28 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtConfirmPassword: UITextField!
+    var locManager = CLLocationManager()
+    var currentLocation: CLLocation!
+    var lati = "21.17"
+    var longi = "72.83"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        locManager.requestWhenInUseAuthorization()
+
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            guard let currentLocation = locManager.location else {
+                return
+            }
+            print(currentLocation.coordinate.latitude)
+            print(currentLocation.coordinate.longitude)
+            self.lati = "\(currentLocation.coordinate.latitude)"
+            self.longi = "\(currentLocation.coordinate.longitude)"
+        }
     }
     
     // MARK: - Back Click
@@ -75,8 +93,8 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         param.setValue(txtFullname.text!, forKey: "username")
         param.setValue(txtEmail.text!, forKey: "email")
         param.setValue(txtPassword.text!, forKey: "password")
-        param.setValue("21.17", forKey: "latitude")
-        param.setValue("72.83", forKey: "longitude")
+        param.setValue(self.lati, forKey: "latitude")
+        param.setValue(self.longi, forKey: "longitude")
         param.setValue("1234567890", forKey: "device_token")
         param.setValue("2", forKey: "device_type")
         param.setValue(identifier.uuidString, forKey: "device_id")
@@ -126,6 +144,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         let user_Name = uData["username"].stringValue
         Defaults.setValue(user_Name, forKey: "user_name")
         Defaults.setValue(true, forKey: "is_logged_in")
+        Defaults.setValue(uData["city"].stringValue, forKey: "user_city")
         Defaults.synchronize()
         
         //Navigate to home
@@ -192,7 +211,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         } else {
             uType = "2" //user_type = 1 = user , 2 = provider
         }
-        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=123456789&device_type=2&device_id=\(deviceId)&latitude=\("21.17")&longitude=\("72.83")&user_type=\(uType)"
+        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=123456789&device_type=2&device_id=\(deviceId)&latitude=\(self.lati)&longitude=\(self.longi)&user_type=\(uType)"
         request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let session = URLSession.shared
