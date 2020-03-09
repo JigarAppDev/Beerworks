@@ -43,7 +43,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UJ5-EU-DLM">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UJ5-EU-DLM">
                                                             <rect key="frame" x="15" y="15" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="83s-L6-ghI"/>
@@ -325,6 +325,17 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-RU-kgO">
+                                                            <rect key="frame" x="255" y="15" width="20" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="5Tj-TE-gAP"/>
+                                                                <constraint firstAttribute="height" constant="18" id="AVi-zr-8T2"/>
+                                                            </constraints>
+                                                            <state key="normal" image="chat"/>
+                                                            <connections>
+                                                                <action selector="btnCreateChatWithSender:" destination="Roh-0g-NiE" eventType="touchUpInside" id="CfL-Ts-Hjz"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d5N-v7-wxE">
                                                             <rect key="frame" x="15" y="159" width="260" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -354,10 +365,12 @@
                                                         <constraint firstItem="x7b-v5-2vA" firstAttribute="top" secondItem="d5N-v7-wxE" secondAttribute="bottom" constant="15" id="0hM-rz-suC"/>
                                                         <constraint firstItem="ahk-z6-53C" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" constant="15" id="8QL-EA-oqb"/>
                                                         <constraint firstAttribute="trailing" secondItem="ahk-z6-53C" secondAttribute="trailing" constant="15" id="8Zg-hn-tLm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mEn-RU-kgO" secondAttribute="trailing" constant="15" id="Afx-cU-wd2"/>
                                                         <constraint firstItem="XMb-In-Mav" firstAttribute="centerX" secondItem="jdS-og-OIg" secondAttribute="centerX" id="Dca-MJ-jPk"/>
                                                         <constraint firstItem="d5N-v7-wxE" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" constant="15" id="W4l-6J-ih0"/>
                                                         <constraint firstAttribute="bottom" secondItem="x7b-v5-2vA" secondAttribute="bottom" constant="20" id="erv-zf-sV7"/>
                                                         <constraint firstItem="x7b-v5-2vA" firstAttribute="centerX" secondItem="d5N-v7-wxE" secondAttribute="centerX" id="gN2-sa-EUg"/>
+                                                        <constraint firstItem="mEn-RU-kgO" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="15" id="hbk-K6-wqv"/>
                                                         <constraint firstAttribute="trailing" secondItem="d5N-v7-wxE" secondAttribute="trailing" constant="15" id="nEz-Gv-ZwS"/>
                                                         <constraint firstItem="ahk-z6-53C" firstAttribute="top" secondItem="XMb-In-Mav" secondAttribute="bottom" constant="15" id="q8L-Ub-Kam"/>
                                                         <constraint firstItem="XMb-In-Mav" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="20" id="wGn-Hr-2pv"/>
@@ -3220,7 +3233,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="chat"/>
                                         <connections>
-                                            <action selector="btnChatClickWithSender:" destination="YnN-3C-7wA" eventType="touchUpInside" id="HM0-8W-aAi"/>
+                                            <action selector="btnCreateChatWithSender:" destination="YnN-3C-7wA" eventType="touchUpInside" id="7Ic-ON-lff"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3243,16 +3256,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="571"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-Fm-0qm">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="571"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="661"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5eA-Hz-adz">
-                                                        <rect key="frame" x="15" y="20" width="290" height="200"/>
+                                                        <rect key="frame" x="15" y="20" width="290" height="290"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="5eA-Hz-adz" secondAttribute="height" multiplier="29:20" id="qc4-zZ-SW8"/>
+                                                            <constraint firstAttribute="width" secondItem="5eA-Hz-adz" secondAttribute="height" multiplier="1:1" id="qc4-zZ-SW8"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txw-oB-bAw">
-                                                        <rect key="frame" x="15" y="220" width="290" height="80"/>
+                                                        <rect key="frame" x="15" y="310" width="290" height="80"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bartender Recruitment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v5J-wH-dU5">
                                                                 <rect key="frame" x="15" y="20" width="260" height="18"/>
@@ -3282,7 +3295,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTy-v9-Meb" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="300" width="290" height="180"/>
+                                                        <rect key="frame" x="15" y="390" width="290" height="180"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59Q-ET-2lF">
                                                                 <rect key="frame" x="15" y="44.5" width="260" height="120.5"/>
@@ -3321,7 +3334,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atm-RV-xKt" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="501" width="137.5" height="50"/>
+                                                        <rect key="frame" x="15" y="591" width="137.5" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="wb3-7V-E1E"/>
@@ -3343,7 +3356,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCW-Ta-5wl" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="167.5" y="501" width="137.5" height="50"/>
+                                                        <rect key="frame" x="167.5" y="591" width="137.5" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="PdR-5m-R23"/>
@@ -4494,7 +4507,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnCloseClickWithSender:" destination="h1B-z8-Y73" eventType="touchUpInside" id="Hi6-4m-URg"/>
+                                    <action selector="btnApplyFilterWithSender:" destination="h1B-z8-Y73" eventType="touchUpInside" id="nfI-28-k1r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un6-0b-Z9n">
@@ -4514,9 +4527,18 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-ts-Hum" customClass="Slider" customModule="fluid_slider">
+                                <rect key="frame" x="15" y="195" width="290" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Yb-J1-4QR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="h8F-ts-Hum" firstAttribute="leading" secondItem="D8K-PL-Z98" secondAttribute="leading" constant="15" id="0hP-IP-dUc"/>
+                            <constraint firstAttribute="trailing" secondItem="h8F-ts-Hum" secondAttribute="trailing" constant="15" id="0lX-cL-7eu"/>
                             <constraint firstItem="un6-0b-Z9n" firstAttribute="leading" secondItem="D8K-PL-Z98" secondAttribute="leading" constant="15" id="3yN-vL-ucq"/>
                             <constraint firstItem="VPC-w9-q2a" firstAttribute="top" secondItem="un6-0b-Z9n" secondAttribute="bottom" constant="50" id="7Gx-SE-U7H"/>
                             <constraint firstItem="xLb-vT-y39" firstAttribute="top" secondItem="D8K-PL-Z98" secondAttribute="top" constant="60" id="9wR-H0-pms"/>
@@ -4526,10 +4548,14 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="VPC-w9-q2a" firstAttribute="leading" secondItem="J26-vP-lb6" secondAttribute="leading" constant="15" id="g4t-UX-loJ"/>
                             <constraint firstItem="xLb-vT-y39" firstAttribute="centerX" secondItem="D8K-PL-Z98" secondAttribute="centerX" id="qv8-Da-LY5"/>
                             <constraint firstItem="EEr-gV-EBK" firstAttribute="leading" secondItem="D8K-PL-Z98" secondAttribute="leading" constant="40" id="sPW-n2-22f"/>
+                            <constraint firstItem="h8F-ts-Hum" firstAttribute="top" secondItem="VPC-w9-q2a" secondAttribute="bottom" constant="45" id="thU-Ks-RyU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J26-vP-lb6"/>
                     </view>
                     <navigationItem key="navigationItem" id="uZe-Op-To5"/>
+                    <connections>
+                        <outlet property="slider" destination="h8F-ts-Hum" id="P5p-Tm-Bcw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIr-L6-gD6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

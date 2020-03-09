@@ -36,9 +36,9 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     func setupUI() {
         let name = Defaults.value(forKey: "user_name") as! String
         let email = Defaults.value(forKey: "user_email") as! String
-        let city = Defaults.value(forKey: "user_city") as! String
+        var city = Defaults.value(forKey: "user_city") as! String
         if city == "" {
-            
+            city = "City"
         }
         if let picUrl: String = Defaults.value(forKey: "profile_pic") as? String, picUrl != "" {
             self.imgProfile.kf.setImage(with: URL(string: picUrl))
@@ -54,6 +54,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         self.btnMenu3.isHidden = false
         self.btnMenu4.isHidden = false
         self.btnMenu5.isHidden = false
+        
         if userType == "User" {
             self.btnMenu4.isHidden = true
             self.btnMenu5.isHidden = true
@@ -130,9 +131,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
-                    self.clearAllUserDefault()
-                    let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
-                    self.navigationController?.pushViewController(loginVC, animated: true)
+                    self.LogoutAPI()
                 }
                 let noAction = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yesAction)
@@ -155,23 +154,23 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     //MARK:- Logout API
-    /*func LogoutAPI(){
+    func LogoutAPI(){
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
         let identifier = UUID()
-        let token = Defaults.value(forKey: "token")as! String
         param.setValue(identifier.uuidString, forKey: "device_id")
-        headers = ["Authorization": "Bearer \(token)"]
+        if let did: String = Defaults.value(forKey: "deviceId") as? String {
+            param.setValue(did, forKey: "device_id")
+        }
         let successed = {(responseObject: AnyObject) -> Void in
         self.stopAnimating()
             if responseObject != nil{
                        let dataObj : JSON = JSON.init(responseObject)
                        if(dataObj["status"].stringValue == "1") {
-                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                            let navigationController = UINavigationController(rootViewController: nextViewController)
-                            navigationController.navigationBar.isHidden = true
-                        self.view.window!.rootViewController = navigationController
+                            self.clearAllUserDefault()
+                            let mainStoryBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                            let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
+                            self.navigationController?.pushViewController(loginVC, animated: true)
                        }else{
                            self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "success") as! String)
                        }
@@ -181,8 +180,8 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.stopAnimating()
             self.showAlert(title: App_Title, msg: WrongMsg)
         }
-        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], header: headers as [String : AnyObject], action: LOGOUT as NSString, success: successed, failure: failure)
-    }*/
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: LOGOUT as NSString, success: successed, failure: failure)
+    }
     
     func clearAllUserDefault() {
         Defaults.removeObject(forKey: "user_type")

@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -31,6 +30,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        print("Active")
+        if (Defaults.value(forKey: "is_logged_in") != nil) {
+            let isLoggedIn = Defaults.value(forKey: "is_logged_in")as! Bool
+            if isLoggedIn {
+                if SocketHelper.CheckSocketIsConnectOrNot() == false {
+                    //Connect to socket
+                    SocketHelper.connectSocket()
+                } else {
+                    if ((window?.rootViewController as! UINavigationController).visibleViewController?.isKind(of: SuperChatViewController.classForCoder()))! {
+                        //Join Room
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "joinRoomforUser"), object: nil)
+                    }
+                }
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

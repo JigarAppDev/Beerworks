@@ -34,6 +34,8 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         super.viewDidLoad()
         
         self.mapKitView.delegate = self
+        self.mapKitView.isUserInteractionEnabled = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +125,15 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                     } else {
                         self.imgProfile.kf.setImage(with: URL(string: pic))
                     }
+                    let compPic = cData["company_image"].stringValue
+                    if compPic == "" {
+                        self.companyProfile.image = UIImage.init(named: "ios_icon")
+                    } else {
+                        self.companyProfile.kf.setImage(with: URL(string: compPic))
+                    }
                     self.showMarkerOnMap(address: cData["company_address"].stringValue)
+                    let city = cData["city"].stringValue
+                    self.btnMessage.setTitle(city, for: .normal)
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }
@@ -168,6 +178,8 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                         self.companyProfile.kf.setImage(with: URL(string: compPic))
                     }
                     self.showMarkerOnMap(address: data["company_address"].stringValue)
+                    let city = data["city"].stringValue
+                    self.btnMessage.setTitle(city, for: .normal)
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }

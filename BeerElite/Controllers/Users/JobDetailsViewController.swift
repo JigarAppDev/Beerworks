@@ -18,12 +18,23 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet var lblDescr: UILabel!
     
     var dataObj: JobsDataModel!
+    var allUserData = [JSON]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupData()
+        if allUserChatListGL != nil {
+            allUserData = allUserChatListGL
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
+        NSNotification.Name(rawValue: "createChatResponse"), object: nil)
+        
+        if SocketHelper.CheckSocketIsConnectOrNot() == false {
+            //Connect to socket
+            SocketHelper.connectSocket()
+        }
     }
     
     func setupData() {
@@ -63,5 +74,56 @@ class JobDetailsViewController: UIViewController {
         let compVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
         compVC.companyId = self.dataObj.company_id!
         self.navigationController?.pushViewController(compVC, animated: true)
+    }
+    
+    //MARK:- Chat
+    @IBAction func btnCreateChat(sender: UIButton) {
+        let userid = Defaults.value(forKey: "user_id") as! String
+        let token = Defaults.value(forKey: "token")as! String
+        let cData = dataObj
+        print(cData)
+        var providertID = ""
+        providertID = cData!.id!
+        //print(allUserData.count)
+        var obj = allUserChatListGL.filter { (json) -> Bool in
+            return json["other_user_id"].stringValue == providertID
+        }
+        if obj.count == 0 {
+            obj = allUserChatListGL.filter { (json) -> Bool in
+                return json["chat_created_to"].stringValue == providertID
+            }
+        }
+        if obj.count > 0 {
+            let sb = UIStoryboard.init(name: "Provider", bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController")as! SuperChatViewController
+            nextVC.userObj = obj[0] //cData
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            if SocketHelper.CheckSocketIsConnectOrNot() {
+                //CreateChat Room
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let dt = dateFormatter.string(from: Date())
+                let param = ["en":CREATECHAT,"user_id":"\(userid)", "user_token":"\(token)",
+                    "other_user_id":"\(providertID)","chat_created_time":dt] as [String : Any]
+                SocketHelper.socket.emit("event", with: [param])
+            } else {
+                SocketHelper.connectSocket()
+            }
+        }
+    }
+    
+    @objc func createChatResponse(noti: NSNotification) {
+        print(noti)
+        //Chat Created
+        if let dic: NSDictionary = noti.userInfo as NSDictionary? {
+            let json = JSON.init(dic)
+            let cid = json["chat_id"].stringValue
+            chatId = cid
+            let sb = UIStoryboard.init(name: "Provider", bundle: nil)
+            let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
+            contactVC.cid = chatId
+            self.navigationController?.pushViewController(contactVC, animated: true)
+        }
     }
 }

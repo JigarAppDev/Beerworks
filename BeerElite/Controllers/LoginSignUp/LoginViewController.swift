@@ -40,6 +40,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
             self.lati = "\(currentLocation.coordinate.latitude)"
             self.longi = "\(currentLocation.coordinate.longitude)"
         }
+            
     }
     
     //MARK: Sign Up Click
@@ -84,7 +85,7 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
         let param : NSMutableDictionary =  NSMutableDictionary()
         param.setValue(txtEmail.text!, forKey: "email")
         param.setValue(txtPassword.text!, forKey: "password")
-        param.setValue("1234567890", forKey: "device_token")
+        param.setValue(DEVICETOKEN, forKey: "device_token")
         param.setValue("2", forKey: "device_type")
         param.setValue(identifier.uuidString, forKey: "device_id")
         let successed = {(responseObject: AnyObject) -> Void in
@@ -112,6 +113,11 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
     
     func setDefaultData(responseObject : AnyObject) {
         
+        if SocketHelper.CheckSocketIsConnectOrNot() == false {
+            //Connect to socket
+            SocketHelper.connectSocket()
+        }
+        
         let dataFull : JSON = JSON.init(responseObject)
         let data : JSON = JSON.init(dataFull["data"])
         Defaults.setValue(data["token"].stringValue, forKey: "token")
@@ -136,6 +142,8 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
         Defaults.setValue(user_Email, forKey: "user_email")
         Defaults.setValue(true, forKey: "is_logged_in")
         Defaults.setValue(userData["city"].stringValue, forKey: "user_city")
+        let deviceId = userData["device_id"].stringValue
+        Defaults.setValue(deviceId, forKey: "deviceId")
         Defaults.synchronize()
         
         //Navigate to home

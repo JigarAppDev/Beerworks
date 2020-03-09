@@ -95,7 +95,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         param.setValue(txtPassword.text!, forKey: "password")
         param.setValue(self.lati, forKey: "latitude")
         param.setValue(self.longi, forKey: "longitude")
-        param.setValue("1234567890", forKey: "device_token")
+        param.setValue(DEVICETOKEN, forKey: "device_token")
         param.setValue("2", forKey: "device_type")
         param.setValue(identifier.uuidString, forKey: "device_id")
         if userType == "User" {
@@ -126,6 +126,11 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     
     func setDefaultData(responseObject : AnyObject) {
         
+        if SocketHelper.CheckSocketIsConnectOrNot() == false {
+            //Connect to socket
+            SocketHelper.connectSocket()
+        }
+        
         let dataFull : JSON = JSON.init(responseObject)
         let data : JSON = JSON.init(dataFull["data"])
         Defaults.setValue(data["token"].stringValue, forKey: "token")
@@ -145,6 +150,8 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         Defaults.setValue(user_Name, forKey: "user_name")
         Defaults.setValue(true, forKey: "is_logged_in")
         Defaults.setValue(uData["city"].stringValue, forKey: "user_city")
+        let deviceId = uData["device_id"].stringValue
+        Defaults.setValue(deviceId, forKey: "deviceId")
         Defaults.synchronize()
         
         //Navigate to home

@@ -20,6 +20,9 @@
 		045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */; };
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
 		045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C223D3413A007BA29A /* ResumeViewController.swift */; };
+		046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7042412602C00EA500A /* SocketIOManager.swift */; };
+		046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7062412754400EA500A /* SuperChatViewController.swift */; };
+		046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB7082412A69B00EA500A /* GoogleService-Info.plist */; };
 		0473044823EAE91D0090068A /* JobsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473044723EAE91D0090068A /* JobsModel.swift */; };
 		047B8F82240E617400361F10 /* UserListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B8F81240E617400361F10 /* UserListModels.swift */; };
 		048A91C123CC79C800BDAFC3 /* UserSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */; };
@@ -67,6 +70,9 @@
 		045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
 		045B82C223D3413A007BA29A /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		046BB7042412602C00EA500A /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		046BB7062412754400EA500A /* SuperChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChatViewController.swift; sourceTree = "<group>"; };
+		046BB7082412A69B00EA500A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0473044723EAE91D0090068A /* JobsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsModel.swift; sourceTree = "<group>"; };
 		047B8F81240E617400361F10 /* UserListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModels.swift; sourceTree = "<group>"; };
 		048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +178,9 @@
 				04A5293523CC7620003E2EDA /* AppDelegate.swift */,
 				04A5293723CC7620003E2EDA /* SceneDelegate.swift */,
 				04A5293923CC7620003E2EDA /* ViewController.swift */,
+				046BB7042412602C00EA500A /* SocketIOManager.swift */,
 				04A5293E23CC7623003E2EDA /* Assets.xcassets */,
+				046BB7082412A69B00EA500A /* GoogleService-Info.plist */,
 				04A5294323CC7623003E2EDA /* Info.plist */,
 				04C941F223FA8D25003BF1D1 /* Header.h */,
 			);
@@ -278,6 +286,7 @@
 				04497A9D23D1EB9700CBE3F1 /* SupportViewController.swift */,
 				049F13CA23D3345A00BCC960 /* BrowseViewController.swift */,
 				040FFB6A23D337BA00D9B296 /* MessagesViewController.swift */,
+				046BB7062412754400EA500A /* SuperChatViewController.swift */,
 				0408EAAD23D5A74E0099D1D4 /* ChatViewController.swift */,
 				045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */,
 				045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */,
@@ -370,6 +379,7 @@
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
 				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
+				046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +474,7 @@
 				048A91C123CC79C800BDAFC3 /* UserSelectionViewController.swift in Sources */,
 				045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */,
 				040C28B223D732A1009211BB /* AddInterestViewController.swift in Sources */,
+				046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */,
 				048A91D223CC833D00BDAFC3 /* GlobalConstant.swift in Sources */,
 				049F13CB23D3345A00BCC960 /* BrowseViewController.swift in Sources */,
 				04A5293A23CC7620003E2EDA /* ViewController.swift in Sources */,
@@ -472,6 +483,7 @@
 				040C28B623D732CF009211BB /* AddCertiLevelViewController.swift in Sources */,
 				04A5293623CC7620003E2EDA /* AppDelegate.swift in Sources */,
 				04497A9E23D1EB9700CBE3F1 /* SupportViewController.swift in Sources */,
+				046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */,
 				04A5293823CC7620003E2EDA /* SceneDelegate.swift in Sources */,
 				040C28AE23D7181D009211BB /* ApplyViewController.swift in Sources */,
 				04364CB5240FD0EC00A198E3 /* ProfileViewController.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 import SwiftyJSON
 
 var BASEURL: String = "http://159.89.236.101/beer_elite/api/"
+var SOCKETURL: String = "http://159.89.236.101:8001/"
 let App_Title: String = "Beer Elite"
 
 var LoaderType:Int = 14
@@ -60,6 +61,36 @@ var userType = ""
 var userData: JSON = []
 var deviceTokenClientGL = ""
 var APIdeviceTokenGL = ""
+var IsJobFilter = false
+var filterDistance = "50"
+
+//MARK:- CHAT
+var deviceTokenGL = ""
+var fcmTokenGL = ""
+var apiTokenGL = ""
+var TOTALMESSAGECOUNT = 0
+var allUserChatListGL = [JSON]()
+var lastUserChatMsgGL: [JSON]!
+var lastSentMsgGL: JSON!
+
+//SOCKET API
+let REGISTERSOCKET                 = "socket_register"
+let GETCHATUSERSLIST               = "get_list_chat_user"
+let JOINROOM                       = "join_room"
+let CREATECHAT                     = "create_chat"
+let GETCHATMSG                     = "get_chat_messages"
+let SENDMSG                        = "send_msg"
+let LEFTROOM                       = "room_user_left"
+let SENDMSGUPDATE                  = "real_chat_update"
+
+var chatId = ""
+var DEVICETOKEN = ""
+
+//MARK:- Notification Type
+var NOTIFICATION_TYPE = "0"
+
+//MARK:- BADGES COUNT
+var badgeCount = 0
 
 //MARK: Web Service Hendler
 let service: ServiceCall = ServiceCall()

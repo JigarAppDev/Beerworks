@@ -22,6 +22,10 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if SocketHelper.CheckSocketIsConnectOrNot() == false {
+            //Connect to socket
+            SocketHelper.connectSocket()
+        }
     }
 
     //MARK: Side menu click

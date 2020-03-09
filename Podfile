@@ -12,4 +12,10 @@ target 'BeerElite' do
     pod 'KSToastView', '0.5.7'
     pod 'SideMenu', '~> 6.0'
     pod 'GoogleSignIn'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Messaging'
+    pod 'JSQMessagesViewController'
+    pod 'Socket.IO-Client-Swift'
+    pod 'Lightbox'
+    pod 'fluid-slider'
 end
