@@ -137,7 +137,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         let uData: JSON = JSON.init(data["user"])
         userData = uData
         let userType = uData["user_type"].stringValue
-        let user_ID = uData["id"].intValue
+        let user_ID = uData["id"].stringValue
         let user_Email = uData["email"].stringValue
         Defaults.setValue(userType, forKey: "user_type")
         Defaults.setValue(user_ID, forKey: "user_id")

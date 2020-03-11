@@ -259,11 +259,13 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
                     self.email = data["email"]!.stringValue
                     self.address = data["city"]!.stringValue
                     
-                    //Set All Ques & Answers for Beer Bio
-                    self.ansArray.removeAll()
-                    for i in 1...self.quesArray.count {
-                        let ans = bioData!["question_\(i)"]?.stringValue
-                        self.ansArray.append(ans!)
+                    if bioData!.count > 0 {
+                        //Set All Ques & Answers for Beer Bio
+                        self.ansArray.removeAll()
+                        for i in 1...self.quesArray.count {
+                            let ans = bioData!["question_\(i)"]?.stringValue
+                            self.ansArray.append(ans!)
+                        }
                     }
                     
                     //Set Level Data

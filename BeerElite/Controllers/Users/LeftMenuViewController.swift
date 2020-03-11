@@ -52,7 +52,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         self.btnMenu1.isHidden = false
         self.btnMenu2.isHidden = false
         self.btnMenu3.isHidden = false
-        self.btnMenu4.isHidden = false
+        //self.btnMenu4.isHidden = false
         self.btnMenu5.isHidden = false
         
         if userType == "User" {

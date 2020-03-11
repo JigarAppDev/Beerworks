@@ -88,6 +88,13 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
         param.setValue(DEVICETOKEN, forKey: "device_token")
         param.setValue("2", forKey: "device_type")
         param.setValue(identifier.uuidString, forKey: "device_id")
+        var uType = ""
+        if userType == "User" {
+            uType = "1" //user_type = 1 = user , 2 = provider
+        } else {
+            uType = "2" //user_type = 1 = user , 2 = provider
+        }
+        param.setValue(uType, forKey: "user_type")
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
             
@@ -98,7 +105,9 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
                         self.isForSocial = false
                         self.setDefaultData(responseObject: responseObject)
                     }
-                }else{
+                }else if(dataObj["status"].stringValue == "11") {
+                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                } else {
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "error") as! String)
                 }
                 

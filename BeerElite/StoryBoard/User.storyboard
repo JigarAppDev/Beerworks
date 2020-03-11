@@ -4384,10 +4384,10 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                     <action selector="btnAllActionsWithSender:" destination="O0b-R4-mAR" eventType="touchUpInside" id="ZYe-er-XsO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-Mm-3TU">
-                                <rect key="frame" x="15" y="392.5" width="290" height="30"/>
+                            <button hidden="YES" opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-Mm-3TU">
+                                <rect key="frame" x="15" y="392.5" width="290" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="B7J-lS-Jh2"/>
+                                    <constraint firstAttribute="height" id="B7J-lS-Jh2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Notifications">
@@ -4398,7 +4398,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-yC-pCg">
-                                <rect key="frame" x="15" y="427.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="392.5" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YoK-Tv-4R6"/>
                                 </constraints>
@@ -4451,7 +4451,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="top" secondItem="KMP-8s-zjg" secondAttribute="top" id="sKb-DC-5bn"/>
                             <constraint firstItem="4lG-U5-noV" firstAttribute="top" secondItem="m0g-JV-VTT" secondAttribute="bottom" constant="5" id="tuS-Gf-e2k"/>
                             <constraint firstItem="goq-9w-gEn" firstAttribute="centerY" secondItem="HLp-Ek-oPB" secondAttribute="centerY" id="uRf-EK-UnI"/>
-                            <constraint firstItem="qCc-yC-pCg" firstAttribute="top" secondItem="9Pb-Mm-3TU" secondAttribute="bottom" constant="5" id="veC-Dt-JVK"/>
+                            <constraint firstItem="qCc-yC-pCg" firstAttribute="top" secondItem="9Pb-Mm-3TU" secondAttribute="bottom" id="veC-Dt-JVK"/>
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="bottom" secondItem="oCS-C6-Mxa" secondAttribute="bottom" id="wX3-cW-J9u"/>
                             <constraint firstItem="bSb-FL-zfC" firstAttribute="centerX" secondItem="77Q-4K-KFZ" secondAttribute="centerX" id="xeL-Ry-qHn"/>
                         </constraints>
