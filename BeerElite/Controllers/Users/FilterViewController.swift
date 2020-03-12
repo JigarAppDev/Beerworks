@@ -53,6 +53,7 @@ class FilterViewController: UIViewController {
         formatter.maximumIntegerDigits = 3
         formatter.maximumFractionDigits = 0
         self.selectedValue = formatter.string(from: (slider.fraction * 100) as NSNumber) ?? ""
+        filterDistance = self.selectedValue
     }
     
     //MARK: Close Button Click

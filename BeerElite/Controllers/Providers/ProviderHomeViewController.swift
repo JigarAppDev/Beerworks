@@ -17,6 +17,7 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable 
     @IBOutlet var txtCompanyName: UITextField!
     @IBOutlet var txtSalary: UITextField!
     @IBOutlet var txvDescription: UITextView!
+    var isFrom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,14 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable 
         if SocketHelper.CheckSocketIsConnectOrNot() == false {
             //Connect to socket
             SocketHelper.connectSocket()
+        }
+        
+        if self.isFrom == "SignUp" {
+            //Go to Company Page
+            let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
+            let pageVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
+            pageVC.isFrom = "SignUp"
+            self.navigationController?.pushViewController(pageVC, animated: true)
         }
     }
 

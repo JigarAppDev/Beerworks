@@ -136,10 +136,10 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         Defaults.setValue(data["token"].stringValue, forKey: "token")
         let uData: JSON = JSON.init(data["user"])
         userData = uData
-        let userType = uData["user_type"].stringValue
+        let uType = uData["user_type"].stringValue
         let user_ID = uData["id"].stringValue
         let user_Email = uData["email"].stringValue
-        Defaults.setValue(userType, forKey: "user_type")
+        Defaults.setValue(uType, forKey: "user_type")
         Defaults.setValue(user_ID, forKey: "user_id")
         Defaults.setValue(user_Email, forKey: "user_email")
         let profilePic = uData["profile_pic"].stringValue
@@ -162,6 +162,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         } else {
             let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
             let proHomeVC = proStoryBoard.instantiateViewController(withIdentifier: "ProviderHomeViewController") as! ProviderHomeViewController
+            proHomeVC.isFrom = "SignUp"
             self.navigationController?.pushViewController(proHomeVC, animated: true)
         }
     }

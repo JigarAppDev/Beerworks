@@ -29,12 +29,17 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
     @IBOutlet var companyProfile: UIImageView!
     var companyId = ""
     var selectedImage = UIImage()
+    var isFrom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.mapKitView.delegate = self
         self.mapKitView.isUserInteractionEnabled = false
+        
+        if self.isFrom == "SignUp" {
+            self.showAlert(title: App_Title, msg: "Kindly fill up your company info before posting new jobs.")
+        }
         
     }
     
