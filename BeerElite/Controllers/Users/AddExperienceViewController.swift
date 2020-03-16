@@ -135,7 +135,7 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
     //MARK: API Calling on Submit
     @IBAction func submitExp(sender: UIButton) {
         self.view.endEditing(true)
-        if self.selectedObj.isNull == false {
+        if self.selectedObj != nil {
             //Update API
             self.updateExpAPI()
             return

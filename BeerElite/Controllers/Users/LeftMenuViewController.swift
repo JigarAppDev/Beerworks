@@ -65,7 +65,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.btnMenu1.setTitle("Add Job", for: .normal)
             self.btnMenu2.setTitle("Browse", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
-            self.btnMenu4.setTitle("Notifications", for: .normal)
+            self.btnMenu4.setTitle("My Postings", for: .normal)
             self.btnMenu5.setTitle("Company Page", for: .normal)
         }
     }
@@ -189,6 +189,9 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         Defaults.removeObject(forKey: "user_email")
         Defaults.removeObject(forKey: "user_name")
         Defaults.removeObject(forKey: "is_logged_in")
+        Defaults.removeObject(forKey: "user_city")
+        Defaults.removeObject(forKey: "deviceId")
+        Defaults.removeObject(forKey: "profile_pic")
         Defaults.synchronize()
     }
 }

@@ -40,6 +40,7 @@ class JobsDataModel {
     var user_type: String?
     var profile_pic: String?
     var company_id: String?
+    var applied_by_me: String?
 
     init(jsonDic: JSON) {
         self.id = jsonDic["id"].stringValue
@@ -55,6 +56,7 @@ class JobsDataModel {
         self.user_type = jsonDic["user_type"].stringValue
         self.profile_pic = jsonDic["profile_pic"].stringValue
         self.company_id = jsonDic["company_id"].stringValue
+        self.applied_by_me = jsonDic["applied_by_me"].stringValue
     }
 }
 

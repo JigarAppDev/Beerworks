@@ -64,6 +64,10 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable, UIImag
     
     //MARK: API Calling
     func applyForJob() {
+        if dataObj.applied_by_me == "1" {
+            self.showAlert(title: App_Title, msg: "You have applied for this job already.")
+            return
+        }
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
         param.setValue(self.dataObj.jobId, forKey: "job_id")
@@ -161,8 +165,12 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable, UIImag
         let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         //guard let imageData = tempImage.jpegData(compressionQuality: 0.75) else { return }
         self.selectedImage = tempImage
-        let url = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
-        self.lblImageName.text = url.lastPathComponent
+        if let url: NSURL = info[UIImagePickerController.InfoKey.imageURL] as? NSURL {
+            self.lblImageName.text = url.lastPathComponent
+        } else {
+            let identifier = UUID()
+            self.lblImageName.text = identifier.uuidString + ".png"
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

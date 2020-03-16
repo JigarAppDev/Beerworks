@@ -8,25 +8,30 @@
 
 import UIKit
 import SideMenu
+import NVActivityIndicatorView
+import SwiftyJSON
 
 class tblNotificationCell: UITableViewCell {
-    @IBOutlet var imgProfile: UIImageView!
-    @IBOutlet var lblName: UILabel!
+    @IBOutlet var lblTitle: UILabel!
+    @IBOutlet var lblCompanyName: UILabel!
+    @IBOutlet var lblSalary: UILabel!
     @IBOutlet var lblDescr: UILabel!
-    @IBOutlet var lblTimeAgo: UILabel!
 }
 
-class NotificationsViewController: UIViewController {
-
+class NotificationsViewController: UIViewController, NVActivityIndicatorViewable {
+    
     @IBOutlet var tblNotification: UITableView!
+    var jobList = [JobsDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tblNotification.estimatedRowHeight = 90
         self.tblNotification.rowHeight = UITableView.automaticDimension
+        
+        self.getMyPostList()
     }
-
+    
     //MARK: Side menu click
     @IBAction func btnSideMenuClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
@@ -36,17 +41,81 @@ class NotificationsViewController: UIViewController {
         menu.presentationStyle = .menuSlideIn
         present(menu, animated: true, completion: nil)
     }
+    
+    //MARK: Get All My Post List
+    func getMyPostList() {
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil {
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    let dataModel = JobsModel.init(jsonDic: dataObj)
+                    self.jobList = [JobsDataModel]()
+                    self.jobList = dataModel.listData
+                    self.tblNotification.reloadData()
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: LISTMYPOSTSAPI as NSString, success: successed, failure: failure)
+    }
+    
+    func deleteJobById(jobId: String, index: IndexPath) {
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(jobId, forKey: "job_id")
+        
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    self.jobList.remove(at: index.row)
+                    self.tblNotification.deleteRows(at: [index], with: .fade)
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: DELETEJOBAPI as NSString, success: successed, failure: failure)
+    }
 }
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.jobList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tblNotification.dequeueReusableCell(withIdentifier: "tblNotificationCell") as! tblNotificationCell
+        let obj = self.jobList[indexPath.row]
+        cell.lblTitle.text = obj.jobTitle
+        cell.lblCompanyName.text = obj.company_name
+        cell.lblSalary.text = "Salary/hourly wage: " + obj.salary!
+        cell.lblDescr.text = obj.description
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let obj = self.jobList[indexPath.row]
+            self.deleteJobById(jobId: obj.jobId!, index: indexPath)
+        }
     }
 }

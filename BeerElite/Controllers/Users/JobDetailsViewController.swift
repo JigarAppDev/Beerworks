@@ -63,6 +63,10 @@ class JobDetailsViewController: UIViewController {
     
     //MARK: Apply Click
     @IBAction func btnApplyClick(sender: UIButton) {
+        if dataObj.applied_by_me == "1" {
+            self.showAlert(title: App_Title, msg: "You have applied for this job already.")
+            return
+        }
         let applyVC = self.storyboard?.instantiateViewController(withIdentifier: "ApplyViewController") as! ApplyViewController
         applyVC.dataObj = self.dataObj
         self.navigationController?.pushViewController(applyVC, animated: true)

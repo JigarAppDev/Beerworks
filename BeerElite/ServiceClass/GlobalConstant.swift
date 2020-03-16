@@ -37,6 +37,8 @@ let LISTAPPLIEDUSERSAPI            = "list_applied_users_list"
 let VIEWCOMPANYBYPROAPI            = "view_company_by_provider"
 let UPDATECOMPANYAPI               = "update_company_page"
 let UPDATEPROFILEAPI               = "update_profile"
+let LISTMYPOSTSAPI                 = "list_jobs_company"
+let DELETEJOBAPI                   = "delete_job"
 
 //Users
 let GETJOBLIST                     = "list_jobs"

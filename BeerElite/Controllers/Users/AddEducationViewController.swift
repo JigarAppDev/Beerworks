@@ -134,7 +134,7 @@ class AddEducationViewController: UIViewController, NVActivityIndicatorViewable,
     //MARK: API Calling on Submit
     @IBAction func submitEducation(sender: UIButton) {
         self.view.endEditing(true)
-        if self.selectedObj.isNull == false {
+        if self.selectedObj != nil {
             //Update API
             self.updateEduAPI()
             return

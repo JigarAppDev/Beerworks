@@ -125,6 +125,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var btnUpdateBio: UIButton!
     @IBOutlet var btnBack: UIButton!
     @IBOutlet var btnMenu: UIButton!
+    @IBOutlet var bottomView: UIView!
     var selectedObj: UserDataModel!
     
     //Level
@@ -151,11 +152,13 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
         if userType == "User" {
             self.btnMenu.isHidden = false
             self.btnBack.isHidden = true
-            self.btnUpdateBio.isHidden = false
+            self.btnUpdateBio.isHidden = true
+            self.bottomView.isHidden = true
         } else {
             self.btnMenu.isHidden = true
             self.btnBack.isHidden = false
             self.btnUpdateBio.isHidden = true
+            self.bottomView.isHidden = false
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
@@ -169,6 +172,25 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
         if SocketHelper.CheckSocketIsConnectOrNot() == false {
             //Connect to socket
             SocketHelper.connectSocket()
+        }
+    }
+    
+    //MARK: View Profile Image and Resume
+    @IBAction func btnViewClick(sender: UIButton) {
+        if sender.tag == 101 {
+            //Image
+            if selectedObj.user_image != "" {
+                if let url = URL(string: selectedObj.user_image!) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        } else {
+            //Resume
+            if selectedObj.user_resume != "" {
+                if let url = URL(string: selectedObj.user_resume!) {
+                    UIApplication.shared.open(url)
+                }
+            }
         }
     }
     
@@ -568,7 +590,6 @@ class FlowLayout: UICollectionViewFlowLayout {
         
         return layoutAttributes
     }
-    
 }
 
 extension UILabel {
