@@ -43,7 +43,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         if let picUrl: String = Defaults.value(forKey: "profile_pic") as? String, picUrl != "" {
             self.imgProfile.kf.setImage(with: URL(string: picUrl))
         } else {
-            self.imgProfile.image = UIImage.init(named: "ios_icon")
+            //self.imgProfile.image = UIImage.init(named: "ios_icon")
         }
         self.lblName.text = name
         self.lblEmail.text = email

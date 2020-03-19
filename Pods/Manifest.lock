@@ -130,6 +130,7 @@ PODS:
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
+  - SwiftyGif (5.2.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -148,6 +149,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - SideMenu (~> 6.0)
   - Socket.IO-Client-Swift
+  - SwiftyGif
 
 SPEC REPOS:
   trunk:
@@ -189,6 +191,7 @@ SPEC REPOS:
     - SideMenu
     - Socket.IO-Client-Swift
     - Starscream
+    - SwiftyGif
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -230,8 +233,9 @@ SPEC CHECKSUMS:
   SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: c19a5cef48096c8f0d4e33e9372822e688346f3a
+PODFILE CHECKSUM: 6020a74de602837859b72d1a400bbbabff23e620
 
 COCOAPODS: 1.9.0

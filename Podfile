@@ -18,4 +18,5 @@ target 'BeerElite' do
     pod 'Socket.IO-Client-Swift'
     pod 'Lightbox'
     pod 'fluid-slider'
+    pod 'SwiftyGif'
 end

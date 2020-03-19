@@ -4343,11 +4343,6 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                     <constraint firstAttribute="height" constant="100" id="K5f-IQ-Lho"/>
                                     <constraint firstAttribute="width" constant="100" id="rwg-CB-GS0"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-8s-zjg">
                                 <rect key="frame" x="110" y="50" width="100" height="100"/>

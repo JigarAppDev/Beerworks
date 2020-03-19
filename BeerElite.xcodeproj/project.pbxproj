@@ -21,6 +21,9 @@
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
 		045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C223D3413A007BA29A /* ResumeViewController.swift */; };
 		0460A38624232DA2003FDFC1 /* appImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A38524232DA1003FDFC1 /* appImage.gif */; };
+		0460A389242338B6003FDFC1 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A387242338B6003FDFC1 /* LogoAnimationView.swift */; };
+		0460A38A242338B6003FDFC1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A388242338B6003FDFC1 /* UIView+Constraints.swift */; };
+		0460A39224234115003FDFC1 /* newgiflogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A39124234115003FDFC1 /* newgiflogo.gif */; };
 		046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7042412602C00EA500A /* SocketIOManager.swift */; };
 		046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7062412754400EA500A /* SuperChatViewController.swift */; };
 		046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB7082412A69B00EA500A /* GoogleService-Info.plist */; };
@@ -73,6 +76,9 @@
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
 		045B82C223D3413A007BA29A /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		0460A38524232DA1003FDFC1 /* appImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = appImage.gif; sourceTree = "<group>"; };
+		0460A387242338B6003FDFC1 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
+		0460A388242338B6003FDFC1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		0460A39124234115003FDFC1 /* newgiflogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = newgiflogo.gif; path = ../../../Downloads/newgiflogo.gif; sourceTree = "<group>"; };
 		046BB7042412602C00EA500A /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		046BB7062412754400EA500A /* SuperChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChatViewController.swift; sourceTree = "<group>"; };
 		046BB7082412A69B00EA500A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 				046BB7082412A69B00EA500A /* GoogleService-Info.plist */,
 				04A5294323CC7623003E2EDA /* Info.plist */,
 				04C941F223FA8D25003BF1D1 /* Header.h */,
+				0460A39124234115003FDFC1 /* newgiflogo.gif */,
 				0460A38524232DA1003FDFC1 /* appImage.gif */,
 			);
 			path = BeerElite;
@@ -204,6 +211,8 @@
 			children = (
 				048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */,
 				048A91C223CC79D800BDAFC3 /* OnBoardingViewController.swift */,
+				0460A387242338B6003FDFC1 /* LogoAnimationView.swift */,
+				0460A388242338B6003FDFC1 /* UIView+Constraints.swift */,
 				048A91BF23CC79A600BDAFC3 /* LoginSignUp */,
 				04EC734423D0866D0076666A /* Providers */,
 				04EC734323D0866D0076666A /* Users */,
@@ -385,6 +394,7 @@
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
 				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
 				0460A38624232DA2003FDFC1 /* appImage.gif in Resources */,
+				0460A39224234115003FDFC1 /* newgiflogo.gif in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
 				046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,
@@ -460,8 +470,10 @@
 				04EC734623D086800076666A /* UserHomeViewController.swift in Sources */,
 				04B944A124209DF9008C498C /* AddCompanyNameViewController.swift in Sources */,
 				04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */,
+				0460A38A242338B6003FDFC1 /* UIView+Constraints.swift in Sources */,
 				045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */,
 				040C28B423D732B6009211BB /* AddExperienceViewController.swift in Sources */,
+				0460A389242338B6003FDFC1 /* LogoAnimationView.swift in Sources */,
 				048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */,
 				048A91CB23CC7A1D00BDAFC3 /* ResetPasswordViewController.swift in Sources */,
 				047B8F82240E617400361F10 /* UserListModels.swift in Sources */,

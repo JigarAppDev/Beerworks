@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import SwiftyGif
 
 class UserSelectionViewController: UIViewController {
 
+    let logoAnimationView = LogoAnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(logoAnimationView)
+        logoAnimationView.pinEdgesToSuperView()
+        logoAnimationView.logoGifImageView.delegate = self
 
         //Checked for already login user with type of user
         let isLoggedIn = Defaults.bool(forKey: "is_logged_in")
@@ -32,6 +39,11 @@ class UserSelectionViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        logoAnimationView.logoGifImageView.startAnimatingGif()
+    }
+    
     //MARK: Select Type
     @IBAction func btnSelectUser(sender: UIButton) {
         if sender.tag == 101 {
@@ -44,5 +56,10 @@ class UserSelectionViewController: UIViewController {
         let onboradVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
         self.navigationController?.pushViewController(onboradVC, animated: true)
     }
+}
 
+extension UserSelectionViewController: SwiftyGifDelegate {
+    func gifDidStop(sender: UIImageView) {
+        logoAnimationView.isHidden = true
+    }
 }
