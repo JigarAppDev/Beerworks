@@ -4336,7 +4336,20 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-8s-zjg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_camera" translatesAutoresizingMaskIntoConstraints="NO" id="tfg-e9-9qW">
+                                <rect key="frame" x="110" y="50" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="K5f-IQ-Lho"/>
+                                    <constraint firstAttribute="width" constant="100" id="rwg-CB-GS0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-8s-zjg">
                                 <rect key="frame" x="110" y="50" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Qmv-xU-f51"/>
@@ -4500,6 +4513,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="oCS-C6-Mxa" firstAttribute="centerX" secondItem="5vp-kk-gsS" secondAttribute="centerX" id="1O3-np-3Tw"/>
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="trailing" secondItem="KMP-8s-zjg" secondAttribute="trailing" id="2rX-O9-alU"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="m0g-JV-VTT" secondAttribute="trailing" constant="15" id="3C4-Vd-RMb"/>
+                            <constraint firstItem="tfg-e9-9qW" firstAttribute="top" secondItem="KMP-8s-zjg" secondAttribute="top" id="3rr-tJ-SOo"/>
                             <constraint firstItem="bSb-FL-zfC" firstAttribute="top" secondItem="HLp-Ek-oPB" secondAttribute="bottom" constant="20" id="40e-C9-FSq"/>
                             <constraint firstItem="9Pb-Mm-3TU" firstAttribute="top" secondItem="ei3-p2-cRa" secondAttribute="bottom" constant="5" id="4IP-jg-P4E"/>
                             <constraint firstItem="oCS-C6-Mxa" firstAttribute="top" secondItem="5vp-kk-gsS" secondAttribute="bottom" constant="5" id="5XC-76-jvh"/>
@@ -4508,6 +4522,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="qCc-yC-pCg" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="8tf-zX-HWX"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="9Pb-Mm-3TU" secondAttribute="trailing" constant="15" id="Eor-Ma-6Ou"/>
                             <constraint firstItem="m0g-JV-VTT" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="FG2-lA-QEd"/>
+                            <constraint firstItem="tfg-e9-9qW" firstAttribute="trailing" secondItem="KMP-8s-zjg" secondAttribute="trailing" id="GoY-uB-yl8"/>
                             <constraint firstItem="9Pb-Mm-3TU" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="HmV-cF-Ex6"/>
                             <constraint firstItem="ei3-p2-cRa" firstAttribute="top" secondItem="4lG-U5-noV" secondAttribute="bottom" constant="5" id="IQE-Hm-aCY"/>
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="leading" secondItem="KMP-8s-zjg" secondAttribute="leading" id="LZw-Qd-mFR"/>
@@ -4520,11 +4535,13 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="qCc-yC-pCg" secondAttribute="trailing" constant="15" id="XcE-hm-qMD"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="4lG-U5-noV" secondAttribute="trailing" constant="15" id="Xuo-Bq-w2Z"/>
                             <constraint firstItem="mCB-ev-O3I" firstAttribute="top" secondItem="oCS-C6-Mxa" secondAttribute="bottom" constant="15" id="fdd-bN-a9C"/>
+                            <constraint firstItem="tfg-e9-9qW" firstAttribute="bottom" secondItem="KMP-8s-zjg" secondAttribute="bottom" id="flN-16-6PT"/>
                             <constraint firstItem="m0g-JV-VTT" firstAttribute="top" secondItem="mCB-ev-O3I" secondAttribute="bottom" constant="45" id="gJi-fq-hKS"/>
                             <constraint firstItem="5vp-kk-gsS" firstAttribute="top" secondItem="KMP-8s-zjg" secondAttribute="bottom" constant="15" id="j1M-N2-T2N"/>
                             <constraint firstItem="KMP-8s-zjg" firstAttribute="centerX" secondItem="77Q-4K-KFZ" secondAttribute="centerX" id="mpN-Vo-E5r"/>
                             <constraint firstItem="KMP-8s-zjg" firstAttribute="top" secondItem="5ba-5t-OgG" secondAttribute="top" constant="50" id="oyn-I4-aPI"/>
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="top" secondItem="KMP-8s-zjg" secondAttribute="top" id="sKb-DC-5bn"/>
+                            <constraint firstItem="tfg-e9-9qW" firstAttribute="leading" secondItem="KMP-8s-zjg" secondAttribute="leading" id="se2-R4-goG"/>
                             <constraint firstItem="4lG-U5-noV" firstAttribute="top" secondItem="m0g-JV-VTT" secondAttribute="bottom" constant="5" id="tuS-Gf-e2k"/>
                             <constraint firstItem="goq-9w-gEn" firstAttribute="centerY" secondItem="HLp-Ek-oPB" secondAttribute="centerY" id="uRf-EK-UnI"/>
                             <constraint firstItem="qCc-yC-pCg" firstAttribute="top" secondItem="9Pb-Mm-3TU" secondAttribute="bottom" constant="5" id="veC-Dt-JVK"/>
@@ -4677,6 +4694,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
     </scenes>
     <resources>
         <image name="add" width="183" height="183"/>
+        <image name="add_camera" width="452" height="365"/>
         <image name="back_arrow" width="320" height="222"/>
         <image name="bg" width="720" height="1280"/>
         <image name="chat" width="262" height="222"/>

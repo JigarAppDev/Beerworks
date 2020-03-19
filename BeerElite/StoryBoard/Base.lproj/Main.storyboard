@@ -1318,7 +1318,7 @@ craft beer candidates.</string>
                                                     <rect key="frame" x="0.0" y="50" width="320" height="454"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="get_in_started0" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-CO-cCb">
-                                                            <rect key="frame" x="40" y="50" width="240" height="213"/>
+                                                            <rect key="frame" x="40" y="50" width="240.00000000000011" height="213"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="b1v-CO-cCb" secondAttribute="height" multiplier="239:212" id="zAd-1U-7sD"/>
                                                             </constraints>

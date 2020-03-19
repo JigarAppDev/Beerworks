@@ -21,6 +21,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
     @IBOutlet var txvAbout: UITextView!
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblWebsite: UILabel!
+    @IBOutlet var lblCompanyName: UILabel!
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblEmail: UILabel!
@@ -40,7 +41,6 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         if self.isFrom == "SignUp" {
             self.showAlert(title: App_Title, msg: "Kindly fill up your company info before posting new jobs.")
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +70,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         if address == "" {
             return
         }
+        self.mapKitView.removeAnnotations(self.mapKitView.annotations)
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard
@@ -87,6 +88,14 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         }
         
         self.mapKitView.fitAllAnnotations()
+    }
+    
+    //MARK: Edit Company Name
+    @IBAction func btnAddCName(sender: UIButton) {
+        let nameVC = self.storyboard?.instantiateViewController(withIdentifier: "AddCompanyNameViewController") as! AddCompanyNameViewController
+        nameVC.companyId = self.companyId
+        nameVC.cname = self.lblCompanyName.text!
+        self.navigationController?.pushViewController(nameVC, animated: true)
     }
     
     //MARK: Edit Company Info
@@ -122,6 +131,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                     self.lblWebsite.text = cData["company_website"].stringValue
                     self.lblAddress.text = cData["company_address"].stringValue
                     self.lblName.text = cData["username"].stringValue
+                    self.lblCompanyName.text = cData["company_name"].stringValue
                     self.lblEmail.text = cData["email"].stringValue
                     self.companyId = cData["company_id"].stringValue
                     let pic = cData["profile_pic"].stringValue
@@ -168,6 +178,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                     self.lblWebsite.text = data["company_website"].stringValue
                     self.lblAddress.text = data["company_address"].stringValue
                     self.lblName.text = data["username"].stringValue
+                    self.lblCompanyName.text = data["company_name"].stringValue
                     self.lblEmail.text = data["email"].stringValue
                     self.companyId = data["company_id"].stringValue
                     let pic = data["profile_pic"].stringValue

@@ -41,7 +41,7 @@ class FilterViewController: UIViewController {
         }*/
         slider.setMinimumLabelAttributedText(NSAttributedString(string: "0"))
         slider.setMaximumLabelAttributedText(NSAttributedString(string: "100"))
-        slider.fraction = 0.5
+        slider.fraction = CGFloat(Int(self.selectedValue)! / 100)
         slider.shadowOffset = CGSize(width: 0, height: 10)
         slider.shadowBlur = 5
         slider.shadowColor = UIColor(white: 0, alpha: 0.1)

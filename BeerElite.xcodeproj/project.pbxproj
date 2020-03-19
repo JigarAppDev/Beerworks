@@ -20,6 +20,7 @@
 		045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */; };
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
 		045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C223D3413A007BA29A /* ResumeViewController.swift */; };
+		0460A38624232DA2003FDFC1 /* appImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A38524232DA1003FDFC1 /* appImage.gif */; };
 		046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7042412602C00EA500A /* SocketIOManager.swift */; };
 		046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7062412754400EA500A /* SuperChatViewController.swift */; };
 		046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB7082412A69B00EA500A /* GoogleService-Info.plist */; };
@@ -42,6 +43,7 @@
 		04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5293B23CC7620003E2EDA /* Main.storyboard */; };
 		04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A5293E23CC7623003E2EDA /* Assets.xcassets */; };
 		04A5294223CC7623003E2EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5294023CC7623003E2EDA /* LaunchScreen.storyboard */; };
+		04B944A124209DF9008C498C /* AddCompanyNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */; };
 		04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */; };
 		04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */; };
 		04E982CB23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */; };
@@ -70,6 +72,7 @@
 		045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
 		045B82C223D3413A007BA29A /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		0460A38524232DA1003FDFC1 /* appImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = appImage.gif; sourceTree = "<group>"; };
 		046BB7042412602C00EA500A /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		046BB7062412754400EA500A /* SuperChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChatViewController.swift; sourceTree = "<group>"; };
 		046BB7082412A69B00EA500A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		04A5293E23CC7623003E2EDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A5294123CC7623003E2EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A5294323CC7623003E2EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyNameViewController.swift; sourceTree = "<group>"; };
 		04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
 		04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
 		04C941EF23FA8D06003BF1D1 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				046BB7082412A69B00EA500A /* GoogleService-Info.plist */,
 				04A5294323CC7623003E2EDA /* Info.plist */,
 				04C941F223FA8D25003BF1D1 /* Header.h */,
+				0460A38524232DA1003FDFC1 /* appImage.gif */,
 			);
 			path = BeerElite;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */,
 				04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */,
 				04E982CC23D5B80600F7CC26 /* AddWebLocationViewController.swift */,
+				04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				04EC734023D085750076666A /* User.storyboard in Resources */,
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
 				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
+				0460A38624232DA2003FDFC1 /* appImage.gif in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
 				046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,
@@ -451,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EC734623D086800076666A /* UserHomeViewController.swift in Sources */,
+				04B944A124209DF9008C498C /* AddCompanyNameViewController.swift in Sources */,
 				04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */,
 				045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */,
 				040C28B423D732B6009211BB /* AddExperienceViewController.swift in Sources */,

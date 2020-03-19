@@ -62,8 +62,8 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.btnMenu2.setTitle("My Resume", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
         } else {
-            self.btnMenu1.setTitle("Add Job", for: .normal)
-            self.btnMenu2.setTitle("Browse", for: .normal)
+            self.btnMenu1.setTitle("Post Job", for: .normal)
+            self.btnMenu2.setTitle("Candidates", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
             self.btnMenu4.setTitle("My Postings", for: .normal)
             self.btnMenu5.setTitle("Company Page", for: .normal)
@@ -129,7 +129,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 self.navigationController?.pushViewController(msgVC, animated: true)
             } else if sender.tag == 104 {
                 //Logout
-                let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
+                let alert = UIAlertController.init(title: App_Title, message: "Are you sure you want to logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
                     self.LogoutAPI()
                 }

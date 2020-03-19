@@ -89,8 +89,8 @@
             filePath = "BeerElite/Controllers/Providers/CompanyPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "btnBackClick(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -105,8 +105,8 @@
             filePath = "BeerElite/Controllers/Providers/CompanyPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "showMarkerOnMap(address:)"
             landmarkType = "7">
          </BreakpointContent>
