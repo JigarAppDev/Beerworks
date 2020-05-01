@@ -19,7 +19,7 @@ class tblBeerBioCell: UITableViewCell {
 class BeerBioViewController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
     
     @IBOutlet var tblBeerBio: UITableView!
-    var quesArray = ["Tell me about yourself.","Favourite Brewery. Why?","Favourite Beer. Why?","Describe the vibe of your favourite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favlourite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can not work?","Anything you'd like to add?"]
+    var quesArray = ["Objective","Favorite Brewery. Why?","Favorite Beer. Why?","Describe the vibe of your favorite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
     var ansArray = ["","","","","","","","","","","","",""]
     
     override func viewDidLoad() {

@@ -33,6 +33,18 @@ class SupportViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
+    //MARK: Send Mail
+    @IBAction func btnSendMail(sender: UIButton) {
+        let email = "thebeerelite@gmail.com"
+        if let url = URL(string: "mailto:\(email)") {
+          if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url)
+          } else {
+            UIApplication.shared.openURL(url)
+          }
+        }
+    }
+    
     //MARK: - Validate Data Method
     func validateUser() -> Bool {
         var boolVal : Bool = true
@@ -57,7 +69,8 @@ class SupportViewController: UIViewController, NVActivityIndicatorViewable {
             if responseObject != nil{
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.showAlert(title: App_Title, msg: "Success! We'll review and get back to you ASAP!")
                     self.txtEmail.text = ""
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)

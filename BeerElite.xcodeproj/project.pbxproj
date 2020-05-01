@@ -23,7 +23,6 @@
 		0460A38624232DA2003FDFC1 /* appImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A38524232DA1003FDFC1 /* appImage.gif */; };
 		0460A389242338B6003FDFC1 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A387242338B6003FDFC1 /* LogoAnimationView.swift */; };
 		0460A38A242338B6003FDFC1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A388242338B6003FDFC1 /* UIView+Constraints.swift */; };
-		0460A39224234115003FDFC1 /* newgiflogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A39124234115003FDFC1 /* newgiflogo.gif */; };
 		046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7042412602C00EA500A /* SocketIOManager.swift */; };
 		046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7062412754400EA500A /* SuperChatViewController.swift */; };
 		046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB7082412A69B00EA500A /* GoogleService-Info.plist */; };
@@ -39,6 +38,7 @@
 		048A91D223CC833D00BDAFC3 /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */; };
 		048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */; };
 		048A91D423CC833D00BDAFC3 /* ServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91D023CC833D00BDAFC3 /* ServiceCall.swift */; };
+		0492EFC5245088EA00FD10B0 /* newgiflogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0492EFC4245088EA00FD10B0 /* newgiflogo.gif */; };
 		049F13CB23D3345A00BCC960 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F13CA23D3345A00BCC960 /* BrowseViewController.swift */; };
 		04A5293623CC7620003E2EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5293523CC7620003E2EDA /* AppDelegate.swift */; };
 		04A5293823CC7620003E2EDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5293723CC7620003E2EDA /* SceneDelegate.swift */; };
@@ -78,7 +78,6 @@
 		0460A38524232DA1003FDFC1 /* appImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = appImage.gif; sourceTree = "<group>"; };
 		0460A387242338B6003FDFC1 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		0460A388242338B6003FDFC1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		0460A39124234115003FDFC1 /* newgiflogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = newgiflogo.gif; path = ../../../Downloads/newgiflogo.gif; sourceTree = "<group>"; };
 		046BB7042412602C00EA500A /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		046BB7062412754400EA500A /* SuperChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChatViewController.swift; sourceTree = "<group>"; };
 		046BB7082412A69B00EA500A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtilites.swift; sourceTree = "<group>"; };
 		048A91D023CC833D00BDAFC3 /* ServiceCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCall.swift; sourceTree = "<group>"; };
+		0492EFC4245088EA00FD10B0 /* newgiflogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newgiflogo.gif; sourceTree = "<group>"; };
 		049F13CA23D3345A00BCC960 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		04A5293223CC7620003E2EDA /* BeerElite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerElite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A5293523CC7620003E2EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 				046BB7082412A69B00EA500A /* GoogleService-Info.plist */,
 				04A5294323CC7623003E2EDA /* Info.plist */,
 				04C941F223FA8D25003BF1D1 /* Header.h */,
-				0460A39124234115003FDFC1 /* newgiflogo.gif */,
+				0492EFC4245088EA00FD10B0 /* newgiflogo.gif */,
 				0460A38524232DA1003FDFC1 /* appImage.gif */,
 			);
 			path = BeerElite;
@@ -393,8 +393,8 @@
 				04EC734023D085750076666A /* User.storyboard in Resources */,
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
 				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
+				0492EFC5245088EA00FD10B0 /* newgiflogo.gif in Resources */,
 				0460A38624232DA2003FDFC1 /* appImage.gif in Resources */,
-				0460A39224234115003FDFC1 /* newgiflogo.gif in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
 				046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,

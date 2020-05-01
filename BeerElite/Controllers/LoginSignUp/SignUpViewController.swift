@@ -41,6 +41,12 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             self.lati = "\(currentLocation.coordinate.latitude)"
             self.longi = "\(currentLocation.coordinate.longitude)"
         }
+        
+        if userType == "Provider" {
+            self.txtFullname.placeholder = "Business Name"
+        } else {
+            self.txtFullname.placeholder = "Name (First and Last)"
+        }
     }
     
     // MARK: - Back Click
@@ -64,7 +70,11 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     func validateUser() -> Bool {
         var boolVal : Bool = true
         if txtFullname.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
-            showAlert(title: App_Title, msg: "Please Enter Username")
+            if userType == "Provider" {
+                showAlert(title: App_Title, msg: "Please Enter Business Name")
+            } else {
+                showAlert(title: App_Title, msg: "Please Enter Name (First and Last)")
+            }
             boolVal = false
         }else if txtEmail.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Email Address")
@@ -76,10 +86,10 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             showAlert(title: App_Title, msg: "Please Enter Password")
             boolVal = false
         }else if txtPassword.text!.count < 6 {
-            showAlert(title: App_Title, msg: "Password should be of 6 characters atleast")
+            showAlert(title: App_Title, msg: "Password must be at least 6 characters")
             boolVal = false
         }else if txtPassword.text != txtConfirmPassword.text {
-            showAlert(title: App_Title, msg: "Confirm Password is Mismatch!")
+            showAlert(title: App_Title, msg: "Password Must Match")
             boolVal = false
         }
         return boolVal
@@ -106,14 +116,18 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
-            if responseObject != nil{
+            if responseObject != nil {
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    if (responseObject.value(forKeyPath: "data")) != nil{
+                    if (responseObject.value(forKeyPath: "data")) != nil {
                         self.setDefaultData(responseObject: responseObject)
                     }
                 }else{
-                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                    if dataObj["message"].stringValue == "Unauthorised" {
+                        self.showAlert(title: App_Title, msg: "Invalid email or password.")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    }
                 }
             }
         }
@@ -158,6 +172,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         if userType == "User" {
             let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
             let userHomeVC = userStoryBoard.instantiateViewController(withIdentifier: "UserHomeViewController") as! UserHomeViewController
+            userHomeVC.isFrom = "SignUp"
             self.navigationController?.pushViewController(userHomeVC, animated: true)
         } else {
             let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
@@ -242,7 +257,11 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
                         print(dataObj1)
                     } else {
                         DispatchQueue.main.async {
-                            self.showAlert(title: App_Title, msg: dataObj1["message"].stringValue)
+                            if dataObj1["message"].stringValue == "Unauthorised" {
+                                self.showAlert(title: App_Title, msg: "Invalid email or password.")
+                            } else {
+                                self.showAlert(title: App_Title, msg: dataObj1["message"].stringValue)
+                            }
                         }
                     }
                     DispatchQueue.main.async {

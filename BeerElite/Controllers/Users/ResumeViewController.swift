@@ -21,6 +21,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet var lblEmail: UILabel!
     @IBOutlet var btnCity: UIButton!
     @IBOutlet var imgProfile: UIImageView!
+    @IBOutlet var btnChat: UIButton!
     
     override func awakeFromNib() {
         
@@ -135,7 +136,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     var interestArray = ["Certified","Advanced","BJCP Judge"]
     
     //QuesArray
-    var quesArray = ["Tell me about yourself.","Favourite Brewery. Why?","Favourite Beer. Why?","Describe the vibe of your favourite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favlourite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can not work?","Anything you'd like to add?"]
+    var quesArray = ["Objective","Favorite Brewery. Why?","Favorite Beer. Why?","Describe the vibe of your favorite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
     var ansArray = ["Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer"]
     
     var eduArray = [JSON]()
@@ -369,6 +370,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
             chatId = cid
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
+            contactVC.userObj = JSON.init(self.selectedObj)
             contactVC.cid = chatId
             self.navigationController?.pushViewController(contactVC, animated: true)
         }
@@ -430,6 +432,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
                 profCell.lblName.text = name
                 profCell.lblEmail.text = email
                 profCell.btnCity.setTitle(self.address, for: .normal)
+                profCell.btnChat.isHidden = true
             } else {
                 let name = self.selectedObj.username
                 let email = self.email

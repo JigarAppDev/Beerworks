@@ -13,6 +13,7 @@ import Kingfisher
 
 class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var lblName: UILabel!
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtCity: UITextField!
@@ -23,6 +24,13 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if userType == "Provider" {
+            self.txtName.placeholder = "Business Name"
+            self.lblName.text = "Business Name"
+        } else {
+            self.txtName.placeholder = "Name (First and Last)"
+            self.lblName.text = "Name (First and Last)"
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +59,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
                     self.txtCity.text = data["city"]!.stringValue
                     let pic = data["profile_pic"]!.stringValue
                     if pic == "" {
-                        self.userProfile.image = UIImage.init(named: "ios_icon")
+                        self.userProfile.image = nil //UIImage.init(named: "ios_icon")
                     } else {
                         self.userProfile.kf.setImage(with: URL(string: pic))
                     }
@@ -82,7 +90,11 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
             showAlert(title: App_Title, msg: "Please Select Your Profile Image")
             boolVal = false
         } else if txtName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
-            showAlert(title: App_Title, msg: "Please Enter Username")
+            if userType == "Provider" {
+                showAlert(title: App_Title, msg: "Please Enter Business Name")
+            } else {
+                showAlert(title: App_Title, msg: "Please Enter Name (First and Last)")
+            }
             boolVal = false
         }else if txtEmail.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Email Address")

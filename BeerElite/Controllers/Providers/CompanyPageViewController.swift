@@ -39,7 +39,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         self.mapKitView.isUserInteractionEnabled = false
         
         if self.isFrom == "SignUp" {
-            self.showAlert(title: App_Title, msg: "Kindly fill up your company info before posting new jobs.")
+            self.showAlert(title: App_Title, msg: "You're one step closer to hiring an elite beer staff! Please complete company profile before posting your first job!")
         }
     }
     
@@ -142,7 +142,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                     }
                     let compPic = cData["company_image"].stringValue
                     if compPic == "" {
-                        self.companyProfile.image = UIImage.init(named: "ios_icon")
+                        self.companyProfile.image = nil //UIImage.init(named: "ios_icon")
                     } else {
                         self.companyProfile.kf.setImage(with: URL(string: compPic))
                     }

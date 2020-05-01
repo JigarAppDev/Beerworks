@@ -61,12 +61,12 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable 
             showAlert(title: App_Title, msg: "Please Enter Job Title")
             boolVal = false
         } else if txtCompanyName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
-            showAlert(title: App_Title, msg: "Please Enter Company Name")
+            showAlert(title: App_Title, msg: "Please Enter Business Name")
             boolVal = false
         }else if txtSalary.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Salary")
             boolVal = false
-        }else if txvDescription.text?.trimmingCharacters(in: .whitespaces).isEmpty == true || txvDescription.text == "Enter your text"{
+        }else if txvDescription.text?.trimmingCharacters(in: .whitespaces).isEmpty == true || txvDescription.text == "Enter job activites, responsibilities and requirements" {
             showAlert(title: App_Title, msg: "Please Enter Description")
             boolVal = false
         }
@@ -93,8 +93,8 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable 
                     self.txtJobTitle.text = ""
                     self.txtSalary.text = ""
                     self.txtCompanyName.text = ""
-                    self.txvDescription.text = "Enter your text"
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.txvDescription.text = "Enter job activites, responsibilities and requirements"
+                    self.showAlert(title: App_Title, msg: "Job Added Successfully!")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }

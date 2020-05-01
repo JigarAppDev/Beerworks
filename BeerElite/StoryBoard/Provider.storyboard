@@ -67,13 +67,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-6j-Fu9" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="290" height="108"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQV-3h-8Od">
-                                                                <rect key="frame" x="15" y="15" width="32" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQV-3h-8Od">
+                                                                <rect key="frame" x="15" y="15" width="62" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-Ea-WY2" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter job title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-Ea-WY2" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="53" width="260" height="40"/>
                                                                 <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -113,13 +113,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drj-KQ-fyz" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="138" width="290" height="108"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-qh-6vK">
-                                                                <rect key="frame" x="15" y="15" width="111" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-qh-6vK">
+                                                                <rect key="frame" x="15" y="15" width="107.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter company name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4e-IA-cyK" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter business name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4e-IA-cyK" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="53" width="260" height="40"/>
                                                                 <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -205,13 +205,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1X-D2-cvA" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="374" width="290" height="180"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAz-LU-dkc">
-                                                                <rect key="frame" x="15" y="15" width="82.5" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAz-LU-dkc">
+                                                                <rect key="frame" x="15" y="15" width="113" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MU0-u4-YJe">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter job activites, responsibilities and requirements" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MU0-u4-YJe">
                                                                 <rect key="frame" x="15" y="53" width="260" height="112"/>
                                                                 <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -383,16 +383,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-oe-fg9">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2R-uM-cni" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2R-uM-cni" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25" width="290" height="88"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B59-nX-OxZ">
-                                                                <rect key="frame" x="15" y="15" width="39" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Us!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B59-nX-OxZ">
+                                                                <rect key="frame" x="15" y="15" width="66.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SNI-BA-bW5">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Questions, Comments or Concerns." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SNI-BA-bW5">
                                                                 <rect key="frame" x="15" y="48" width="260" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="CX5-MK-7Db"/>
@@ -421,7 +421,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDj-eU-OUQ" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDj-eU-OUQ" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="60" y="454" width="200" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -444,6 +444,48 @@
                                                             <action selector="btnSendEmailWithSender:" destination="gI8-1B-K5S" eventType="touchUpInside" id="iGN-OB-luX"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZy-wJ-yy2" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="15" y="25" width="290" height="88"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiT-zu-cOm">
+                                                                <rect key="frame" x="15" y="15" width="85" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFo-tz-2C8">
+                                                                <rect key="frame" x="15" y="48" width="260" height="30"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="thebeerelite@gmail.com">
+                                                                            <attributes>
+                                                                                <font key="NSFont" metaFont="menu" size="14"/>
+                                                                                <integer key="NSUnderline" value="1"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="btnSendMailWithSender:" destination="gI8-1B-K5S" eventType="touchUpInside" id="kSZ-2C-Sd1"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="qFo-tz-2C8" firstAttribute="top" secondItem="GiT-zu-cOm" secondAttribute="bottom" constant="15" id="9d9-XO-9bO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="qFo-tz-2C8" secondAttribute="trailing" constant="15" id="DRf-3N-w5f"/>
+                                                            <constraint firstItem="qFo-tz-2C8" firstAttribute="leading" secondItem="MZy-wJ-yy2" secondAttribute="leading" constant="15" id="Fzq-07-yV9"/>
+                                                            <constraint firstItem="GiT-zu-cOm" firstAttribute="top" secondItem="MZy-wJ-yy2" secondAttribute="top" constant="15" id="HG7-6F-hCj"/>
+                                                            <constraint firstAttribute="bottom" secondItem="qFo-tz-2C8" secondAttribute="bottom" constant="10" id="SJY-Ag-gr0"/>
+                                                            <constraint firstAttribute="height" constant="88" id="Ubt-DS-XOs"/>
+                                                            <constraint firstItem="GiT-zu-cOm" firstAttribute="leading" secondItem="MZy-wJ-yy2" secondAttribute="leading" constant="15" id="cUH-TY-Baf"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -451,7 +493,10 @@
                                                     <constraint firstItem="g2R-uM-cni" firstAttribute="leading" secondItem="KRg-oe-fg9" secondAttribute="leading" constant="15" id="DsX-gT-D0a"/>
                                                     <constraint firstItem="g2R-uM-cni" firstAttribute="top" secondItem="KRg-oe-fg9" secondAttribute="top" constant="25" id="I0F-Xz-zPc"/>
                                                     <constraint firstAttribute="trailing" secondItem="g2R-uM-cni" secondAttribute="trailing" constant="15" id="W2L-Rx-RTe"/>
+                                                    <constraint firstItem="MZy-wJ-yy2" firstAttribute="leading" secondItem="KRg-oe-fg9" secondAttribute="leading" constant="15" id="l8E-EX-FeT"/>
                                                     <constraint firstItem="dDj-eU-OUQ" firstAttribute="centerX" secondItem="KRg-oe-fg9" secondAttribute="centerX" id="rSR-fU-J2A"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MZy-wJ-yy2" secondAttribute="trailing" constant="15" id="x6i-w9-oVT"/>
+                                                    <constraint firstItem="MZy-wJ-yy2" firstAttribute="top" secondItem="KRg-oe-fg9" secondAttribute="top" constant="25" id="xBn-vp-QJn"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -512,8 +557,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-dD-Rtf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68U-oA-Uyp">
-                                        <rect key="frame" x="129.5" y="17.5" width="61.5" height="21.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Candidates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68U-oA-Uyp">
+                                        <rect key="frame" x="113" y="17.5" width="94.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1403,6 +1448,14 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_camera" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-dK-3rS">
+                                                                <rect key="frame" x="95" y="89" width="100" height="100"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="2sI-hb-8Wa"/>
+                                                                    <constraint firstAttribute="height" constant="100" id="dpP-vY-RAn"/>
+                                                                </constraints>
+                                                            </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwX-E4-D5x">
                                                                 <rect key="frame" x="255" y="15" width="20" height="20"/>
                                                                 <constraints>
@@ -1414,7 +1467,7 @@
                                                                     <action selector="clkAddFilesWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="YiR-3y-ovW"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-ZC-wuK">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-ZC-wuK">
                                                                 <rect key="frame" x="15" y="43" width="260" height="192"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1429,8 +1482,10 @@
                                                             <constraint firstAttribute="bottom" secondItem="0Jr-ZC-wuK" secondAttribute="bottom" constant="15" id="7BG-Kq-5uv"/>
                                                             <constraint firstAttribute="trailing" secondItem="bwX-E4-D5x" secondAttribute="trailing" constant="15" id="D4f-of-CEE"/>
                                                             <constraint firstItem="1aJ-EL-BU5" firstAttribute="leading" secondItem="1bM-yj-kel" secondAttribute="leading" constant="15" id="Gst-Wr-0Jz"/>
+                                                            <constraint firstItem="YYS-dK-3rS" firstAttribute="centerY" secondItem="0Jr-ZC-wuK" secondAttribute="centerY" id="KPL-bd-GDA"/>
                                                             <constraint firstItem="bwX-E4-D5x" firstAttribute="top" secondItem="1bM-yj-kel" secondAttribute="top" constant="15" id="N0A-PQ-DRi"/>
                                                             <constraint firstAttribute="trailing" secondItem="0Jr-ZC-wuK" secondAttribute="trailing" constant="15" id="Plf-XH-aom"/>
+                                                            <constraint firstItem="YYS-dK-3rS" firstAttribute="centerX" secondItem="0Jr-ZC-wuK" secondAttribute="centerX" id="a8B-vZ-EPU"/>
                                                             <constraint firstItem="0Jr-ZC-wuK" firstAttribute="top" secondItem="bwX-E4-D5x" secondAttribute="bottom" constant="8" id="dA1-5a-eeV"/>
                                                             <constraint firstItem="0Jr-ZC-wuK" firstAttribute="leading" secondItem="1bM-yj-kel" secondAttribute="leading" constant="15" id="ldD-jB-wmb"/>
                                                             <constraint firstItem="1aJ-EL-BU5" firstAttribute="top" secondItem="1bM-yj-kel" secondAttribute="top" constant="15" id="xDZ-3U-hOS"/>
@@ -2151,6 +2206,7 @@
     </scenes>
     <resources>
         <image name="add" width="183" height="183"/>
+        <image name="add_camera" width="452" height="365"/>
         <image name="back_arrow" width="320" height="222"/>
         <image name="bg" width="720" height="1280"/>
         <image name="edit" width="170" height="170"/>

@@ -45,16 +45,16 @@ class ResetPasswordViewController: UIViewController, NVActivityIndicatorViewable
     func validateUser() -> Bool {
         var boolVal : Bool = true
         if txtOTP.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
-            showAlert(title: App_Title, msg: "Invalid OTP")
+            showAlert(title: App_Title, msg: "Invalid Temporary Password")
             boolVal = false
         }else if txtPassword.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Password")
             boolVal = false
         }else if txtPassword.text!.count < 6 {
-            showAlert(title: App_Title, msg: "Password should be of 6 characters atleast")
+            showAlert(title: App_Title, msg: "Password must be at least 6 characters")
             boolVal = false
         }else if txtPassword.text != txtConfirmPassword.text {
-            showAlert(title: App_Title, msg: "Confirm Password is Mismatch!")
+            showAlert(title: App_Title, msg: "Password Must Match")
             boolVal = false
         }
         return boolVal
@@ -75,7 +75,11 @@ class ResetPasswordViewController: UIViewController, NVActivityIndicatorViewable
                 if(dataObj["status"].stringValue == "1") {
                     self.showAlertNavigate(title: "OK", msg: dataObj["message"].stringValue)
                 }else{
-                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                    if dataObj["message"].stringValue == "Wrong OTP" {
+                        self.showAlert(title: App_Title, msg: "Invalid temporary password.")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    }
                 }
             }
         }

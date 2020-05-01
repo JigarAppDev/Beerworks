@@ -97,7 +97,7 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 self.navigationController?.pushViewController(msgVC, animated: true)
             } else if sender.tag == 104 {
                 //Logout
-                let alert = UIAlertController.init(title: App_Title, message: "Are you sure to make logout?", preferredStyle: .alert)
+                let alert = UIAlertController.init(title: App_Title, message: "Are you sure you want to logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
                     self.clearAllUserDefault()
                     let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController

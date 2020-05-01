@@ -51,7 +51,11 @@ class BrowseViewController: UIViewController, NVActivityIndicatorViewable {
                     self.userList = dataModel.listData
                     self.tblBrowse.reloadData()
                 }else{
-                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                    if dataObj["message"].stringValue == "No Jobs Found" {
+                        self.showAlert(title: App_Title, msg: "No Applicants Yet!")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    }
                 }
             }
         }

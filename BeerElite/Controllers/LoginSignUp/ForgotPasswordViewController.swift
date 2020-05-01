@@ -56,8 +56,8 @@ class ForgotPasswordViewController: UIViewController, NVActivityIndicatorViewabl
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
                     if (responseObject.value(forKeyPath: "message")) != nil{
-                        //self.setDefaultData(responseObject: responseObject)
-                        self.showAlertNavigate(title: App_Title, msg:  responseObject.value(forKeyPath: "message") as! String )
+                        //self.showAlertNavigate(title: App_Title, msg:  responseObject.value(forKeyPath: "message") as! String )
+                        self.showAlertNavigate(title: App_Title, msg: "Your temporary password has been emailed.")
                     }
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)

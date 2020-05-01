@@ -19,6 +19,7 @@ class JobDetailsViewController: UIViewController {
     
     var dataObj: JobsDataModel!
     var allUserData = [JSON]()
+    var selUser: JSON = JSON()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,7 @@ class JobDetailsViewController: UIViewController {
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         let cData = dataObj
+        self.selUser = JSON.init(cData)
         print(cData)
         var providertID = ""
         providertID = cData!.id!
@@ -126,6 +128,7 @@ class JobDetailsViewController: UIViewController {
             chatId = cid
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
+            contactVC.userObj = self.selUser
             contactVC.cid = chatId
             self.navigationController?.pushViewController(contactVC, animated: true)
         }

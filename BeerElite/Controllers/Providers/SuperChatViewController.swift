@@ -18,7 +18,7 @@ class SuperChatViewController: UIViewController {
     @IBOutlet weak var lastSeenLBL: UILabel!
     @IBOutlet weak var onlineView: UIView!
     
-    var userObj: JSON!
+    var userObj: JSON = JSON()
     var isFrom = ""
     var cid = ""
     var imcomingAvtar = ""

@@ -106,9 +106,18 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
                         self.setDefaultData(responseObject: responseObject)
                     }
                 }else if(dataObj["status"].stringValue == "11") {
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    if dataObj["message"].stringValue == "Unauthorised" {
+                        self.showAlert(title: App_Title, msg: "Invalid email or password.")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    }
                 } else {
-                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "error") as! String)
+                    if dataObj["error"].stringValue == "Unauthorised" {
+                        self.showAlert(title: App_Title, msg: "Invalid email or password.")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["error"].stringValue)
+                    }
+                    //self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "error") as! String)
                 }
                 
             }
@@ -242,7 +251,11 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
                         print(dataObj1)
                     } else {
                         DispatchQueue.main.async {
-                            self.showAlert(title: App_Title, msg: dataObj1["message"].stringValue)
+                            if dataObj1["message"].stringValue == "Unauthorised" {
+                                self.showAlert(title: App_Title, msg: "Invalid email or password.")
+                            } else {
+                                self.showAlert(title: App_Title, msg: dataObj1["message"].stringValue)
+                            }
                         }
                     }
                     DispatchQueue.main.async {

@@ -27,6 +27,8 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
     var jobList = [JobsDataModel]()
     var selectedJob: JobsDataModel!
     var allUserData = [JSON]()
+    var selUser: JSON = JSON()
+    var isFrom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,12 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getJobsByFilter), name: NSNotification.Name(rawValue: "GetJobsByFilter"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
         NSNotification.Name(rawValue: "createChatResponse"), object: nil)
+        
+        if self.isFrom == "SignUp" {
+            let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+            let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            self.navigationController?.pushViewController(proVC, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +143,7 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
         let token = Defaults.value(forKey: "token")as! String
         selectedJob = jobList[sender.tag]
         let cData = jobList[sender.tag]
+        self.selUser = JSON.init(cData)
         print(cData)
         var providertID = ""
         providertID = cData.id!
@@ -176,6 +185,7 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
             chatId = cid
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
+            contactVC.userObj = self.selUser
             contactVC.cid = chatId
             self.navigationController?.pushViewController(contactVC, animated: true)
         }
@@ -198,6 +208,7 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblDescr.text = obj.description
         cell.lblSubTitle.text = obj.company_name
         cell.lblWages.text = "Salary/hourly wage: " + obj.salary!
+        cell.btnChat.tag = indexPath.row
         cell.btnChat.addTarget(self, action: #selector(self.btnCreateChat(sender:)), for: .touchUpInside)
         return cell
     }

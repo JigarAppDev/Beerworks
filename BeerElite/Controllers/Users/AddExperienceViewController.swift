@@ -157,7 +157,8 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
             if responseObject != nil{
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.showAlert(title: App_Title, msg: "Experience Added Successfully")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }
@@ -189,7 +190,8 @@ class AddExperienceViewController: UIViewController, NVActivityIndicatorViewable
             if responseObject != nil{
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.showAlert(title: App_Title, msg: "Experience Edited Successfully")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }
