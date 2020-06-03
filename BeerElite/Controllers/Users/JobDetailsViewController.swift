@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import NVActivityIndicatorView
 
-class JobDetailsViewController: UIViewController {
+class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet var imgBar: UIImageView!
     @IBOutlet var lblBarName: UILabel!
@@ -29,8 +30,10 @@ class JobDetailsViewController: UIViewController {
         if allUserChatListGL != nil {
             allUserData = allUserChatListGL
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
-        NSNotification.Name(rawValue: "createChatResponse"), object: nil)
+        
+        NotificationCenter.default.removeObserver(self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:NSNotification.Name(rawValue: "createChatResponse"), object: nil)
         
         if SocketHelper.CheckSocketIsConnectOrNot() == false {
             //Connect to socket
@@ -55,22 +58,45 @@ class JobDetailsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    //MARK: Chat button click
-    @IBAction func btnChatClick(sender: UIButton) {
-        let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
-        let chatVC = proStoryBoard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        self.navigationController?.pushViewController(chatVC, animated: true)
-    }
-    
     //MARK: Apply Click
     @IBAction func btnApplyClick(sender: UIButton) {
         if dataObj.applied_by_me == "1" {
             self.showAlert(title: App_Title, msg: "You have applied for this job already.")
             return
         }
-        let applyVC = self.storyboard?.instantiateViewController(withIdentifier: "ApplyViewController") as! ApplyViewController
-        applyVC.dataObj = self.dataObj
-        self.navigationController?.pushViewController(applyVC, animated: true)
+        
+        //let applyVC = self.storyboard?.instantiateViewController(withIdentifier: "ApplyViewController") as! ApplyViewController
+        //applyVC.dataObj = self.dataObj
+        //self.navigationController?.pushViewController(applyVC, animated: true)
+        
+        self.applyForJob()
+    }
+    
+    //MARK: API Calling
+    func applyForJob() {
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(self.dataObj.jobId, forKey: "job_id")
+        
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.dataObj.applied_by_me = "1"
+                    self.showAlert(title: App_Title, msg: "Applied! Good Luck!")
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: APPLYFORJOBAPI as NSString, success: successed, failure: failure)
     }
     
     //MARK: View Company Click
@@ -83,9 +109,11 @@ class JobDetailsViewController: UIViewController {
     
     //MARK:- Chat
     @IBAction func btnCreateChat(sender: UIButton) {
+        ISCHATBOOL = false
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         let cData = dataObj
+        selectedJobGL = dataObj
         self.selUser = JSON.init(cData)
         print(cData)
         var providertID = ""
@@ -123,14 +151,16 @@ class JobDetailsViewController: UIViewController {
         print(noti)
         //Chat Created
         if let dic: NSDictionary = noti.userInfo as NSDictionary? {
+            ISCHATBOOL = false
             let json = JSON.init(dic)
             let cid = json["chat_id"].stringValue
             chatId = cid
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
-            contactVC.userObj = self.selUser
+            contactVC.userObj = JSON.init(selectedJobGL.dictionaryRepresentation()) //self.selUser
             contactVC.cid = chatId
             self.navigationController?.pushViewController(contactVC, animated: true)
+            
         }
     }
 }

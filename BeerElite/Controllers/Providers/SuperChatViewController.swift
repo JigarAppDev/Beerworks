@@ -80,14 +80,15 @@ class SuperChatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if SocketHelper.CheckSocketIsConnectOrNot() == false {
             //Connect to socket
-            SocketHelper.connectSocket()
+            //SocketHelper.connectSocket()
         }
-        cid = self.userObj["chat_id"].stringValue
+        if cid == "" {
+            cid = self.userObj["chat_id"].stringValue
+        }
         self.joinChatRoom(cid: cid)
     }
     
     func joinChatRoom(cid: String) {
-        let cid = self.userObj["chat_id"].stringValue
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         let param = ["en":JOINROOM,"user_id":"\(userid)", "user_token":"\(token)", "chat_id":cid] as [String : Any]

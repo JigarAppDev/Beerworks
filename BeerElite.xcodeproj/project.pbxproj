@@ -20,12 +20,12 @@
 		045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */; };
 		045B82C123D33F1D007BA29A /* CompanyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */; };
 		045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B82C223D3413A007BA29A /* ResumeViewController.swift */; };
-		0460A38624232DA2003FDFC1 /* appImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0460A38524232DA1003FDFC1 /* appImage.gif */; };
 		0460A389242338B6003FDFC1 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A387242338B6003FDFC1 /* LogoAnimationView.swift */; };
 		0460A38A242338B6003FDFC1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460A388242338B6003FDFC1 /* UIView+Constraints.swift */; };
 		046BB7052412602C00EA500A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7042412602C00EA500A /* SocketIOManager.swift */; };
 		046BB7072412754400EA500A /* SuperChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB7062412754400EA500A /* SuperChatViewController.swift */; };
 		046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB7082412A69B00EA500A /* GoogleService-Info.plist */; };
+		046CB3392484C9D600EA6E63 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CB3382484C9D600EA6E63 /* FavoriteViewController.swift */; };
 		0473044823EAE91D0090068A /* JobsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473044723EAE91D0090068A /* JobsModel.swift */; };
 		047B8F82240E617400361F10 /* UserListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B8F81240E617400361F10 /* UserListModels.swift */; };
 		048A91C123CC79C800BDAFC3 /* UserSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */; };
@@ -75,12 +75,12 @@
 		045B82BE23D33EA3007BA29A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		045B82C023D33F1D007BA29A /* CompanyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPageViewController.swift; sourceTree = "<group>"; };
 		045B82C223D3413A007BA29A /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
-		0460A38524232DA1003FDFC1 /* appImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = appImage.gif; sourceTree = "<group>"; };
 		0460A387242338B6003FDFC1 /* LogoAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		0460A388242338B6003FDFC1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		046BB7042412602C00EA500A /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		046BB7062412754400EA500A /* SuperChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChatViewController.swift; sourceTree = "<group>"; };
 		046BB7082412A69B00EA500A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		046CB3382484C9D600EA6E63 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		0473044723EAE91D0090068A /* JobsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsModel.swift; sourceTree = "<group>"; };
 		047B8F81240E617400361F10 /* UserListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModels.swift; sourceTree = "<group>"; };
 		048A91C023CC79C800BDAFC3 /* UserSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionViewController.swift; sourceTree = "<group>"; };
@@ -194,7 +194,6 @@
 				04A5294323CC7623003E2EDA /* Info.plist */,
 				04C941F223FA8D25003BF1D1 /* Header.h */,
 				0492EFC4245088EA00FD10B0 /* newgiflogo.gif */,
-				0460A38524232DA1003FDFC1 /* appImage.gif */,
 			);
 			path = BeerElite;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 				04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */,
 				04E982CC23D5B80600F7CC26 /* AddWebLocationViewController.swift */,
 				04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */,
+				046CB3382484C9D600EA6E63 /* FavoriteViewController.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -394,7 +394,6 @@
 				04EC734223D085810076666A /* Provider.storyboard in Resources */,
 				04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */,
 				0492EFC5245088EA00FD10B0 /* newgiflogo.gif in Resources */,
-				0460A38624232DA2003FDFC1 /* appImage.gif in Resources */,
 				04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */,
 				046BB7092412A69C00EA500A /* GoogleService-Info.plist in Resources */,
 				04A5293D23CC7620003E2EDA /* Main.storyboard in Resources */,
@@ -478,6 +477,7 @@
 				048A91CB23CC7A1D00BDAFC3 /* ResetPasswordViewController.swift in Sources */,
 				047B8F82240E617400361F10 /* UserListModels.swift in Sources */,
 				04EC734C23D08E0C0076666A /* FilterViewController.swift in Sources */,
+				046CB3392484C9D600EA6E63 /* FavoriteViewController.swift in Sources */,
 				04EC734823D086900076666A /* ProviderHomeViewController.swift in Sources */,
 				048A91C923CC7A1100BDAFC3 /* ForgotPasswordViewController.swift in Sources */,
 				048A91D423CC833D00BDAFC3 /* ServiceCall.swift in Sources */,

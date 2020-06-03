@@ -16,9 +16,9 @@ class UserSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(logoAnimationView)
-        logoAnimationView.pinEdgesToSuperView()
-        logoAnimationView.logoGifImageView.delegate = self
+        //view.addSubview(logoAnimationView)
+        //logoAnimationView.pinEdgesToSuperView()
+        //logoAnimationView.logoGifImageView.delegate = self
 
         //Checked for already login user with type of user
         let isLoggedIn = Defaults.bool(forKey: "is_logged_in")
@@ -41,7 +41,7 @@ class UserSelectionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        logoAnimationView.logoGifImageView.startAnimatingGif()
+        //logoAnimationView.logoGifImageView.startAnimatingGif()
     }
     
     //MARK: Select Type

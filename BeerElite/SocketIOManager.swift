@@ -60,6 +60,7 @@ struct SocketHelper {
                 print(dataObj)
                 allUserChatListGL = dataObj
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateList"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetUnreadCount"), object: nil)
             }
             
             //JOIN ROOM
@@ -113,9 +114,12 @@ struct SocketHelper {
             //CREATE CHAT
             if responseObj["en"].stringValue == CREATECHAT && responseObj["status_code"].stringValue == "1" {
                 print(responseObj)
+                if ISCHATBOOL == false {
                 let dataObj = JSON.init(responseObj)
                 let obj = ["chat_id":dataObj["chat_id"].stringValue]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "createChatResponse"), object: nil, userInfo: obj)
+                    ISCHATBOOL = true
+                }
             }
         }
     }

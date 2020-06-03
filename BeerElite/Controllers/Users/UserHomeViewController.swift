@@ -18,6 +18,7 @@ class tblJobsListCell: UITableViewCell {
     @IBOutlet var lblSubTitle: UILabel!
     @IBOutlet var lblDescr: UILabel!
     @IBOutlet var lblWages: UILabel!
+    @IBOutlet var lblDate: UILabel!
     @IBOutlet var btnChat: UIButton!
 }
 
@@ -29,6 +30,7 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
     var allUserData = [JSON]()
     var selUser: JSON = JSON()
     var isFrom = ""
+    var isNav = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,9 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
         self.tblJobsList.estimatedRowHeight = 150
         self.tblJobsList.rowHeight = UITableView.automaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(self.getJobsByFilter), name: NSNotification.Name(rawValue: "GetJobsByFilter"), object: nil)
+        
+        NotificationCenter.default.removeObserver(self)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
         NSNotification.Name(rawValue: "createChatResponse"), object: nil)
         
@@ -48,6 +53,7 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        isNav = false
         if allUserChatListGL != nil {
             allUserData = allUserChatListGL
         }
@@ -139,9 +145,11 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK:- Chat
     @objc func btnCreateChat(sender:UIButton) {
+        ISCHATBOOL = false
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         selectedJob = jobList[sender.tag]
+        selectedJobGL = jobList[sender.tag]
         let cData = jobList[sender.tag]
         self.selUser = JSON.init(cData)
         print(cData)
@@ -179,15 +187,23 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
     @objc func createChatResponse(noti: NSNotification) {
         print(noti)
         //Chat Created
+        var isSB = false
         if let dic: NSDictionary = noti.userInfo as NSDictionary? {
+            ISCHATBOOL = false
             let json = JSON.init(dic)
             let cid = json["chat_id"].stringValue
             chatId = cid
+            if isSB == false {
+                isSB = true
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
-            contactVC.userObj = self.selUser
+            contactVC.userObj = JSON.init(selectedJobGL.dictionaryRepresentation())
             contactVC.cid = chatId
-            self.navigationController?.pushViewController(contactVC, animated: true)
+            if isNav == false {
+                isNav = true
+                self.navigationController?.pushViewController(contactVC, animated: true)
+            }
+            }
         }
     }
 }
@@ -210,6 +226,19 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblWages.text = "Salary/hourly wage: " + obj.salary!
         cell.btnChat.tag = indexPath.row
         cell.btnChat.addTarget(self, action: #selector(self.btnCreateChat(sender:)), for: .touchUpInside)
+        
+        let msgTime = obj.created_at
+        let dateFormatter = DateFormatter()
+        let tempLocale = dateFormatter.locale // save locale temporarily
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if msgTime != "" {
+            let date = dateFormatter.date(from: msgTime!)!
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            dateFormatter.locale = tempLocale // reset the locale
+            let lastSeenString = Date().timeAgo(from: date)
+            print(lastSeenString)
+            cell.lblDate.text = "\(lastSeenString)"
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

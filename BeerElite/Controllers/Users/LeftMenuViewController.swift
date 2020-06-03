@@ -18,19 +18,52 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var btnMenu3: UIButton!
     @IBOutlet var btnMenu4: UIButton!
     @IBOutlet var btnMenu5: UIButton!
+    @IBOutlet var btnMenu6: UIButton!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblEmail: UILabel!
     @IBOutlet var btnCity: UIButton!
     @IBOutlet var imgProfile: UIImageView!
     
+    var msgCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadMessageCount), name: NSNotification.Name(rawValue: "GetUnreadCount"), object: nil)
+        
+        self.btnCity.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.setupUI()
+        
+        if SocketHelper.CheckSocketIsConnectOrNot() {
+            SocketHelper.getUserList()
+        } else {
+            SocketHelper.connectSocket()
+        }
+    }
+    
+    @objc func getUnreadMessageCount() {
+        self.msgCount = 0
+        for data in allUserChatListGL {
+            var unreadCount = data["unread_count"].intValue
+            //Check for msg count visibility
+            let userid = Defaults.value(forKey: "user_id") as! String
+            if let msgBy: String = data["message_by"].stringValue {
+                if userid == msgBy {
+                    unreadCount = 0
+                } else {
+                    //Add it
+                    self.msgCount = self.msgCount + unreadCount
+                }
+            }
+        }
+        
+        if self.msgCount > 0 {
+            self.btnMenu3.setTitle("Messages (\(self.msgCount))", for: .normal)
+        }
     }
 
     func setupUI() {
@@ -54,10 +87,12 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         self.btnMenu3.isHidden = false
         //self.btnMenu4.isHidden = false
         self.btnMenu5.isHidden = false
+        self.btnMenu6.isHidden = false
         
         if userType == "User" {
             self.btnMenu4.isHidden = true
             self.btnMenu5.isHidden = true
+            self.btnMenu6.isHidden = true
             self.btnMenu1.setTitle("Job List", for: .normal)
             self.btnMenu2.setTitle("My Resume", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
@@ -66,15 +101,17 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.btnMenu2.setTitle("Candidates", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
             self.btnMenu4.setTitle("My Postings", for: .normal)
-            self.btnMenu5.setTitle("Company Page", for: .normal)
+            self.btnMenu5.setTitle("Company Profile", for: .normal)
         }
     }
     
     //MARK: gotoProfile
     @IBAction func btnOpenProfile(sender: UIButton) {
-        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        self.navigationController?.pushViewController(proVC, animated: true)
+        if userType == "User" {
+            let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+            let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            self.navigationController?.pushViewController(proVC, animated: true)
+        }
     }
     
     //MARK: Left Menu Click Events
@@ -149,6 +186,10 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 //Company Page
                 let pageVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
                 self.navigationController?.pushViewController(pageVC, animated: true)
+            } else if sender.tag == 108 {
+                //Favorites
+                let favVC = proStoryBoard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+                self.navigationController?.pushViewController(favVC, animated: true)
             }
         }
     }
@@ -192,6 +233,12 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         Defaults.removeObject(forKey: "user_city")
         Defaults.removeObject(forKey: "deviceId")
         Defaults.removeObject(forKey: "profile_pic")
+        if allUserChatListGL != nil {
+            allUserChatListGL.removeAll()
+        }
+        if lastUserChatMsgGL != nil {
+            lastUserChatMsgGL.removeAll()
+        }
         Defaults.synchronize()
     }
 }

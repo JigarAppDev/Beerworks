@@ -18,23 +18,23 @@
             <objects>
                 <viewController storyboardIdentifier="UserSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="UserSelectionViewController" customModule="BeerElite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="oMc-qU-H40">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUx-aB-9l8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-AX-GMA">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-lQ-bey">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="574"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIe-sI-7YY">
-                                                        <rect key="frame" x="20" y="504" width="280" height="40"/>
+                                                        <rect key="frame" x="20" y="590" width="280" height="40"/>
                                                         <color key="backgroundColor" red="0.96078431372549022" green="0.89411764705882346" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="oj0-aK-Por"/>
@@ -53,7 +53,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-9q-bfz">
-                                                        <rect key="frame" x="20" y="444" width="280" height="40"/>
+                                                        <rect key="frame" x="20" y="530" width="280" height="40"/>
                                                         <color key="backgroundColor" red="0.87450980392156863" green="0.65490196078431373" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="wdA-0o-59q"/>
@@ -77,14 +77,11 @@
                                                             <constraint firstAttribute="width" secondItem="79c-Bi-GwD" secondAttribute="height" multiplier="60:53" id="fat-FE-7fP"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Elite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKZ-n7-6Cm">
-                                                        <rect key="frame" x="105" y="297" width="110" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ri2-4b-wZG">
-                                                        <rect key="frame" x="20" y="352" width="280" height="72"/>
+                                                        <rect key="frame" x="20" y="412" width="280" height="72"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="72" id="zoJ-v2-sEU"/>
+                                                        </constraints>
                                                         <string key="text">Connecting breweries, bar owners,
 and restaurants with quality 
 craft beer candidates.</string>
@@ -92,25 +89,31 @@ craft beer candidates.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="5Zr-0z-4Dh">
+                                                        <rect key="frame" x="20" y="262" width="280" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="5Zr-0z-4Dh" secondAttribute="height" multiplier="28:15" id="prv-Wu-LFe"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="AFB-9q-bfz" secondAttribute="trailing" constant="20" id="2jO-E3-dBh"/>
-                                                    <constraint firstAttribute="bottom" secondItem="MIe-sI-7YY" secondAttribute="bottom" constant="30" id="6dh-b7-h3L"/>
-                                                    <constraint firstItem="79c-Bi-GwD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cwA-lQ-bey" secondAttribute="top" constant="50" id="8bg-yi-rxX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MIe-sI-7YY" secondAttribute="bottom" constant="20" id="6dh-b7-h3L"/>
+                                                    <constraint firstItem="5Zr-0z-4Dh" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="8Cx-1e-Of6"/>
+                                                    <constraint firstItem="79c-Bi-GwD" firstAttribute="top" secondItem="cwA-lQ-bey" secondAttribute="top" constant="50" id="8bg-yi-rxX"/>
                                                     <constraint firstAttribute="trailing" secondItem="79c-Bi-GwD" secondAttribute="trailing" constant="40" id="CPy-7q-E0y"/>
-                                                    <constraint firstItem="AFB-9q-bfz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ri2-4b-wZG" secondAttribute="bottom" constant="20" id="F0V-XK-ner"/>
+                                                    <constraint firstItem="AFB-9q-bfz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ri2-4b-wZG" secondAttribute="bottom" constant="15" id="F0V-XK-ner"/>
                                                     <constraint firstItem="ri2-4b-wZG" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="FFu-AH-1n1"/>
-                                                    <constraint firstItem="ri2-4b-wZG" firstAttribute="top" secondItem="sKZ-n7-6Cm" secondAttribute="bottom" constant="25" id="HJE-Qp-NqP"/>
                                                     <constraint firstItem="MIe-sI-7YY" firstAttribute="top" secondItem="AFB-9q-bfz" secondAttribute="bottom" constant="20" id="Q8B-80-5Ak"/>
                                                     <constraint firstItem="79c-Bi-GwD" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="40" id="U26-tb-DKI"/>
-                                                    <constraint firstItem="sKZ-n7-6Cm" firstAttribute="top" secondItem="79c-Bi-GwD" secondAttribute="bottom" constant="35" id="azv-Rz-dv2"/>
                                                     <constraint firstItem="MIe-sI-7YY" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="bhU-TC-4eZ"/>
-                                                    <constraint firstItem="sKZ-n7-6Cm" firstAttribute="centerX" secondItem="cwA-lQ-bey" secondAttribute="centerX" id="iTt-jT-IVY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5Zr-0z-4Dh" secondAttribute="trailing" constant="20" id="d6E-Wg-6Wg"/>
+                                                    <constraint firstItem="5Zr-0z-4Dh" firstAttribute="top" secondItem="79c-Bi-GwD" secondAttribute="bottom" id="iSv-jE-47w"/>
                                                     <constraint firstItem="AFB-9q-bfz" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="ib5-j6-bLS"/>
                                                     <constraint firstAttribute="trailing" secondItem="ri2-4b-wZG" secondAttribute="trailing" constant="20" id="jzb-k2-ZuN"/>
                                                     <constraint firstAttribute="trailing" secondItem="MIe-sI-7YY" secondAttribute="trailing" constant="20" id="oNO-Zx-Tnr"/>
-                                                    <constraint firstItem="sKZ-n7-6Cm" firstAttribute="centerY" secondItem="cwA-lQ-bey" secondAttribute="centerY" constant="25" id="rSI-wU-6Oy"/>
+                                                    <constraint firstItem="ri2-4b-wZG" firstAttribute="top" secondItem="5Zr-0z-4Dh" secondAttribute="bottom" id="ujA-eR-hCC"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -147,10 +150,11 @@ craft beer candidates.</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qbp-ju-odL"/>
+                    <size key="freeformSize" width="320" height="650"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="136"/>
+            <point key="canvasLocation" x="-504.375" y="135.21126760563379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l9y-B9-BNz">
@@ -1420,6 +1424,7 @@ craft beer candidates.</string>
         <image name="get_in_started0" width="498" height="444"/>
         <image name="get_in_started_1" width="497" height="441"/>
         <image name="ios_icon" width="1024" height="1024"/>
+        <image name="ios_icon_white" width="1024" height="1024"/>
         <image name="password" width="177" height="170"/>
         <image name="user" width="150" height="150"/>
     </resources>

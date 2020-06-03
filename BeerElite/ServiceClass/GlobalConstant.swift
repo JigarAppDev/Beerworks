@@ -39,6 +39,9 @@ let UPDATECOMPANYAPI               = "update_company_page"
 let UPDATEPROFILEAPI               = "update_profile"
 let LISTMYPOSTSAPI                 = "list_jobs_company"
 let DELETEJOBAPI                   = "delete_job"
+let UPDATEJOBAPI                   = "edit_job"
+let LISTFAVORITEAPI                = "list_my_favorite"
+let ADDTOFAVORITEAPI               = "add_favorite"
 
 //Users
 let GETJOBLIST                     = "list_jobs"
@@ -57,6 +60,7 @@ let APPLYFORJOBBYUSERAPI           = "apply_job_user"
 let ADDSUPPORTAPI                  = "add_support_mail"
 let EDITEDUCATIONAPI               = "edit_education"
 let EDITEXPERIENCEAPI              = "edit_experiance"
+let ADDRESUMEAPI                   = "add_resume"
 
 //MARK: Global Variables
 var userType = ""
@@ -74,6 +78,8 @@ var TOTALMESSAGECOUNT = 0
 var allUserChatListGL = [JSON]()
 var lastUserChatMsgGL: [JSON]!
 var lastSentMsgGL: JSON!
+var selectedJobGL: JobsDataModel!
+var selectedObjGL: UserDataModel!
 
 //SOCKET API
 let REGISTERSOCKET                 = "socket_register"
@@ -85,6 +91,7 @@ let SENDMSG                        = "send_msg"
 let LEFTROOM                       = "room_user_left"
 let SENDMSGUPDATE                  = "real_chat_update"
 
+var ISCHATBOOL = false
 var chatId = ""
 var DEVICETOKEN = ""
 

@@ -29,6 +29,9 @@ class NotificationsViewController: UIViewController, NVActivityIndicatorViewable
         self.tblNotification.estimatedRowHeight = 90
         self.tblNotification.rowHeight = UITableView.automaticDimension
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.getMyPostList()
     }
     
@@ -112,10 +115,33 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
+            //let obj = self.jobList[indexPath.row]
+            //self.deleteJobById(jobId: obj.jobId!, index: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+            //To edit the row at indexPath here
+            print("Edit")
+            let postVC = self.storyboard?.instantiateViewController(withIdentifier: "ProviderHomeViewController") as! ProviderHomeViewController
+            postVC.isFrom = "Update"
+            postVC.jobObj = self.jobList[indexPath.row]
+            self.navigationController?.pushViewController(postVC, animated: true)
+        }
+        editAction.backgroundColor = .blue
+
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
+            //To Delete the row at indexPath here
+            print("Delete")
             let obj = self.jobList[indexPath.row]
             self.deleteJobById(jobId: obj.jobId!, index: indexPath)
         }
+        deleteAction.backgroundColor = .red
+
+        return [deleteAction, editAction]
     }
 }

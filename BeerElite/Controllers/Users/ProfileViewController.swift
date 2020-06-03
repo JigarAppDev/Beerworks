@@ -17,24 +17,42 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtCity: UITextField!
+    @IBOutlet var txtCurrOcupation: UITextField!
     @IBOutlet var userProfile: UIImageView!
+    @IBOutlet var userProButton: UIButton!
+    @IBOutlet var updateButton: UIButton!
+    
     var selectedImage = UIImage()
+    var isFrom = ""
+    var userId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if userType == "Provider" {
-            self.txtName.placeholder = "Business Name"
-            self.lblName.text = "Business Name"
-        } else {
+        if self.isFrom == "Chat" {
             self.txtName.placeholder = "Name (First and Last)"
             self.lblName.text = "Name (First and Last)"
+            self.updateButton.isHidden = true
+            self.userProButton.isHidden = true
+            self.txtName.isUserInteractionEnabled = false
+            self.txtEmail.isUserInteractionEnabled = false
+            self.txtCity.isUserInteractionEnabled = false
+            self.txtCurrOcupation.isUserInteractionEnabled = false
+        } else {
+            self.userId = Defaults.value(forKey: "user_id") as! String
+            if userType == "Provider" {
+                self.txtName.placeholder = "Business Name"
+                self.lblName.text = "Business Name"
+            } else {
+                self.txtName.placeholder = "Name (First and Last)"
+                self.lblName.text = "Name (First and Last)"
+            }
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.getProfileInfo()
+        self.getProfileInfo(uid: self.userId)
     }
     
     // MARK: - Back Click
@@ -43,10 +61,9 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
     }
     
     //MARK: Get Profile Info
-    func getProfileInfo() {
+    func getProfileInfo(uid: String) {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
-        let uid = Defaults.value(forKey: "user_id") as? String
         param.setValue(uid, forKey: "user_id")
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
@@ -57,6 +74,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
                     self.txtName.text = data["username"]!.stringValue
                     self.txtEmail.text = data["email"]!.stringValue
                     self.txtCity.text = data["city"]!.stringValue
+                    self.txtCurrOcupation.text = data["current_occupation"]!.stringValue
                     let pic = data["profile_pic"]!.stringValue
                     if pic == "" {
                         self.userProfile.image = nil //UIImage.init(named: "ios_icon")
@@ -103,19 +121,24 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
             showAlert(title: App_Title, msg: "Please Enter Valid Email")
             boolVal = false
         }else if txtCity.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
-            showAlert(title: App_Title, msg: "Please Enter City")
+            showAlert(title: App_Title, msg: "Please Enter City, State & Zip")
+            boolVal = false
+        }else if txtCurrOcupation.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Your Current Occupation")
             boolVal = false
         }
         return boolVal
     }
     
     //MARK: - Make Update Profile
-    func updateProfileAPI(){
+    func updateProfileAPI() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
         param.setValue(self.txtName.text!, forKey: "username")
         param.setValue(self.txtEmail.text!, forKey: "email")
         param.setValue(self.txtCity.text!, forKey: "city")
+        param.setValue(self.txtCurrOcupation.text!, forKey: "current_occupation")
+        
         let profileArray : NSMutableDictionary =  NSMutableDictionary()
         if self.selectedImage != nil {
             profileArray.setValue(self.selectedImage, forKey: "profile_pic")
@@ -129,6 +152,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
                     if (responseObject.value(forKeyPath: "data")) != nil{
                         self.setDefaultData(responseObject: responseObject)
                     }
+                    self.showAlert(title: App_Title, msg: "My Profile Saved!")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }

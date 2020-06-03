@@ -77,6 +77,15 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RZ8-or-6Lo">
+                                                            <rect key="frame" x="15" y="111.5" width="50" height="13.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="13.5" id="LiL-7m-XTT"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jV-05-ezf">
                                                             <rect key="frame" x="255" y="15" width="20" height="18"/>
                                                             <constraints>
@@ -94,10 +103,12 @@
                                                         <constraint firstItem="lKz-Zb-n1a" firstAttribute="top" secondItem="0hA-bj-abV" secondAttribute="bottom" constant="5" id="U4I-hX-cT0"/>
                                                         <constraint firstAttribute="trailing" secondItem="WUZ-2L-wJC" secondAttribute="trailing" constant="15" id="U9U-Xy-RpT"/>
                                                         <constraint firstAttribute="bottom" secondItem="WUZ-2L-wJC" secondAttribute="bottom" constant="15" id="VQA-fv-KVb"/>
+                                                        <constraint firstItem="RZ8-or-6Lo" firstAttribute="centerY" secondItem="WUZ-2L-wJC" secondAttribute="centerY" id="Wen-U3-sjs"/>
                                                         <constraint firstItem="0hA-bj-abV" firstAttribute="leading" secondItem="UJ5-EU-DLM" secondAttribute="trailing" constant="15" id="Yn0-xL-3c3"/>
                                                         <constraint firstItem="0hA-bj-abV" firstAttribute="top" secondItem="UJ5-EU-DLM" secondAttribute="top" id="gsb-yF-biS"/>
                                                         <constraint firstItem="6jV-05-ezf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0hA-bj-abV" secondAttribute="trailing" constant="10" id="iBQ-J2-ppp"/>
                                                         <constraint firstItem="UJ5-EU-DLM" firstAttribute="top" secondItem="1ZB-vo-FKo" secondAttribute="top" constant="15" id="iLS-T6-fUB"/>
+                                                        <constraint firstItem="RZ8-or-6Lo" firstAttribute="leading" secondItem="1ZB-vo-FKo" secondAttribute="leading" constant="15" id="o63-s7-Hmn"/>
                                                         <constraint firstAttribute="trailing" secondItem="40i-93-MTj" secondAttribute="trailing" constant="15" id="tc2-GG-LLy"/>
                                                         <constraint firstItem="WUZ-2L-wJC" firstAttribute="top" secondItem="40i-93-MTj" secondAttribute="bottom" constant="8" id="uHy-lf-Fgb"/>
                                                         <constraint firstItem="40i-93-MTj" firstAttribute="leading" secondItem="1ZB-vo-FKo" secondAttribute="leading" constant="15" id="vth-c4-nhr"/>
@@ -124,6 +135,7 @@
                                         <connections>
                                             <outlet property="btnChat" destination="6jV-05-ezf" id="cb3-ck-wir"/>
                                             <outlet property="imgProfile" destination="UJ5-EU-DLM" id="nkp-uw-JIl"/>
+                                            <outlet property="lblDate" destination="RZ8-or-6Lo" id="Wvz-cq-ulw"/>
                                             <outlet property="lblDescr" destination="40i-93-MTj" id="1iQ-1y-Iw2"/>
                                             <outlet property="lblSubTitle" destination="lKz-Zb-n1a" id="gZq-nf-6mh"/>
                                             <outlet property="lblTitle" destination="0hA-bj-abV" id="BcN-Fa-wld"/>
@@ -265,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="1736"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="hoO-AF-xtQ">
-                                    <rect key="frame" x="0.0" y="1807" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="2067" width="320" height="150"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtN-80-Upv" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
@@ -286,6 +298,9 @@
                                                     <real key="value" value="25"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="submitResumePhotoWithSender:" destination="Roh-0g-NiE" eventType="touchUpInside" id="dF5-Xa-Z7X"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nI0-kP-Wvj" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                             <rect key="frame" x="15" y="0.0" width="290" height="135"/>
@@ -418,10 +433,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7b-v5-2vA" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                            <rect key="frame" x="95" y="190" width="100" height="25"/>
+                                                            <rect key="frame" x="70" y="190" width="150" height="25"/>
                                                             <color key="backgroundColor" red="0.99154418710000003" green="0.65787959100000004" blue="0.2028020918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="5sB-rw-FKx"/>
+                                                                <constraint firstAttribute="width" constant="150" id="5sB-rw-FKx"/>
                                                                 <constraint firstAttribute="height" constant="25" id="Ccv-CR-01F"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
@@ -1424,6 +1439,165 @@
                                             <outlet property="tblEduHeight" destination="Ghh-Hv-rCA" id="KhX-dl-yKc"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoResumeCell" rowHeight="260" id="c2r-FD-17D" customClass="PhotoResumeCell" customModule="BeerElite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1779" width="320" height="260"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c2r-FD-17D" id="RIy-8L-p43">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9IB-58-m6p" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="115"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aG7-zU-36T">
+                                                            <rect key="frame" x="15" y="15" width="116" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5o-Rw-TSq" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="60" width="260" height="40"/>
+                                                            <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="Im7-f1-yx7"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                            <state key="normal" title="Upload photo">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="clkAddImagesWithSender:" destination="Qtb-Tm-6XS" eventType="touchUpInside" id="9Cb-vr-1Rx"/>
+                                                            </connections>
+                                                        </button>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_photo" translatesAutoresizingMaskIntoConstraints="NO" id="NVV-H7-wKK">
+                                                            <rect key="frame" x="70" y="60" width="20" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="fDm-zl-Jgd"/>
+                                                                <constraint firstAttribute="width" constant="20" id="xfx-bO-76N"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected file name will be display here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ArP-zi-k7K">
+                                                            <rect key="frame" x="15" y="38" width="260" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ArP-zi-k7K" firstAttribute="top" secondItem="aG7-zU-36T" secondAttribute="bottom" constant="5" id="1th-er-95A"/>
+                                                        <constraint firstItem="aG7-zU-36T" firstAttribute="leading" secondItem="9IB-58-m6p" secondAttribute="leading" constant="15" id="70g-Mq-wfU"/>
+                                                        <constraint firstItem="O5o-Rw-TSq" firstAttribute="leading" secondItem="9IB-58-m6p" secondAttribute="leading" constant="15" id="Nb4-xA-6tT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="O5o-Rw-TSq" secondAttribute="bottom" constant="15" id="Sfi-wv-PuL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O5o-Rw-TSq" secondAttribute="trailing" constant="15" id="btH-rM-2fb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ArP-zi-k7K" secondAttribute="trailing" constant="15" id="k6L-19-k4Z"/>
+                                                        <constraint firstAttribute="height" constant="115" id="mkb-7N-PeD"/>
+                                                        <constraint firstItem="aG7-zU-36T" firstAttribute="top" secondItem="9IB-58-m6p" secondAttribute="top" constant="15" id="p1j-Xn-7As"/>
+                                                        <constraint firstItem="NVV-H7-wKK" firstAttribute="bottom" secondItem="O5o-Rw-TSq" secondAttribute="bottom" id="qTY-zx-Htb"/>
+                                                        <constraint firstItem="ArP-zi-k7K" firstAttribute="leading" secondItem="aG7-zU-36T" secondAttribute="leading" id="rIC-mi-HwY"/>
+                                                        <constraint firstItem="NVV-H7-wKK" firstAttribute="top" secondItem="O5o-Rw-TSq" secondAttribute="top" id="sHW-Sz-wg2"/>
+                                                        <constraint firstItem="NVV-H7-wKK" firstAttribute="centerX" secondItem="O5o-Rw-TSq" secondAttribute="centerX" constant="-65" id="ymH-pn-gnO"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nud-NC-osm" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="130" width="290" height="115"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach resume (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-i8-Xp3">
+                                                            <rect key="frame" x="15" y="15" width="178" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected file name will be display here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I9X-JY-kJm">
+                                                            <rect key="frame" x="15" y="38" width="260" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivY-2y-jjH" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                            <rect key="frame" x="15" y="60" width="260" height="40"/>
+                                                            <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="c2u-Gx-kHU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                            <state key="normal" title="Upload resume">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="clkAddFilesWithSender:" destination="Qtb-Tm-6XS" eventType="touchUpInside" id="5zh-F3-ipH"/>
+                                                            </connections>
+                                                        </button>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_photo" translatesAutoresizingMaskIntoConstraints="NO" id="ptT-tB-Ae5">
+                                                            <rect key="frame" x="65" y="60" width="20" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="WpJ-0f-C4M"/>
+                                                                <constraint firstAttribute="width" constant="20" id="rta-mA-TUz"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ptT-tB-Ae5" firstAttribute="bottom" secondItem="ivY-2y-jjH" secondAttribute="bottom" id="BAA-zu-SwF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="I9X-JY-kJm" secondAttribute="trailing" constant="15" id="BrV-0s-xB0"/>
+                                                        <constraint firstItem="ptT-tB-Ae5" firstAttribute="centerX" secondItem="ivY-2y-jjH" secondAttribute="centerX" constant="-70" id="Eql-aI-sWl"/>
+                                                        <constraint firstItem="QVD-i8-Xp3" firstAttribute="leading" secondItem="Nud-NC-osm" secondAttribute="leading" constant="15" id="FYH-Kq-YGF"/>
+                                                        <constraint firstItem="ivY-2y-jjH" firstAttribute="leading" secondItem="Nud-NC-osm" secondAttribute="leading" constant="15" id="GNj-RO-UCK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ivY-2y-jjH" secondAttribute="bottom" constant="15" id="HQl-LK-LiY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ivY-2y-jjH" secondAttribute="trailing" constant="15" id="M0X-fp-tMq"/>
+                                                        <constraint firstAttribute="height" constant="115" id="VRx-1L-98A"/>
+                                                        <constraint firstItem="I9X-JY-kJm" firstAttribute="leading" secondItem="QVD-i8-Xp3" secondAttribute="leading" id="a98-Xi-mmH"/>
+                                                        <constraint firstItem="ptT-tB-Ae5" firstAttribute="top" secondItem="ivY-2y-jjH" secondAttribute="top" id="hhF-rr-pmz"/>
+                                                        <constraint firstItem="I9X-JY-kJm" firstAttribute="top" secondItem="QVD-i8-Xp3" secondAttribute="bottom" constant="5" id="iPt-wO-ZI3"/>
+                                                        <constraint firstItem="QVD-i8-Xp3" firstAttribute="top" secondItem="Nud-NC-osm" secondAttribute="top" constant="15" id="oCA-Eq-8fj"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="9IB-58-m6p" firstAttribute="leading" secondItem="RIy-8L-p43" secondAttribute="leading" constant="15" id="aIl-F4-Rog"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nud-NC-osm" secondAttribute="bottom" constant="15" id="bG0-PI-zLP"/>
+                                                <constraint firstAttribute="trailing" secondItem="9IB-58-m6p" secondAttribute="trailing" constant="15" id="fkn-Gc-PSr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nud-NC-osm" secondAttribute="trailing" constant="15" id="jCK-Fr-roi"/>
+                                                <constraint firstItem="9IB-58-m6p" firstAttribute="top" secondItem="RIy-8L-p43" secondAttribute="top" id="vDX-iS-Uxc"/>
+                                                <constraint firstItem="Nud-NC-osm" firstAttribute="top" secondItem="9IB-58-m6p" secondAttribute="bottom" constant="15" id="wUh-He-tg6"/>
+                                                <constraint firstItem="Nud-NC-osm" firstAttribute="leading" secondItem="RIy-8L-p43" secondAttribute="leading" constant="15" id="yLi-Wx-wQz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btnPhoto" destination="O5o-Rw-TSq" id="DnQ-Ki-maJ"/>
+                                            <outlet property="btnResume" destination="ivY-2y-jjH" id="oRd-pt-Bls"/>
+                                            <outlet property="lblPhotoName" destination="ArP-zi-k7K" id="9Yn-Sm-Geo"/>
+                                            <outlet property="lblResumeName" destination="I9X-JY-kJm" id="dfk-5Z-1QQ"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Roh-0g-NiE" id="VVa-qr-7VQ"/>
@@ -1449,6 +1623,7 @@
                     </view>
                     <size key="freeformSize" width="320" height="1800"/>
                     <connections>
+                        <outlet property="bottomSubView" destination="nI0-kP-Wvj" id="YVA-rX-waI"/>
                         <outlet property="bottomView" destination="hoO-AF-xtQ" id="ZfP-Uh-Eru"/>
                         <outlet property="btnBack" destination="Nv9-fU-knJ" id="aQl-Em-HOT"/>
                         <outlet property="btnMenu" destination="hiw-vC-ob7" id="EQF-1m-LA7"/>
@@ -4016,11 +4191,11 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lvb-9p-8by" customClass="ProfileViewController" customModule="BeerElite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y6p-uK-am6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Xdf-AU-UOW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtY-Ds-96g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -4054,13 +4229,13 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 <viewLayoutGuide key="safeArea" id="WdH-PL-7Ps"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7T-Yd-Aq5">
-                                <rect key="frame" x="0.0" y="44" width="320" height="656"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="726"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-kv-byf">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="656"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="726"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alK-kb-ipD">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="656"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="726"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAM-hY-Lwx" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="290" height="125"/>
@@ -4203,7 +4378,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMv-De-fUx" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="576" width="200" height="50"/>
+                                                        <rect key="frame" x="60" y="646" width="200" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="6ab-QY-672"/>
@@ -4228,13 +4403,13 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPL-fy-Q5U" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="390" width="290" height="100"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwJ-Og-0Rd">
-                                                                <rect key="frame" x="15" y="15" width="29" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State and Zip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwJ-Og-0Rd">
+                                                                <rect key="frame" x="15" y="15" width="131.5" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CU0-Al-r3Q" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your city, state and zip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CU0-Al-r3Q" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="45" width="260" height="40"/>
                                                                 <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -4271,19 +4446,69 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1Z-Wx-Dyz" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="15" y="505" width="290" height="108"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb6-Yc-D0S">
+                                                                <rect key="frame" x="15" y="15" width="138.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your current occupation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n1w-dJ-CJk" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="53" width="260" height="40"/>
+                                                                <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="y6y-bi-Xdq"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Mb6-Yc-D0S" firstAttribute="leading" secondItem="n1Z-Wx-Dyz" secondAttribute="leading" constant="15" id="1qs-vN-eM7"/>
+                                                            <constraint firstItem="n1w-dJ-CJk" firstAttribute="leading" secondItem="n1Z-Wx-Dyz" secondAttribute="leading" constant="15" id="F1R-WC-FAo"/>
+                                                            <constraint firstAttribute="height" constant="108" id="Mnn-Jy-sEA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="n1w-dJ-CJk" secondAttribute="trailing" constant="15" id="Qs8-qN-fBr"/>
+                                                            <constraint firstAttribute="bottom" secondItem="n1w-dJ-CJk" secondAttribute="bottom" constant="15" id="gE0-Me-EWh"/>
+                                                            <constraint firstItem="Mb6-Yc-D0S" firstAttribute="top" secondItem="n1Z-Wx-Dyz" secondAttribute="top" constant="15" id="yjd-uI-zUq"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="RMv-De-fUx" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="60" id="5Sw-5S-StG"/>
+                                                    <constraint firstItem="RMv-De-fUx" firstAttribute="top" secondItem="n1Z-Wx-Dyz" secondAttribute="bottom" constant="33" id="6kg-AY-6qM"/>
                                                     <constraint firstAttribute="trailing" secondItem="rPL-fy-Q5U" secondAttribute="trailing" constant="15" id="AbI-Kl-M39"/>
                                                     <constraint firstItem="Qdp-g4-6es" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="Gdg-uG-Ifh"/>
                                                     <constraint firstAttribute="trailing" secondItem="VYl-ZX-1GO" secondAttribute="trailing" constant="15" id="K8e-Be-15X"/>
                                                     <constraint firstItem="rPL-fy-Q5U" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="KAO-Yd-ZJh"/>
                                                     <constraint firstItem="EAM-hY-Lwx" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="KBV-32-c2g"/>
+                                                    <constraint firstItem="n1Z-Wx-Dyz" firstAttribute="top" secondItem="rPL-fy-Q5U" secondAttribute="bottom" constant="15" id="ONf-IK-n7M"/>
                                                     <constraint firstItem="EAM-hY-Lwx" firstAttribute="top" secondItem="alK-kb-ipD" secondAttribute="top" constant="20" id="P0l-8y-jO0"/>
+                                                    <constraint firstItem="n1Z-Wx-Dyz" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="W9b-xk-ZWn"/>
                                                     <constraint firstAttribute="bottom" secondItem="RMv-De-fUx" secondAttribute="bottom" constant="30" id="aV9-JI-ccu"/>
                                                     <constraint firstItem="VYl-ZX-1GO" firstAttribute="top" secondItem="Qdp-g4-6es" secondAttribute="bottom" constant="15" id="d3e-VQ-vmb"/>
                                                     <constraint firstAttribute="trailing" secondItem="RMv-De-fUx" secondAttribute="trailing" constant="60" id="dov-f6-Phb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="n1Z-Wx-Dyz" secondAttribute="trailing" constant="15" id="fbk-cQ-56S"/>
                                                     <constraint firstItem="Qdp-g4-6es" firstAttribute="top" secondItem="EAM-hY-Lwx" secondAttribute="bottom" constant="15" id="gDE-Pl-pZu"/>
                                                     <constraint firstAttribute="trailing" secondItem="EAM-hY-Lwx" secondAttribute="trailing" constant="15" id="hzJ-lZ-K2J"/>
                                                     <constraint firstItem="VYl-ZX-1GO" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="pTE-uZ-AUx"/>
@@ -4327,25 +4552,28 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4V2-4r-mXh"/>
                     </view>
-                    <size key="freeformSize" width="320" height="700"/>
+                    <size key="freeformSize" width="320" height="770"/>
                     <connections>
                         <outlet property="lblName" destination="vfr-g3-WeR" id="AqW-5D-l3t"/>
                         <outlet property="txtCity" destination="CU0-Al-r3Q" id="1JV-9n-Z3f"/>
+                        <outlet property="txtCurrOcupation" destination="n1w-dJ-CJk" id="a7J-PM-vcS"/>
                         <outlet property="txtEmail" destination="EUa-gI-Rap" id="vxQ-Vx-Btn"/>
                         <outlet property="txtName" destination="3UH-Gl-e7U" id="Xud-o1-9B8"/>
+                        <outlet property="updateButton" destination="RMv-De-fUx" id="w8Y-fx-8n0"/>
+                        <outlet property="userProButton" destination="nEw-dx-h0s" id="iE6-FM-rAl"/>
                         <outlet property="userProfile" destination="dOD-eY-Esh" id="4ii-Id-sY9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAg-HT-gFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="-607"/>
+            <point key="canvasLocation" x="983" y="-710"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="DLa-Pm-gPN">
             <objects>
                 <viewController storyboardIdentifier="LeftMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O0b-R4-mAR" customClass="LeftMenuViewController" customModule="BeerElite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="77Q-4K-KFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_camera" translatesAutoresizingMaskIntoConstraints="NO" id="tfg-e9-9qW">
@@ -4369,22 +4597,28 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vp-kk-gsS">
-                                <rect key="frame" x="120.5" y="165" width="79" height="18"/>
+                                <rect key="frame" x="120.5" y="165" width="79" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2dc-as-bBT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCS-C6-Mxa">
-                                <rect key="frame" x="110.5" y="188" width="99" height="14.5"/>
+                                <rect key="frame" x="110.5" y="195" width="99" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2d4-Oi-yRp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCB-ev-O3I" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                <rect key="frame" x="110" y="217.5" width="100" height="25"/>
+                                <rect key="frame" x="85" y="225" width="150" height="25"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4l6-Ar-ujb"/>
+                                    <constraint firstAttribute="width" constant="150" id="4l6-Ar-ujb"/>
                                     <constraint firstAttribute="height" constant="25" id="fM3-FQ-hjY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
@@ -4398,7 +4632,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0g-JV-VTT">
-                                <rect key="frame" x="15" y="287.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="295" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="i2t-oU-3V7"/>
                                 </constraints>
@@ -4411,7 +4645,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lG-U5-noV">
-                                <rect key="frame" x="15" y="322.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="330" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ddl-l9-NQ9"/>
                                 </constraints>
@@ -4424,7 +4658,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ei3-p2-cRa">
-                                <rect key="frame" x="15" y="357.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="365" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xgf-Wr-lEt"/>
                                 </constraints>
@@ -4437,13 +4671,16 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-FL-zfC">
-                                <rect key="frame" x="129.5" y="538.5" width="61.5" height="14.5"/>
+                                <rect key="frame" x="129.5" y="670.5" width="61.5" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14.5" id="SeE-YN-r0Y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-Ek-oPB" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                <rect key="frame" x="15" y="488.5" width="140" height="30"/>
+                                <rect key="frame" x="15" y="620.5" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Np0-gL-zYN"/>
@@ -4462,7 +4699,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goq-9w-gEn" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                <rect key="frame" x="165" y="488.5" width="140" height="30"/>
+                                <rect key="frame" x="165" y="620.5" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="yHz-j9-9dq"/>
@@ -4481,7 +4718,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-Mm-3TU">
-                                <rect key="frame" x="15" y="392.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="400" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="B7J-lS-Jh2"/>
                                 </constraints>
@@ -4494,24 +4731,40 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </connections>
                             </button>
                             <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-yC-pCg">
-                                <rect key="frame" x="15" y="427.5" width="290" height="30"/>
+                                <rect key="frame" x="15" y="435" width="290" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YoK-Tv-4R6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Company Page">
+                                <state key="normal" title="Company Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="btnAllActionsWithSender:" destination="O0b-R4-mAR" eventType="touchUpInside" id="e1t-Nv-dnB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="108" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-VB-9mR">
+                                <rect key="frame" x="15" y="470" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vhq-SE-xo1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Favorites">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAllActionsWithSender:" destination="O0b-R4-mAR" eventType="touchUpInside" id="HaX-D8-dG3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0y-xP-zdh">
-                                <rect key="frame" x="110" y="50" width="100" height="152.5"/>
+                                <rect key="frame" x="110" y="50" width="100" height="165"/>
                                 <connections>
                                     <action selector="btnOpenProfileWithSender:" destination="O0b-R4-mAR" eventType="touchUpInside" id="LBm-lR-7iP"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="8sh-5t-zsW">
+                                <rect key="frame" x="16" y="508" width="288" height="104.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
@@ -4526,6 +4779,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="goq-9w-gEn" firstAttribute="width" secondItem="HLp-Ek-oPB" secondAttribute="width" id="6Hl-eI-Eyc"/>
                             <constraint firstItem="4lG-U5-noV" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="7RH-8u-h1Q"/>
                             <constraint firstItem="qCc-yC-pCg" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="8tf-zX-HWX"/>
+                            <constraint firstItem="8sh-5t-zsW" firstAttribute="top" secondItem="zLh-VB-9mR" secondAttribute="bottom" constant="8" id="Bvx-bS-je6"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="9Pb-Mm-3TU" secondAttribute="trailing" constant="15" id="Eor-Ma-6Ou"/>
                             <constraint firstItem="m0g-JV-VTT" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="FG2-lA-QEd"/>
                             <constraint firstItem="9Pb-Mm-3TU" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="HmV-cF-Ex6"/>
@@ -4533,14 +4787,20 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstItem="s0y-xP-zdh" firstAttribute="leading" secondItem="KMP-8s-zjg" secondAttribute="leading" id="LZw-Qd-mFR"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="goq-9w-gEn" secondAttribute="trailing" constant="15" id="O70-yE-6UR"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="bottom" secondItem="bSb-FL-zfC" secondAttribute="bottom" constant="15" id="OsT-Ps-6jH"/>
+                            <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="8sh-5t-zsW" secondAttribute="trailing" constant="16" id="PS2-2t-7Tl"/>
+                            <constraint firstItem="8sh-5t-zsW" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="16" id="Qdh-DV-J5e"/>
                             <constraint firstItem="mCB-ev-O3I" firstAttribute="centerX" secondItem="oCS-C6-Mxa" secondAttribute="centerX" id="Sji-Wd-TPm"/>
                             <constraint firstItem="ei3-p2-cRa" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="T1p-jb-Fzo"/>
+                            <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="zLh-VB-9mR" secondAttribute="trailing" constant="15" id="U9j-JJ-iS5"/>
                             <constraint firstItem="5vp-kk-gsS" firstAttribute="centerX" secondItem="KMP-8s-zjg" secondAttribute="centerX" id="VAo-Pj-vbM"/>
                             <constraint firstItem="goq-9w-gEn" firstAttribute="leading" secondItem="HLp-Ek-oPB" secondAttribute="trailing" constant="10" id="XWo-5F-f7g"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="qCc-yC-pCg" secondAttribute="trailing" constant="15" id="XcE-hm-qMD"/>
                             <constraint firstItem="5ba-5t-OgG" firstAttribute="trailing" secondItem="4lG-U5-noV" secondAttribute="trailing" constant="15" id="Xuo-Bq-w2Z"/>
-                            <constraint firstItem="mCB-ev-O3I" firstAttribute="top" secondItem="oCS-C6-Mxa" secondAttribute="bottom" constant="15" id="fdd-bN-a9C"/>
+                            <constraint firstItem="zLh-VB-9mR" firstAttribute="top" secondItem="qCc-yC-pCg" secondAttribute="bottom" constant="5" id="bY2-GG-ZW9"/>
+                            <constraint firstItem="zLh-VB-9mR" firstAttribute="leading" secondItem="5ba-5t-OgG" secondAttribute="leading" constant="15" id="eiy-ax-wcK"/>
+                            <constraint firstItem="mCB-ev-O3I" firstAttribute="top" secondItem="oCS-C6-Mxa" secondAttribute="bottom" constant="10" id="fdd-bN-a9C"/>
                             <constraint firstItem="tfg-e9-9qW" firstAttribute="centerX" secondItem="KMP-8s-zjg" secondAttribute="centerX" id="fea-cb-2Hv"/>
+                            <constraint firstItem="HLp-Ek-oPB" firstAttribute="top" secondItem="8sh-5t-zsW" secondAttribute="bottom" constant="8" id="g43-oc-Ecs"/>
                             <constraint firstItem="m0g-JV-VTT" firstAttribute="top" secondItem="mCB-ev-O3I" secondAttribute="bottom" constant="45" id="gJi-fq-hKS"/>
                             <constraint firstItem="5vp-kk-gsS" firstAttribute="top" secondItem="KMP-8s-zjg" secondAttribute="bottom" constant="15" id="j1M-N2-T2N"/>
                             <constraint firstItem="KMP-8s-zjg" firstAttribute="centerX" secondItem="77Q-4K-KFZ" secondAttribute="centerX" id="mpN-Vo-E5r"/>
@@ -4556,6 +4816,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                         <viewLayoutGuide key="safeArea" id="5ba-5t-OgG"/>
                     </view>
                     <navigationItem key="navigationItem" id="gjU-0Q-Ibi"/>
+                    <size key="freeformSize" width="320" height="700"/>
                     <connections>
                         <outlet property="btnCity" destination="mCB-ev-O3I" id="oIP-jy-Yyj"/>
                         <outlet property="btnMenu1" destination="m0g-JV-VTT" id="PaI-Md-G7l"/>
@@ -4563,6 +4824,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                         <outlet property="btnMenu3" destination="ei3-p2-cRa" id="icG-BG-Xdh"/>
                         <outlet property="btnMenu4" destination="9Pb-Mm-3TU" id="mUM-mZ-wQy"/>
                         <outlet property="btnMenu5" destination="qCc-yC-pCg" id="SD4-Pa-MhQ"/>
+                        <outlet property="btnMenu6" destination="zLh-VB-9mR" id="7I1-vQ-o0L"/>
                         <outlet property="imgProfile" destination="KMP-8s-zjg" id="ZJW-g5-NPl"/>
                         <outlet property="lblEmail" destination="oCS-C6-Mxa" id="PS6-9Z-p1i"/>
                         <outlet property="lblName" destination="5vp-kk-gsS" id="Tsz-Yn-hEH"/>
@@ -4570,7 +4832,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwk-Av-zWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984.375" y="134.1549295774648"/>
+            <point key="canvasLocation" x="982.5" y="133.09859154929578"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="cUm-zd-Lt4">
@@ -4710,6 +4972,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
         <image name="edit" width="170" height="170"/>
         <image name="filtar" width="216" height="216"/>
         <image name="ios_icon" width="1024" height="1024"/>
+        <image name="ios_icon_white" width="1024" height="1024"/>
         <image name="menu" width="333" height="229"/>
         <image name="upload_photo" width="262" height="262"/>
     </resources>

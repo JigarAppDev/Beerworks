@@ -10,10 +10,19 @@ import UIKit
 import SideMenu
 import NVActivityIndicatorView
 import SwiftyJSON
+import Kingfisher
+import CoreServices
 
 class CertiLevelCell: UICollectionViewCell {
     @IBOutlet var lblName : UILabel!
     @IBOutlet var viewName : UIView!
+}
+
+class PhotoResumeCell: UITableViewCell {
+    @IBOutlet var lblPhotoName: UILabel!
+    @IBOutlet var lblResumeName: UILabel!
+    @IBOutlet var btnPhoto: UIButton!
+    @IBOutlet var btnResume: UIButton!
 }
 
 class ProfileCell: UITableViewCell {
@@ -120,13 +129,15 @@ class TimePeriodSubCell: UITableViewCell {
     @IBOutlet var lblDescr: UILabel!
 }
 
-class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
+class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentPickerDelegate {
     
     @IBOutlet var tblResume: UITableView!
     @IBOutlet var btnUpdateBio: UIButton!
     @IBOutlet var btnBack: UIButton!
     @IBOutlet var btnMenu: UIButton!
     @IBOutlet var bottomView: UIView!
+    @IBOutlet var bottomSubView: UIView!
+    
     var selectedObj: UserDataModel!
     
     //Level
@@ -143,6 +154,10 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     var expArray = [JSON]()
     var email = ""
     var address = ""
+    var selectedImage = UIImage()
+    var selectedFileData = Data()
+    var imgName = ""
+    var fileName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,17 +168,20 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
         if userType == "User" {
             self.btnMenu.isHidden = false
             self.btnBack.isHidden = true
-            self.btnUpdateBio.isHidden = true
-            self.bottomView.isHidden = true
+            self.btnUpdateBio.isHidden = false
+            self.bottomView.isHidden = false
+            self.bottomSubView.isHidden = true
         } else {
             self.btnMenu.isHidden = true
             self.btnBack.isHidden = false
             self.btnUpdateBio.isHidden = true
             self.bottomView.isHidden = false
+            self.bottomSubView.isHidden = false
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
-            NSNotification.Name(rawValue: "createChatResponse"), object: nil)
+        NotificationCenter.default.removeObserver(self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:NSNotification.Name(rawValue: "createChatResponse"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -184,6 +202,8 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
                 if let url = URL(string: selectedObj.user_image!) {
                     UIApplication.shared.open(url)
                 }
+            } else {
+                self.showAlert(title: App_Title, msg: "No Photo Uploaded!")
             }
         } else {
             //Resume
@@ -191,6 +211,8 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
                 if let url = URL(string: selectedObj.user_resume!) {
                     UIApplication.shared.open(url)
                 }
+            } else {
+                self.showAlert(title: App_Title, msg: "No Resume Uploaded!")
             }
         }
     }
@@ -282,6 +304,26 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
                     self.email = data["email"]!.stringValue
                     self.address = data["city"]!.stringValue
                     
+                    let resume = data["resume"]!.dictionaryValue
+                    if resume.count > 0 {
+                        let userImageUrl = resume["user_image"]!.stringValue
+                        let userResumeUrl = resume["user_resume"]!.stringValue
+                        if userImageUrl != "" {
+                            let arr = userImageUrl.components(separatedBy: "/")
+                            self.imgName = arr.last!
+                            if self.selectedObj != nil {
+                                self.selectedObj.user_image = userImageUrl
+                            }
+                        }
+                        if userResumeUrl != "" {
+                            let arr = userResumeUrl.components(separatedBy: "/")
+                            self.fileName = arr.last!
+                            if self.selectedObj != nil {
+                                self.selectedObj.user_resume = userResumeUrl
+                            }
+                        }
+                    }
+                    
                     if bioData!.count > 0 {
                         //Set All Ques & Answers for Beer Bio
                         self.ansArray.removeAll()
@@ -328,10 +370,12 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK:- Chat
     @IBAction func btnCreateChat(sender: UIButton) {
+        ISCHATBOOL = false
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         var providertID = ""
         providertID = self.selectedObj.user_id!
+        selectedObjGL = self.selectedObj
         print(allUserChatListGL.count)
         var obj = allUserChatListGL.filter { (json) -> Bool in
             return json["other_user_id"].stringValue == providertID
@@ -365,15 +409,57 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable {
         print(noti)
         //Chat Created
         if let dic: NSDictionary = noti.userInfo as NSDictionary? {
+            ISCHATBOOL = false
             let json = JSON.init(dic)
             let cid = json["chat_id"].stringValue
             chatId = cid
             let sb = UIStoryboard.init(name: "Provider", bundle: nil)
             let contactVC = sb.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
-            contactVC.userObj = JSON.init(self.selectedObj)
+            contactVC.userObj = JSON.init(selectedObjGL.dictionaryRepresentation())
             contactVC.cid = chatId
             self.navigationController?.pushViewController(contactVC, animated: true)
         }
+    }
+    
+    @IBAction func submitResumePhoto(sender: UIButton) {
+        
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        //image
+        let profileArray : NSMutableDictionary =  NSMutableDictionary()
+        if self.selectedImage != nil {
+            profileArray.setValue(self.selectedImage, forKey: "user_image")
+        }
+        
+        //file
+        let fileArray : NSMutableDictionary =  NSMutableDictionary()
+        if self.selectedFileData != nil {
+            fileArray.setValue(self.selectedFileData, forKey: "user_resume")
+        }
+        
+        if fileArray.count == 0 && profileArray.count == 0 {
+            //self.showAlert(title: App_Title, msg: "Please add your photo & resume.")
+            return
+        }
+        
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.showAlert(title: App_Title, msg: "Bio Updated!")
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.uploadWithAlamofire(Parameters: param as? [String : AnyObject], ImageParameters: profileArray as [NSObject : AnyObject], VideoParameters: nil, FileParameters: fileArray as [NSObject : AnyObject], Action: ADDRESUMEAPI as NSString, success: successed, failure: failure)
     }
 }
 
@@ -385,6 +471,9 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
         } else if tableView.tag == 222 {
             //Edu
             return self.eduArray.count
+        }
+        if userType == "User" {
+            return 7
         }
         return 6
     }
@@ -420,6 +509,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
         let beerCell = self.tblResume.dequeueReusableCell(withIdentifier: "BeerBioCell") as! BeerBioCell
         let interestCell = self.tblResume.dequeueReusableCell(withIdentifier: "InterestCell") as! InterestCell
         let eduCell = self.tblResume.dequeueReusableCell(withIdentifier: "EducationCell") as! EducationCell
+        let photoCell = self.tblResume.dequeueReusableCell(withIdentifier: "PhotoResumeCell") as! PhotoResumeCell
         if indexPath.row == 0 {
             if userType == "User" {
                 let name = Defaults.value(forKey: "user_name") as! String
@@ -432,6 +522,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
                 profCell.lblName.text = name
                 profCell.lblEmail.text = email
                 profCell.btnCity.setTitle(self.address, for: .normal)
+                profCell.btnCity.titleLabel?.adjustsFontSizeToFitWidth = true
                 profCell.btnChat.isHidden = true
             } else {
                 let name = self.selectedObj.username
@@ -444,6 +535,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
                 profCell.lblName.text = name
                 profCell.lblEmail.text = email
                 profCell.btnCity.setTitle(self.address, for: .normal)
+                profCell.btnCity.titleLabel?.adjustsFontSizeToFitWidth = true
             }
             return profCell
         } else if indexPath.row == 1 {
@@ -505,15 +597,25 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             let height = interestCell.interestCollectionView.collectionViewLayout.collectionViewContentSize.height
             interestCell.interestCollectionViewHeight.constant = height
             return interestCell
+        } else if indexPath.row == 5 {
+            if userType == "User" { eduCell.btnAdd.isHidden = false } else { eduCell.btnAdd.isHidden = true }
+            eduCell.btnAdd.addTarget(self, action: #selector(self.addEducationClick(sender:)), for: .touchUpInside)
+            eduCell.tblEdu.delegate = self
+            eduCell.tblEdu.dataSource = self
+            eduCell.tblEdu.tag = 222
+            eduCell.tblEduHeight.constant = CGFloat(110 * self.eduArray.count)
+            eduCell.tblEdu.reloadData()
+            return eduCell
         }
-        if userType == "User" { eduCell.btnAdd.isHidden = false } else { eduCell.btnAdd.isHidden = true }
-        eduCell.btnAdd.addTarget(self, action: #selector(self.addEducationClick(sender:)), for: .touchUpInside)
-        eduCell.tblEdu.delegate = self
-        eduCell.tblEdu.dataSource = self
-        eduCell.tblEdu.tag = 222
-        eduCell.tblEduHeight.constant = CGFloat(110 * self.eduArray.count)
-        eduCell.tblEdu.reloadData()
-        return eduCell
+        if self.imgName != "" {
+            photoCell.lblPhotoName.text = self.imgName
+        }
+        if self.fileName != "" {
+            photoCell.lblResumeName.text = self.fileName
+        }
+        photoCell.btnPhoto.addTarget(self, action: #selector(self.clkAddImages(sender:)), for: .touchUpInside)
+        photoCell.btnResume.addTarget(self, action: #selector(self.clkAddFiles(sender:)), for: .touchUpInside)
+        return photoCell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView.tag == 111 {
@@ -522,6 +624,96 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             return 110
         }
         return UITableView.automaticDimension
+    }
+    
+    //MARK: Upload picture to attach
+    @IBAction func clkAddImages(sender : UIButton){
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Upload Image", message: "Select your option!", preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let saveActionButton = UIAlertAction(title: "Camera", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                let imag = UIImagePickerController()
+                imag.delegate = self
+                imag.sourceType = UIImagePickerController.SourceType.camera;
+                imag.allowsEditing = true
+                self.present(imag, animated: true, completion: nil)
+            } else {
+                self.showAlert(title: App_Title, msg: "Device has no camera!")
+            }
+        }
+        actionSheetControllerIOS8.addAction(saveActionButton)
+        
+        let deleteActionButton = UIAlertAction(title: "Library", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+                let imag = UIImagePickerController()
+                imag.delegate = self
+                imag.sourceType = UIImagePickerController.SourceType.photoLibrary
+                imag.allowsEditing = true
+                self.present(imag, animated: true, completion: nil)
+            }
+            
+        }
+        actionSheetControllerIOS8.addAction(deleteActionButton)
+        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+    }
+    
+    @IBAction func clkAddFiles(sender : UIButton){
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Upload Resume", message: "Select your option!", preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let iCloudActionButton = UIAlertAction(title: "PDF File", style: .default) { _ in
+            let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [kUTTypePDF as String], in: UIDocumentPickerMode.import)
+            documentPicker.delegate = self
+            documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(documentPicker, animated: true, completion: nil)
+        }
+        actionSheetControllerIOS8.addAction(iCloudActionButton)
+        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+    }
+    
+    //MARK: - Image Picker Delegate Method
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //guard let imageData = tempImage.jpegData(compressionQuality: 0.75) else { return }
+        self.selectedImage = tempImage
+        if let url: NSURL = info[UIImagePickerController.InfoKey.imageURL] as? NSURL {
+            self.imgName = url.lastPathComponent!
+        } else {
+            let identifier = UUID()
+            self.imgName = identifier.uuidString + ".png"
+        }
+        self.tblResume.reloadData()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        do {
+            let filePath = urls[0]
+            let fileData = try Data.init(contentsOf: filePath)
+            self.selectedFileData = fileData
+            self.fileName = urls[0].lastPathComponent
+            self.tblResume.reloadData()
+        } catch let error {
+            self.showAlert(title: App_Title, msg: error.localizedDescription)
+        }
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("dismiss files")
     }
 }
 

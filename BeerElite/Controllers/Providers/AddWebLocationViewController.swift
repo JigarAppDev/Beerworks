@@ -19,6 +19,8 @@ class AddWebLocationViewController: UIViewController, NVActivityIndicatorViewabl
     var addr = ""
     var lati = ""
     var longi = ""
+    var email = ""
+    @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtWeb: UITextField!
     @IBOutlet var txtAddr: UITextField!
     
@@ -26,6 +28,7 @@ class AddWebLocationViewController: UIViewController, NVActivityIndicatorViewabl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.txtEmail.text = self.email
         self.txtWeb.text = self.web
         self.txtAddr.text = self.addr
         self.txtAddr.delegate = self
@@ -58,6 +61,7 @@ class AddWebLocationViewController: UIViewController, NVActivityIndicatorViewabl
         param.setValue(self.companyId, forKey: "company_id")
         param.setValue(self.txtAddr.text!, forKey: "company_address")
         param.setValue(self.txtWeb.text!, forKey: "company_website")
+        param.setValue(self.txtEmail.text!, forKey: "company_email")
         param.setValue(self.lati, forKey: "latitude")
         param.setValue(self.longi, forKey: "longitude")
         let successed = {(responseObject: AnyObject) -> Void in

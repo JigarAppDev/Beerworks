@@ -82,7 +82,9 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     @objc func joinRoomforUser() {
-        cid = self.userObj["chat_id"].stringValue
+        if cid == "" {
+            cid = self.userObj["chat_id"].stringValue
+        }
         self.joinChatRoom(cid: cid)
     }
     
@@ -91,7 +93,6 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     func joinChatRoom(cid: String) {
-        let cid = self.userObj["chat_id"].stringValue
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token")as! String
         let param = ["en":JOINROOM,"user_id":"\(userid)", "user_token":"\(token)", "chat_id":cid] as [String : Any]
@@ -100,7 +101,9 @@ class ChatViewController: JSQMessagesViewController {
     
     //Get Chat Messages
     func getAllMessages(page: String) {
-        cid = self.userObj["chat_id"].stringValue
+        if cid == "" {
+            cid = self.userObj["chat_id"].stringValue
+        }
         let userid = Defaults.value(forKey: "user_id") as! String
         let token = Defaults.value(forKey: "token") as! String
         var cnt = "1"
@@ -126,12 +129,17 @@ class ChatViewController: JSQMessagesViewController {
         if oid == "" {
             oid = self.userObj["user_id"].stringValue
         }
+        if oid == "" {
+            oid = self.userObj["job_added_by"].stringValue
+        }
         let userid = Defaults.value(forKey: "user_id") as! String
         if oid == "\(userid)" {
             oid = self.userObj["chat_created_to"].stringValue
         }
         let token = Defaults.value(forKey: "token")as! String
-        cid = self.userObj["chat_id"].stringValue
+        if cid == "" {
+            cid = self.userObj["chat_id"].stringValue
+        }
         let param = ["en":SENDMSG,"user_id":"\(userid)", "user_token":"\(token)", "chat_id":cid,"other_id":oid,"msg":msg,"msg_type":1] as [String : Any]
         print(param)// 1 = text, 2 = image
         SocketHelper.socket.emit("event", with: [param])
@@ -160,7 +168,9 @@ class ChatViewController: JSQMessagesViewController {
     @objc func appendLastMessage() {
         
         let userid = Defaults.value(forKey: "user_id") as! String
-        cid = self.userObj["chat_id"].stringValue
+        if cid == "" {
+            cid = self.userObj["chat_id"].stringValue
+        }
         var sid = ""
         if lastSentMsgGL["user_id"].stringValue == self.senderId {
             sid = self.senderId
@@ -271,7 +281,50 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
-        
+        if messages[indexPath.item].senderId == senderId { } else {
+            //Go to Profile
+            print("Profile Click")
+            /*let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+            let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            proVC.isFrom = "Chat"
+            proVC.userId = messages[indexPath.item].senderId
+            self.navigationController?.pushViewController(proVC, animated: true)*/
+            
+            var oid = ""
+            if oid == "" {
+                oid = self.userObj["other_user_id"].stringValue
+            }
+            if oid == "" {
+                oid = self.userObj["user_id"].stringValue
+            }
+            if oid == "" {
+                oid = self.userObj["job_added_by"].stringValue
+            }
+            let userid = Defaults.value(forKey: "user_id") as! String
+            if oid == "\(userid)" {
+                oid = self.userObj["chat_created_to"].stringValue
+            }
+            
+            if userType == "Provider" {
+                //Go to Resume
+                let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+                let resumeVC = userStoryBoard.instantiateViewController(withIdentifier: "ResumeViewController") as! ResumeViewController
+                let selectedObj = UserDataModel(jsonDic: self.userObj)
+                selectedObj.user_id = oid //self.userObj["user_id"].stringValue
+                selectedObj.username =  self.userObj["username"].stringValue
+                selectedObj.user_resume = ""
+                selectedObj.user_image = ""
+                resumeVC.selectedObj = selectedObj
+                self.navigationController?.pushViewController(resumeVC, animated: true)
+            } else {
+                //Go to company page
+                let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
+                let compVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
+                compVC.isFrom = "Chat"
+                compVC.companyId = oid //self.userObj["user_id"].stringValue
+                self.navigationController?.pushViewController(compVC, animated: true)
+            }
+        }
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!
@@ -349,7 +402,7 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
         
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell

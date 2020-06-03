@@ -38,6 +38,7 @@ class UserDataModel {
     var first_name: String?
     var user_image: String?
     var last_name: String?
+    var is_favorite: Int?
 
     init(jsonDic: JSON) {
         self.id = jsonDic["id"].stringValue
@@ -51,6 +52,27 @@ class UserDataModel {
         self.first_name = jsonDic["first_name"].stringValue
         self.user_image = jsonDic["user_image"].stringValue
         self.last_name = jsonDic["last_name"].stringValue
+        self.is_favorite = jsonDic["is_favorite"].intValue
+    }
+    
+    public func dictionaryRepresentation() -> NSDictionary {
+
+        let dictionary = NSMutableDictionary()
+
+        dictionary.setValue(self.id, forKey: "id")
+        dictionary.setValue(self.address, forKey: "address")
+        dictionary.setValue(self.occupation, forKey: "occupation")
+        dictionary.setValue(self.user_resume, forKey: "user_resume")
+        dictionary.setValue(self.user_id, forKey: "user_id")
+        dictionary.setValue(self.username, forKey: "username")
+        dictionary.setValue(self.profile_pic, forKey: "profile_pic")
+        dictionary.setValue(self.job_id, forKey: "job_id")
+        dictionary.setValue(self.first_name, forKey: "first_name")
+        dictionary.setValue(self.user_image, forKey: "user_image")
+        dictionary.setValue(self.last_name, forKey: "last_name")
+        dictionary.setValue(self.is_favorite, forKey: "is_favorite")
+
+        return dictionary
     }
 }
 
