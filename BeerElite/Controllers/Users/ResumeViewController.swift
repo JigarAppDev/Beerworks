@@ -37,6 +37,27 @@ class ProfileCell: UITableViewCell {
     }
 }
 
+class StatusCell: UITableViewCell {
+    @IBOutlet var btnEdit: UIButton!
+    @IBOutlet var levelCollectionView : UICollectionView!
+    @IBOutlet var levelCollectionViewHeight : NSLayoutConstraint!
+    let columnLayout = FlowLayout(
+        itemSize: CGSize(width: Int(MAXLOGNAME), height: 30),
+        minimumInteritemSpacing: 12,
+        minimumLineSpacing: 20,
+        sectionInset: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    )
+    
+    override func awakeFromNib() {
+        self.levelCollectionView.collectionViewLayout = columnLayout
+        self.levelCollectionView.reloadData()
+        let height = levelCollectionView.collectionViewLayout.collectionViewContentSize.height
+        levelCollectionViewHeight.constant = height
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+    }
+}
+
 class LevelCell: UITableViewCell {
     @IBOutlet var btnEdit: UIButton!
     @IBOutlet var levelCollectionView : UICollectionView!
@@ -92,6 +113,10 @@ class BeerBioCell: UITableViewCell {
     @IBOutlet var lblAns12: UILabel!
     @IBOutlet var lblQue13: UILabel!
     @IBOutlet var lblAns13: UILabel!
+    @IBOutlet var lblQue14: UILabel!
+    @IBOutlet var lblAns14: UILabel!
+    @IBOutlet var lblQue15: UILabel!
+    @IBOutlet var lblAns15: UILabel!
 }
 
 class InterestCell: UITableViewCell {
@@ -146,9 +171,12 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
     //Interest
     var interestArray = ["Certified","Advanced","BJCP Judge"]
     
+    //Status
+    var statusArray = [""]
+    
     //QuesArray
-    var quesArray = ["Objective","Favorite Brewery. Why?","Favorite Beer. Why?","Describe the vibe of your favorite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
-    var ansArray = ["Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer"]
+    var quesArray = ["Favorite Brewery? What makes it so special?","Favorite Beer? How would you recommend it to someone?","How would you explain the difference between an ale and a lager?","Favorite style of IPA? Name and describe two of your favorite hops from that style.","Describe the vibe of your favorite brewery, bar or restaurant?","What made you want to work in craft beer?","Your thoughts on independent craft vs Big Beer?","What styles would you recommend to someone who doesn't like IPAs?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","Describe your personality.","How well do you work in a fast-paced environment?","How many hours are you looking for and what's your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
+    var ansArray = ["Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer"]
     
     var eduArray = [JSON]()
     var expArray = [JSON]()
@@ -239,6 +267,13 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
         self.navigationController?.pushViewController(levelVC, animated: true)
     }
     
+    @objc func updateStatusClick(sender: UIButton) {
+        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let statusVC = userStoryBoard.instantiateViewController(withIdentifier: "AddStatusViewController") as! AddStatusViewController
+        statusVC.statusArray = self.statusArray
+        self.navigationController?.pushViewController(statusVC, animated: true)
+    }
+    
     @objc func addWorkClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
         let expVC = userStoryBoard.instantiateViewController(withIdentifier: "AddExperienceViewController") as! AddExperienceViewController
@@ -301,6 +336,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
                     let eduData = data["user_education"]?.arrayValue
                     let expData = data["work_experience"]?.arrayValue
                     let intData = data["user_interest"]?.dictionaryValue
+                    let status = data["user_current_status"]?.stringValue
                     self.email = data["email"]!.stringValue
                     self.address = data["city"]!.stringValue
                     
@@ -348,6 +384,18 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
                         if val.intValue == 1 {
                             let k = key.replacingOccurrences(of: "_", with: " ")
                             self.interestArray.append(k.capitalized)
+                        }
+                    }
+                    
+                    //Status
+                    self.statusArray.removeAll()
+                    if status != "0" {
+                        if status == "1" {
+                            self.statusArray.append("Ready to work")
+                        } else if status == "2" {
+                            self.statusArray.append("Open to new opportunities")
+                        } else if status == "3" {
+                            self.statusArray.append("Unavailable")
                         }
                     }
                     
@@ -473,9 +521,9 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             return self.eduArray.count
         }
         if userType == "User" {
-            return 7
+            return 8
         }
-        return 6
+        return 7
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 111 {
@@ -505,6 +553,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let profCell = self.tblResume.dequeueReusableCell(withIdentifier: "ProfileCell") as! ProfileCell
         let levelCell = self.tblResume.dequeueReusableCell(withIdentifier: "LevelCell") as! LevelCell
+        let statusCell = self.tblResume.dequeueReusableCell(withIdentifier: "StatusCell") as! StatusCell
         let expCell = self.tblResume.dequeueReusableCell(withIdentifier: "ExpCell") as! ExpCell
         let beerCell = self.tblResume.dequeueReusableCell(withIdentifier: "BeerBioCell") as! BeerBioCell
         let interestCell = self.tblResume.dequeueReusableCell(withIdentifier: "InterestCell") as! InterestCell
@@ -539,6 +588,16 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return profCell
         } else if indexPath.row == 1 {
+            if userType == "User" { statusCell.btnEdit.isHidden = false } else { statusCell.btnEdit.isHidden = true }
+            statusCell.btnEdit.addTarget(self, action: #selector(self.updateStatusClick(sender:)), for: .touchUpInside)
+            statusCell.levelCollectionView.tag = 103
+            statusCell.levelCollectionView.delegate = self
+            statusCell.levelCollectionView.dataSource = self
+            statusCell.levelCollectionView.reloadData()
+            let height = statusCell.levelCollectionView.collectionViewLayout.collectionViewContentSize.height
+            statusCell.levelCollectionViewHeight.constant = height
+            return statusCell
+        } else if indexPath.row == 2 {
             if userType == "User" { levelCell.btnEdit.isHidden = false } else { levelCell.btnEdit.isHidden = true }
             levelCell.btnEdit.addTarget(self, action: #selector(self.updateLevelClick(sender:)), for: .touchUpInside)
             levelCell.levelCollectionView.tag = 101
@@ -548,7 +607,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             let height = levelCell.levelCollectionView.collectionViewLayout.collectionViewContentSize.height
             levelCell.levelCollectionViewHeight.constant = height
             return levelCell
-        } else if indexPath.row == 2 {
+        }else if indexPath.row == 3 {
             if userType == "User" { expCell.btnAdd.isHidden = false } else { expCell.btnAdd.isHidden = true }
             expCell.btnAdd.addTarget(self, action: #selector(self.addWorkClick(sender:)), for: .touchUpInside)
             expCell.tblExp.delegate = self
@@ -557,7 +616,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             expCell.tblExpHeight.constant = CGFloat(110 * self.expArray.count)
             expCell.tblExp.reloadData()
             return expCell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             if userType == "User" { beerCell.btnEdit.isHidden = false } else { beerCell.btnEdit.isHidden = true }
             beerCell.btnEdit.addTarget(self, action: #selector(self.updateBioClick(sender:)), for: .touchUpInside)
             beerCell.lblQue1.text = self.quesArray[0]
@@ -586,8 +645,12 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             beerCell.lblAns12.text = self.ansArray[11]
             beerCell.lblQue13.text = self.quesArray[12]
             beerCell.lblAns13.text = self.ansArray[12]
+            beerCell.lblQue14.text = self.quesArray[13]
+            beerCell.lblAns14.text = self.ansArray[13]
+            beerCell.lblQue15.text = self.quesArray[14]
+            beerCell.lblAns15.text = self.ansArray[14]
             return beerCell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             if userType == "User" { interestCell.btnEdit.isHidden = false } else { interestCell.btnEdit.isHidden = true }
             interestCell.btnEdit.addTarget(self, action: #selector(self.updateInterestClick(sender:)), for: .touchUpInside)
             interestCell.interestCollectionView.tag = 102
@@ -597,7 +660,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             let height = interestCell.interestCollectionView.collectionViewLayout.collectionViewContentSize.height
             interestCell.interestCollectionViewHeight.constant = height
             return interestCell
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             if userType == "User" { eduCell.btnAdd.isHidden = false } else { eduCell.btnAdd.isHidden = true }
             eduCell.btnAdd.addTarget(self, action: #selector(self.addEducationClick(sender:)), for: .touchUpInside)
             eduCell.tblEdu.delegate = self
@@ -722,6 +785,8 @@ extension ResumeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 102 {
             return self.interestArray.count
+        } else if collectionView.tag == 103 {
+            return self.statusArray.count
         }
         return self.levelArray.count
     }
@@ -730,6 +795,8 @@ extension ResumeViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CertiLevelCell", for: indexPath) as! CertiLevelCell
         if collectionView.tag == 102 {
             cell.lblName.text = self.interestArray[indexPath.row]
+        } else if collectionView.tag == 103 {
+            cell.lblName.text = self.statusArray[indexPath.row]
         } else {
             cell.lblName.text = self.levelArray[indexPath.row]
         }
@@ -740,6 +807,8 @@ extension ResumeViewController: UICollectionViewDelegate, UICollectionViewDataSo
         var skill = ""
         if collectionView.tag == 102 {
             skill = self.interestArray[indexPath.row]
+        } else if collectionView.tag == 103 {
+            skill = self.statusArray[indexPath.row]
         } else {
             skill = self.levelArray[indexPath.row]
         }

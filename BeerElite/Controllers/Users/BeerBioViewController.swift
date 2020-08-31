@@ -19,8 +19,8 @@ class tblBeerBioCell: UITableViewCell {
 class BeerBioViewController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
     
     @IBOutlet var tblBeerBio: UITableView!
-    var quesArray = ["Objective","Favorite Brewery. Why?","Favorite Beer. Why?","Describe the vibe of your favorite brewery, bar or restaurant.","Outside of work, what type of creative activities do you like to do?","Your thoughts on independent Beer vs Big Beer?","What type of beers would you recommend to someone new to craft beer?","Your thoughts on the Haze Craze?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","How many hours are you looking for and what your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
-    var ansArray = ["","","","","","","","","","","","",""]
+    var quesArray = ["Favorite Brewery? What makes it so special?","Favorite Beer? How would you recommend it to someone?","How would you explain the difference between an ale and a lager?","Favorite style of IPA? Name and describe two of your favorite hops from that style.","Describe the vibe of your favorite brewery, bar or restaurant?","What made you want to work in craft beer?","Your thoughts on independent craft vs Big Beer?","What styles would you recommend to someone who doesn't like IPAs?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","Describe your personality.","How well do you work in a fast-paced environment?","How many hours are you looking for and what's your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
+    var ansArray = ["","","","","","","","","","","","","","",""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,8 @@ class BeerBioViewController: UIViewController, NVActivityIndicatorViewable, UITe
         param.setValue(self.ansArray[10], forKey: "question_11")
         param.setValue(self.ansArray[11], forKey: "question_12")
         param.setValue(self.ansArray[12], forKey: "question_13")
+        param.setValue(self.ansArray[13], forKey: "question_14")
+        param.setValue(self.ansArray[14], forKey: "question_15")
         print(param)
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
@@ -101,6 +103,10 @@ class BeerBioViewController: UIViewController, NVActivityIndicatorViewable, UITe
             self.ansArray.insert(textField.text!, at: 11)
         } else if textField.tag == 13 {
             self.ansArray.insert(textField.text!, at: 12)
+        } else if textField.tag == 14 {
+            self.ansArray.insert(textField.text!, at: 13)
+        } else if textField.tag == 15 {
+            self.ansArray.insert(textField.text!, at: 14)
         }
     }
 }
@@ -115,7 +121,10 @@ extension BeerBioViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblTitle.text = self.quesArray[indexPath.row]
         cell.txtAnswer.tag = indexPath.row + 1
         cell.txtAnswer.delegate = self
-        cell.txtAnswer.text = self.ansArray[indexPath.row]
+        cell.txtAnswer.placeholder = "Answer"
+        if self.ansArray[indexPath.row] != "Answer" {
+            cell.txtAnswer.text = self.ansArray[indexPath.row]
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

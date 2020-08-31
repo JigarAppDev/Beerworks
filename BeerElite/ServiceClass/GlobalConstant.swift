@@ -42,6 +42,7 @@ let DELETEJOBAPI                   = "delete_job"
 let UPDATEJOBAPI                   = "edit_job"
 let LISTFAVORITEAPI                = "list_my_favorite"
 let ADDTOFAVORITEAPI               = "add_favorite"
+let DELETECHATAPI                  = "disable_chat"
 
 //Users
 let GETJOBLIST                     = "list_jobs"
@@ -61,6 +62,10 @@ let ADDSUPPORTAPI                  = "add_support_mail"
 let EDITEDUCATIONAPI               = "edit_education"
 let EDITEXPERIENCEAPI              = "edit_experiance"
 let ADDRESUMEAPI                   = "add_resume"
+let GETSAVEDJOBAPI                 = "get_saved_job"
+let SAVEJOBAPI                     = "save_job"
+let REMOVESAVEDJOBAPI              = "remove_saved_job"
+let STATUSAPI                      = "update_user_current_status"
 
 //MARK: Global Variables
 var userType = ""
@@ -68,7 +73,8 @@ var userData: JSON = []
 var deviceTokenClientGL = ""
 var APIdeviceTokenGL = ""
 var IsJobFilter = false
-var filterDistance = "50"
+var IsUserFilter = false
+var filterDistance = "0"
 
 //MARK:- CHAT
 var deviceTokenGL = ""

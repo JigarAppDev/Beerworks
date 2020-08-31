@@ -16,6 +16,8 @@ class tblNotificationCell: UITableViewCell {
     @IBOutlet var lblCompanyName: UILabel!
     @IBOutlet var lblSalary: UILabel!
     @IBOutlet var lblDescr: UILabel!
+    @IBOutlet var lblTime: UILabel!
+    @IBOutlet var lblExpireAt: UILabel!
 }
 
 class NotificationsViewController: UIViewController, NVActivityIndicatorViewable {
@@ -107,6 +109,33 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         cell.lblCompanyName.text = obj.company_name
         cell.lblSalary.text = "Salary/hourly wage: " + obj.salary!
         cell.lblDescr.text = obj.description
+        
+        let msgTime = obj.created_at
+        let dateFormatter = DateFormatter()
+        let tempLocale = dateFormatter.locale // save locale temporarily
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if msgTime != "" {
+            let date = dateFormatter.date(from: msgTime!)!
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            dateFormatter.locale = tempLocale // reset the locale
+            let lastSeenString = Date().timeAgo(from: date)
+            print(lastSeenString)
+            cell.lblTime.text = "\(lastSeenString)"
+        }
+        
+        cell.lblExpireAt.text = ""
+        let expDate = obj.exp_date
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if expDate != "" {
+            let exp = dateFormatter.date(from: expDate!)!
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            dateFormatter.locale = tempLocale
+            let expString = Date().expInDays(from: exp)
+            print(expString)
+            cell.lblExpireAt.text = "\(expString)"
+        }
+        
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

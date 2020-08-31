@@ -30,8 +30,15 @@ class BrowseViewController: UIViewController, NVActivityIndicatorViewable {
 
         self.tblBrowse.estimatedRowHeight = 100
         self.tblBrowse.rowHeight = UITableView.automaticDimension
-        
-        self.getJobsList()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUsersByFilter), name: NSNotification.Name(rawValue: "getUsersByFilter"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if IsUserFilter {
+            self.getUsersByFilter()
+        } else {
+            self.getJobsList()
+        }
     }
 
     // MARK: - Back Click
@@ -43,6 +50,39 @@ class BrowseViewController: UIViewController, NVActivityIndicatorViewable {
     func getJobsList() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue("0", forKey: "distance")
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil {
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    let dataModel = UserListModels.init(jsonDic: dataObj)
+                    self.userList = [UserDataModel]()
+                    self.userList = dataModel.listData
+                    self.tblBrowse.reloadData()
+                }else{
+                    if dataObj["message"].stringValue == "No Jobs Found" {
+                        self.showAlert(title: App_Title, msg: "No Applicants Yet!")
+                    } else {
+                        self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    }
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: LISTAPPLIEDUSERSAPI as NSString, success: successed, failure: failure)
+    }
+    
+    //MARK: Filter User List
+    @objc func getUsersByFilter() {
+        IsUserFilter = false
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(filterDistance, forKey: "distance")
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()
             if responseObject != nil {
@@ -76,6 +116,7 @@ class BrowseViewController: UIViewController, NVActivityIndicatorViewable {
         menu.statusBarEndAlpha = 0
         menu.menuWidth = self.view.frame.width - (self.view.frame.width / 3)
         menu.presentationStyle = .menuSlideIn
+        IsJobFilter = false
         present(menu, animated: true, completion: nil)
     }
     
@@ -86,6 +127,7 @@ class BrowseViewController: UIViewController, NVActivityIndicatorViewable {
         menu.statusBarEndAlpha = 0
         menu.menuWidth = self.view.frame.width - (self.view.frame.width / 3)
         menu.presentationStyle = .menuSlideIn
+        menu.enableSwipeToDismissGesture = false
         present(menu, animated: true, completion: nil)
     }
     

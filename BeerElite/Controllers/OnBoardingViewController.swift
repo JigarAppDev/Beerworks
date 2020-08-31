@@ -15,6 +15,7 @@ class SliderCollectionCell: UICollectionViewCell {
     @IBOutlet var sliderImage: UIImageView!
     @IBOutlet var btnSetWakeSleepTime: UIButton!
     @IBOutlet var viewTopGestureLayer: UIView!
+    @IBOutlet var imgBackground: UIImageView!
 }
 
 class OnBoardingViewController: UIViewController {
@@ -25,8 +26,9 @@ class OnBoardingViewController: UIViewController {
     
     var selectedIndex = 0
     var titleArray = ["Create your profile","Search craft beer jobs","Let employers find you"]
-    var textArray = ["You're commited to your craft. We're commited to finding you the best jobs in the industry. Complete your Beer Elite profile and interview to begin!","Browse local craft beer postings and have new jobs delivered straight to your inbox.","Don't see you're favorite brewery? Don't worry, they can see you! Employers browse Beer Elite profile daily!"]
+    var textArray = ["You're commited to your craft. We're commited to finding you the best jobs in the industry. Complete your Beer Elite profile and interview to begin!","Browse local craft beer postings and have new jobs delivered straight to your inbox.","Don't see you're favorite brewery? Don't worry, they can see you! Employers browse Beer Elite profiles daily!"]
     var lastContentOffset: CGFloat = 0.0
+    var imgArray = ["1image","2image","3image"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +70,7 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.lblSteps.text = self.titleArray[indexPath.row].capitalized
         cell.sliderImage.image = UIImage.init(named: "get_in_started\(indexPath.row)")
         cell.lblStepsText.text = self.textArray[indexPath.row]
+        cell.imgBackground.image = UIImage.init(named: self.imgArray[indexPath.row])
         return cell
     }
     

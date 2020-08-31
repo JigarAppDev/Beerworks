@@ -20,6 +20,8 @@ class tblJobsListCell: UITableViewCell {
     @IBOutlet var lblWages: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var btnChat: UIButton!
+    @IBOutlet var btnFav: UIButton!
+    @IBOutlet var imgFav: UIImageView!
 }
 
 class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
@@ -38,10 +40,8 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
         // Do any additional setup after loading the view.
         self.tblJobsList.estimatedRowHeight = 150
         self.tblJobsList.rowHeight = UITableView.automaticDimension
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getJobsByFilter), name: NSNotification.Name(rawValue: "GetJobsByFilter"), object: nil)
-        
         NotificationCenter.default.removeObserver(self)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getJobsByFilter), name: NSNotification.Name(rawValue: "GetJobsByFilter"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.createChatResponse(noti:)), name:
         NSNotification.Name(rawValue: "createChatResponse"), object: nil)
         
@@ -206,6 +206,43 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
             }
         }
     }
+    
+    //MARK: Add to Fav Lis
+    @objc func addToSave(sender: UIButton) {
+        let obj = self.jobList[sender.tag]
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(obj.jobId, forKey: "job_id")
+        
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    if obj.isSaved == 0 {
+                        //add
+                        obj.isSaved = 1
+                        self.showAlert(title: App_Title, msg: "Added to Saved Jobs!")
+                    } else {
+                        //remove
+                        obj.isSaved = 0
+                        self.showAlert(title: App_Title, msg: "Removed from Saved Jobs!")
+                    }
+                    self.jobList.remove(at: sender.tag)
+                    self.jobList.insert(obj, at: sender.tag)
+                    self.tblJobsList.reloadData()
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: SAVEJOBAPI as NSString, success: successed, failure: failure)
+    }
 }
 
 extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -239,6 +276,15 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
             print(lastSeenString)
             cell.lblDate.text = "\(lastSeenString)"
         }
+        
+        if obj.isSaved == 1 {
+            cell.imgFav.image = UIImage.init(named: "ic_selectedFav")
+        } else {
+            cell.imgFav.image = UIImage.init(named: "ic_fav")
+        }
+        cell.btnFav.tag = indexPath.row
+        cell.btnFav.addTarget(self, action: #selector(self.addToSave(sender:)), for: .touchUpInside)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

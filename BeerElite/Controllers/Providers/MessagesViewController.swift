@@ -10,6 +10,7 @@ import UIKit
 import SideMenu
 import SwiftyJSON
 import Kingfisher
+import NVActivityIndicatorView
 
 class tblMessageCell: UITableViewCell {
     @IBOutlet var imgProfile: UIImageView!
@@ -20,7 +21,7 @@ class tblMessageCell: UITableViewCell {
     @IBOutlet var lblUnreadCount: UILabel!
 }
 
-class MessagesViewController: UIViewController {
+class MessagesViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet var tblMessage: UITableView!
     var allUserData = [JSON]()
@@ -91,11 +92,37 @@ class MessagesViewController: UIViewController {
         }
         self.tblMessage.reloadData()
     }
+    
+    //MARK: Delete Message
+    func deleteMsgById(chatId: String, index: IndexPath) {
+        startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
+        let param : NSMutableDictionary =  NSMutableDictionary()
+        param.setValue(chatId, forKey: "chat_id")
+        
+        let successed = {(responseObject: AnyObject) -> Void in
+            self.stopAnimating()
+            if responseObject != nil{
+                let dataObj : JSON = JSON.init(responseObject)
+                if(dataObj["status"].stringValue == "1") {
+                    allUserChatListGL.remove(at: index.row)
+                    self.tblMessage.deleteRows(at: [index], with: .fade)
+                }else{
+                    self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
+                }
+            }
+        }
+        let failure = {(error: AnyObject) -> Void in
+            self.stopAnimating()
+            self.showAlert(title: App_Title, msg: WrongMsg)
+        }
+        
+        service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: DELETECHATAPI as NSString, success: successed, failure: failure)
+    }
 }
 
 extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.allUserData.count
+        return allUserChatListGL.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tblMessage.dequeueReusableCell(withIdentifier: "tblMessageCell") as! tblMessageCell
@@ -134,7 +161,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imgProfile.kf.setImage(with: URL(string: profilePic))
         }
         
-        let msgTime = data["created_date"].stringValue
+        let msgTime = data["chat_created_time"].stringValue //created_date
         let dateFormatter = DateFormatter()
         let tempLocale = dateFormatter.locale // save locale temporarily
         // dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
@@ -156,11 +183,20 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
         let chatVC = proStoryBoard.instantiateViewController(withIdentifier: "SuperChatViewController") as! SuperChatViewController
-        let data = allUserData[indexPath.row]
+        let data = allUserChatListGL[indexPath.row]
         chatVC.userObj = data
         if let msgBy: String = data["message_by"].stringValue {
             chatVC.msgBy = msgBy
         }
         self.navigationController?.pushViewController(chatVC, animated: true)
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let data = allUserChatListGL[indexPath.row]
+            self.deleteMsgById(chatId: data["chat_id"].stringValue, index: indexPath)
+        }
     }
 }

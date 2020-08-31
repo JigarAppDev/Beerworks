@@ -42,6 +42,8 @@ class JobsDataModel {
     var company_id: String?
     var applied_by_me: String?
     var created_at: String?
+    var isSaved: Int?
+    var exp_date: String?
 
     init(jsonDic: JSON) {
         self.id = jsonDic["id"].stringValue
@@ -59,6 +61,8 @@ class JobsDataModel {
         self.company_id = jsonDic["company_id"].stringValue
         self.applied_by_me = jsonDic["applied_by_me"].stringValue
         self.created_at = jsonDic["created_at"].stringValue
+        self.isSaved = jsonDic["is_saved"].intValue
+        self.exp_date = jsonDic["expire_at"].stringValue
     }
     
     public func dictionaryRepresentation() -> NSDictionary {
@@ -80,7 +84,7 @@ class JobsDataModel {
         dictionary.setValue(self.company_id, forKey: "company_id")
         dictionary.setValue(self.applied_by_me, forKey: "applied_by_me")
         dictionary.setValue(self.created_at, forKey: "created_at")
-
+        dictionary.setValue(self.exp_date, forKey: "expire_at")
         return dictionary
     }
 }

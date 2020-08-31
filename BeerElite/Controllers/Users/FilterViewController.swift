@@ -13,7 +13,7 @@ import fluid_slider
 class FilterViewController: UIViewController {
 
     @IBOutlet var slider: Slider!
-    var selectedValue = "50"
+    var selectedValue = "5"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class FilterViewController: UIViewController {
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 3
             formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * 100) as NSNumber) ?? ""
+            let string = formatter.string(from: (fraction * 50) as NSNumber) ?? ""
             return NSAttributedString(string: string)
         }
         /*slider.didBeginTracking = { [weak self] _ in
@@ -40,8 +40,8 @@ class FilterViewController: UIViewController {
             
         }*/
         slider.setMinimumLabelAttributedText(NSAttributedString(string: "0"))
-        slider.setMaximumLabelAttributedText(NSAttributedString(string: "100"))
-        slider.fraction = CGFloat(Int(self.selectedValue)! / 100)
+        slider.setMaximumLabelAttributedText(NSAttributedString(string: "50"))
+        slider.fraction = CGFloat(Double(self.selectedValue)! / 50.0)
         slider.shadowOffset = CGSize(width: 0, height: 10)
         slider.shadowBlur = 5
         slider.shadowColor = UIColor(white: 0, alpha: 0.1)
@@ -54,22 +54,28 @@ class FilterViewController: UIViewController {
         let formatter = NumberFormatter()
         formatter.maximumIntegerDigits = 3
         formatter.maximumFractionDigits = 0
-        self.selectedValue = formatter.string(from: (slider.fraction * 100) as NSNumber) ?? ""
+        self.selectedValue = formatter.string(from: (slider.fraction * 50) as NSNumber) ?? ""
         filterDistance = self.selectedValue
     }
     
     //MARK: Close Button Click
     @IBAction func btnCloseClick(sender: UIButton) {
         IsJobFilter = false
+        IsUserFilter = false
         dismiss(animated: true, completion: nil)
     }
     
     //MARK: Apply Filter
     @IBAction func btnApplyFilter(sender: UIButton) {
         if IsJobFilter {
+            //Job Filter
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetJobsByFilter"), object: nil)
-            dismiss(animated: true, completion: nil)
+        } else {
+            //Candidate Filter
+            IsUserFilter = true
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getUsersByFilter"), object: nil)
         }
+        dismiss(animated: true, completion: nil)
     }
 
 }

@@ -90,12 +90,12 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         self.btnMenu6.isHidden = false
         
         if userType == "User" {
-            self.btnMenu4.isHidden = true
             self.btnMenu5.isHidden = true
             self.btnMenu6.isHidden = true
             self.btnMenu1.setTitle("Job List", for: .normal)
             self.btnMenu2.setTitle("My Resume", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
+            self.btnMenu4.setTitle("Saved Jobs", for: .normal)
         } else {
             self.btnMenu1.setTitle("Post Job", for: .normal)
             self.btnMenu2.setTitle("Candidates", for: .normal)
@@ -148,7 +148,10 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 //Support
                 let supportVC = proStoryBoard.instantiateViewController(withIdentifier: "SupportViewController") as! SupportViewController
                 self.navigationController?.pushViewController(supportVC, animated: true)
-                
+            } else if sender.tag == 106 {
+                //Saved Jobs
+                let jobsVC = userStoryBoard.instantiateViewController(withIdentifier: "SavedListViewController") as! SavedListViewController
+                self.navigationController?.pushViewController(jobsVC, animated: true)
             }
         } else {
             //Provider
@@ -239,6 +242,8 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         if lastUserChatMsgGL != nil {
             lastUserChatMsgGL.removeAll()
         }
+        IsJobFilter = false
+        filterDistance = "0"
         Defaults.synchronize()
     }
 }

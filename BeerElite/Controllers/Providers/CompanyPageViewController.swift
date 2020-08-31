@@ -20,6 +20,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
     @IBOutlet var btnUpdateAbout: UIButton!
     @IBOutlet var btnUpdateAddress: UIButton!
     @IBOutlet var btnUpdateImage: UIButton!
+    @IBOutlet var btnProfileImage: UIButton!
     @IBOutlet var txvAbout: UITextView!
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblWebsite: UILabel!
@@ -56,6 +57,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
             self.btnUpdateAddress.isHidden = true
             self.btnUpdateImage.isHidden = true
             self.btnUpdateCompanyName.isHidden = true
+            self.btnProfileImage.isHidden = true
             if self.isFrom == "Chat" {
                 self.getComapnyInfoFromChatView()
             } else {
@@ -67,6 +69,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
             self.btnUpdateAddress.isHidden = false
             self.btnUpdateImage.isHidden = false
             self.btnUpdateCompanyName.isHidden = false
+            self.btnProfileImage.isHidden = false
             self.getCompanyInfoByPro()
         }
     }
@@ -74,6 +77,18 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
     // MARK: - Back Click
     @IBAction func btnBackClick(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: Update Company Info
+    @IBAction func btnUpdateCompanyInfo(sender: UIButton) {
+        if userType != "Provider" { return }
+        if lblName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Business Name")
+            return
+        }else if lblAddress.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Address")
+            return
+        }
     }
     
     //MARK: Get Lat long to show marker on map
@@ -98,8 +113,10 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
             annotation.coordinate = coordinate
             self.mapKitView.addAnnotation(annotation)
             
-            Defaults.setValue(placemarks.first?.locality, forKey: "user_city")
-            Defaults.synchronize()
+            if userType == "User" { } else {
+                Defaults.setValue(placemarks.first?.locality, forKey: "user_city")
+                Defaults.synchronize()
+            }
         }
         
         self.mapKitView.fitAllAnnotations()
@@ -282,7 +299,6 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                         self.imgProfilePlaceholder.isHidden = false
                     } else {
                         self.imgProfilePlaceholder.isHidden = true
-                        Defaults.setValue(pic, forKey: "profile_pic")
                         self.imgProfile.kf.setImage(with: URL(string: pic))
                     }
                     let compPic = data["company_image"].stringValue

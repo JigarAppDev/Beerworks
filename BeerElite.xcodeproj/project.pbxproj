@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0408EAAE23D5A74E0099D1D4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408EAAD23D5A74E0099D1D4 /* ChatViewController.swift */; };
+		040AC090249B7E2F00B198EA /* AddStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AC08F249B7E2F00B198EA /* AddStatusViewController.swift */; };
 		040C28AE23D7181D009211BB /* ApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C28AD23D7181D009211BB /* ApplyViewController.swift */; };
 		040C28B023D73288009211BB /* BeerBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C28AF23D73288009211BB /* BeerBioViewController.swift */; };
 		040C28B223D732A1009211BB /* AddInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C28B123D732A1009211BB /* AddInterestViewController.swift */; };
@@ -38,6 +39,7 @@
 		048A91D223CC833D00BDAFC3 /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */; };
 		048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */; };
 		048A91D423CC833D00BDAFC3 /* ServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91D023CC833D00BDAFC3 /* ServiceCall.swift */; };
+		048E6F4D2498EE4100898C69 /* SavedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E6F4C2498EE4100898C69 /* SavedListViewController.swift */; };
 		0492EFC5245088EA00FD10B0 /* newgiflogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0492EFC4245088EA00FD10B0 /* newgiflogo.gif */; };
 		049F13CB23D3345A00BCC960 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F13CA23D3345A00BCC960 /* BrowseViewController.swift */; };
 		04A5293623CC7620003E2EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5293523CC7620003E2EDA /* AppDelegate.swift */; };
@@ -63,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		0408EAAD23D5A74E0099D1D4 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		040AC08F249B7E2F00B198EA /* AddStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStatusViewController.swift; sourceTree = "<group>"; };
 		040C28AD23D7181D009211BB /* ApplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyViewController.swift; sourceTree = "<group>"; };
 		040C28AF23D73288009211BB /* BeerBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerBioViewController.swift; sourceTree = "<group>"; };
 		040C28B123D732A1009211BB /* AddInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterestViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtilites.swift; sourceTree = "<group>"; };
 		048A91D023CC833D00BDAFC3 /* ServiceCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCall.swift; sourceTree = "<group>"; };
+		048E6F4C2498EE4100898C69 /* SavedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListViewController.swift; sourceTree = "<group>"; };
 		0492EFC4245088EA00FD10B0 /* newgiflogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newgiflogo.gif; sourceTree = "<group>"; };
 		049F13CA23D3345A00BCC960 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		04A5293223CC7620003E2EDA /* BeerElite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerElite.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +292,8 @@
 				040C28B523D732CF009211BB /* AddCertiLevelViewController.swift */,
 				040C28B723D732E4009211BB /* AddEducationViewController.swift */,
 				04364CB4240FD0EC00A198E3 /* ProfileViewController.swift */,
+				048E6F4C2498EE4100898C69 /* SavedListViewController.swift */,
+				040AC08F249B7E2F00B198EA /* AddStatusViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				040C28B823D732E4009211BB /* AddEducationViewController.swift in Sources */,
 				048A91C723CC79FF00BDAFC3 /* SignUpViewController.swift in Sources */,
 				04ED19C023D70D4E0029548B /* JobDetailsViewController.swift in Sources */,
+				040AC090249B7E2F00B198EA /* AddStatusViewController.swift in Sources */,
 				040FFB6B23D337BA00D9B296 /* MessagesViewController.swift in Sources */,
 				048A91C123CC79C800BDAFC3 /* UserSelectionViewController.swift in Sources */,
 				045B82BF23D33EA3007BA29A /* NotificationsViewController.swift in Sources */,
@@ -500,6 +507,7 @@
 				04A5293A23CC7620003E2EDA /* ViewController.swift in Sources */,
 				045B82C323D3413A007BA29A /* ResumeViewController.swift in Sources */,
 				04E982CD23D5B80600F7CC26 /* AddWebLocationViewController.swift in Sources */,
+				048E6F4D2498EE4100898C69 /* SavedListViewController.swift in Sources */,
 				040C28B623D732CF009211BB /* AddCertiLevelViewController.swift in Sources */,
 				04A5293623CC7620003E2EDA /* AppDelegate.swift in Sources */,
 				04497A9E23D1EB9700CBE3F1 /* SupportViewController.swift in Sources */,

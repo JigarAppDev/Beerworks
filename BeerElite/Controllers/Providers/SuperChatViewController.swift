@@ -139,6 +139,10 @@ extension Date {
     func secondsCount(from date: Date) -> Int {
         return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
     }
+    
+    func daysDiffCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: self, to: date).day ?? 0
+    }
     // Returns time ago by checking if the time differences between two dates are in year or months or weeks or days or hours or minutes or seconds
     func timeAgo(from date: Date) -> String {
         if yearsCount(from: date)   > 0 { return "\(yearsCount(from: date)) years ago"   }
@@ -149,6 +153,10 @@ extension Date {
         if minutesCount(from: date) > 0 { return "\(minutesCount(from: date)) minutes ago" }
         if secondsCount(from: date) > 0 { return "\(secondsCount(from: date)) seconds ago" }
         return ""
+    }
+    
+    func expInDays(from date: Date) -> String {
+        return "Expires in \(daysDiffCount(from: date)) days"
     }
 }
 

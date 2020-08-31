@@ -180,7 +180,9 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
         }
         let user_Name = data["username"].stringValue
         Defaults.setValue(user_Name, forKey: "user_name")
-        Defaults.setValue(data["city"].stringValue, forKey: "user_city")
+        if userType == "User" {
+            Defaults.setValue(data["city"].stringValue, forKey: "user_city")
+        }
         Defaults.synchronize()
     }
     
