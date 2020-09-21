@@ -322,7 +322,7 @@ craft beer candidates.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-9v-P40" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="505.5" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="505.5" width="135" height="40"/>
                                                         <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="2HL-e4-Fpd"/>
@@ -371,17 +371,25 @@ craft beer candidates.</string>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2x-hh-QQw">
+                                                        <rect key="frame" x="175" y="510.5" width="135" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="HtO-eT-Kou"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="d2x-hh-QQw" firstAttribute="centerY" secondItem="GJZ-9v-P40" secondAttribute="centerY" id="6LK-I3-fcH"/>
                                                     <constraint firstItem="P9V-fm-XT2" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="83q-qk-kpq"/>
                                                     <constraint firstAttribute="trailing" secondItem="FE3-SP-NhB" secondAttribute="trailing" constant="10" id="BES-uy-0UI"/>
                                                     <constraint firstItem="P9V-fm-XT2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i4P-qm-nHr" secondAttribute="bottom" constant="27.5" id="EGa-hK-T72"/>
                                                     <constraint firstItem="ml7-fc-ksR" firstAttribute="centerY" secondItem="hYI-iN-Qrk" secondAttribute="centerY" id="Frl-aY-UFa"/>
                                                     <constraint firstItem="pcw-BG-aFu" firstAttribute="centerX" secondItem="KOa-XO-JDv" secondAttribute="centerX" id="Fso-5k-J1V"/>
                                                     <constraint firstAttribute="bottom" secondItem="hYI-iN-Qrk" secondAttribute="bottom" constant="20" id="HVL-nZ-4Zj"/>
-                                                    <constraint firstAttribute="trailing" secondItem="GJZ-9v-P40" secondAttribute="trailing" constant="10" id="I1p-4e-5cD"/>
                                                     <constraint firstItem="VIa-3f-rZ4" firstAttribute="centerX" secondItem="KOa-XO-JDv" secondAttribute="centerX" id="IZI-wz-YAa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="d2x-hh-QQw" secondAttribute="trailing" constant="10" id="MRg-mH-lnY"/>
                                                     <constraint firstItem="ml7-fc-ksR" firstAttribute="leading" secondItem="hYI-iN-Qrk" secondAttribute="trailing" constant="2" id="Mtn-7i-kpz"/>
                                                     <constraint firstItem="RCD-3b-3YI" firstAttribute="top" secondItem="pcw-BG-aFu" secondAttribute="bottom" constant="30" id="NFm-lZ-AA1"/>
                                                     <constraint firstItem="pOJ-aJ-VY5" firstAttribute="centerX" secondItem="KOa-XO-JDv" secondAttribute="centerX" id="OqY-Ge-Fco"/>
@@ -389,8 +397,10 @@ craft beer candidates.</string>
                                                     <constraint firstItem="FE3-SP-NhB" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Uvc-xa-lgi"/>
                                                     <constraint firstItem="GJZ-9v-P40" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Wd8-bq-vgD"/>
                                                     <constraint firstItem="RCD-3b-3YI" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Zao-pG-9S9"/>
+                                                    <constraint firstItem="d2x-hh-QQw" firstAttribute="leading" secondItem="GJZ-9v-P40" secondAttribute="trailing" constant="30" id="ZzO-xR-6Wy"/>
                                                     <constraint firstAttribute="trailing" secondItem="RCD-3b-3YI" secondAttribute="trailing" constant="10" id="cL4-mH-qG5"/>
                                                     <constraint firstItem="hYI-iN-Qrk" firstAttribute="top" secondItem="GJZ-9v-P40" secondAttribute="bottom" constant="20" id="fbG-XQ-rxu"/>
+                                                    <constraint firstItem="d2x-hh-QQw" firstAttribute="width" secondItem="GJZ-9v-P40" secondAttribute="width" id="flC-ZA-fxW"/>
                                                     <constraint firstItem="GJZ-9v-P40" firstAttribute="top" secondItem="VIa-3f-rZ4" secondAttribute="bottom" constant="15" id="gRD-Lz-yrC"/>
                                                     <constraint firstAttribute="trailing" secondItem="P9V-fm-XT2" secondAttribute="trailing" constant="10" id="lOE-lI-PsP"/>
                                                     <constraint firstItem="hYI-iN-Qrk" firstAttribute="centerX" secondItem="pcw-BG-aFu" secondAttribute="centerX" constant="-20" id="liU-5N-itQ"/>
@@ -437,13 +447,14 @@ craft beer candidates.</string>
                     <navigationItem key="navigationItem" id="ZGM-oh-8nR"/>
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
+                        <outlet property="appleView" destination="d2x-hh-QQw" id="GEX-cV-40f"/>
                         <outlet property="txtEmail" destination="ChE-YJ-yMv" id="of4-6R-8F6"/>
                         <outlet property="txtPassword" destination="kpJ-J6-0Kc" id="FIb-vk-aqh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaJ-bE-fmv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="152"/>
+            <point key="canvasLocation" x="935.625" y="151.05633802816902"/>
         </scene>
         <!--UserHomeViewController-->
         <scene sceneID="5sH-AI-zc2">
@@ -686,7 +697,7 @@ craft beer candidates.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F75-nV-dDD" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="567" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="567" width="135" height="40"/>
                                                         <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="NZt-C3-AIy"/>
@@ -736,6 +747,13 @@ craft beer candidates.</string>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp2-l1-vPD">
+                                                        <rect key="frame" x="175" y="572" width="135" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="YUt-Rt-iCC"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -744,23 +762,26 @@ craft beer candidates.</string>
                                                     <constraint firstItem="0td-wC-42q" firstAttribute="top" secondItem="IOU-2V-Kkh" secondAttribute="top" constant="50" id="1zk-UF-i6T"/>
                                                     <constraint firstItem="Ywj-wM-Vqi" firstAttribute="centerY" secondItem="mfP-i3-nM3" secondAttribute="centerY" id="2dX-Zj-PMc"/>
                                                     <constraint firstItem="8vm-Pc-39X" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="3s8-LM-j9z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Pp2-l1-vPD" secondAttribute="trailing" constant="10" id="5YK-I1-nzX"/>
                                                     <constraint firstItem="5gJ-uW-oLg" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="6rj-GX-0Ip"/>
+                                                    <constraint firstItem="Pp2-l1-vPD" firstAttribute="width" secondItem="F75-nV-dDD" secondAttribute="width" id="6tk-pu-K3V"/>
                                                     <constraint firstAttribute="trailing" secondItem="5gJ-uW-oLg" secondAttribute="trailing" constant="10" id="8EG-0B-4Hy"/>
                                                     <constraint firstItem="dDm-RL-H0e" firstAttribute="top" secondItem="0td-wC-42q" secondAttribute="bottom" constant="30" id="8bK-5C-G4U"/>
                                                     <constraint firstItem="KHo-8j-mZk" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="8yC-mj-VX9"/>
                                                     <constraint firstItem="lmk-9f-uoe" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="9QY-yB-D6n"/>
                                                     <constraint firstItem="mfP-i3-nM3" firstAttribute="centerX" secondItem="dDm-RL-H0e" secondAttribute="centerX" constant="-20" id="BA9-Bo-xsY"/>
                                                     <constraint firstAttribute="trailing" secondItem="WFY-7b-ObJ" secondAttribute="trailing" constant="10" id="CeJ-An-kpS"/>
+                                                    <constraint firstItem="Pp2-l1-vPD" firstAttribute="leading" secondItem="F75-nV-dDD" secondAttribute="trailing" constant="30" id="Evb-Fs-OPQ"/>
                                                     <constraint firstItem="dDm-RL-H0e" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="F1F-Lb-QaM"/>
                                                     <constraint firstItem="F75-nV-dDD" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="F5B-I4-je7"/>
                                                     <constraint firstItem="0td-wC-42q" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="NuZ-op-Nmo"/>
                                                     <constraint firstItem="WFY-7b-ObJ" firstAttribute="top" secondItem="a5X-Vo-GR8" secondAttribute="bottom" constant="10" id="OHE-R5-mCN"/>
                                                     <constraint firstAttribute="trailing" secondItem="a5X-Vo-GR8" secondAttribute="trailing" constant="10" id="Pae-R4-jDN"/>
                                                     <constraint firstItem="a5X-Vo-GR8" firstAttribute="top" secondItem="dDm-RL-H0e" secondAttribute="bottom" constant="30" id="Psk-Sd-HVu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="F75-nV-dDD" secondAttribute="trailing" constant="10" id="PyS-Pe-w7E"/>
                                                     <constraint firstItem="a5X-Vo-GR8" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="QGq-DF-mnH"/>
                                                     <constraint firstAttribute="trailing" secondItem="KHo-8j-mZk" secondAttribute="trailing" constant="10" id="Tob-Ao-b47"/>
                                                     <constraint firstItem="p08-Co-mgQ" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="15" id="Vqn-KQ-2mi"/>
+                                                    <constraint firstItem="Pp2-l1-vPD" firstAttribute="centerY" secondItem="F75-nV-dDD" secondAttribute="centerY" id="WWp-9Z-sVb"/>
                                                     <constraint firstItem="F75-nV-dDD" firstAttribute="top" secondItem="lmk-9f-uoe" secondAttribute="bottom" constant="15" id="cyZ-Bb-eMq"/>
                                                     <constraint firstAttribute="bottom" secondItem="mfP-i3-nM3" secondAttribute="bottom" constant="20" id="dnx-52-kHo"/>
                                                     <constraint firstItem="Ywj-wM-Vqi" firstAttribute="leading" secondItem="mfP-i3-nM3" secondAttribute="trailing" constant="2" id="lGD-ht-2IZ"/>
@@ -808,6 +829,7 @@ craft beer candidates.</string>
                     <navigationItem key="navigationItem" id="oBi-Pc-tbI"/>
                     <size key="freeformSize" width="320" height="680"/>
                     <connections>
+                        <outlet property="appleView" destination="Pp2-l1-vPD" id="yS2-4j-yIk"/>
                         <outlet property="txtConfirmPassword" destination="QuG-ng-d8d" id="Azc-MQ-4ka"/>
                         <outlet property="txtEmail" destination="MDH-dj-SIX" id="Qpx-W3-wu0"/>
                         <outlet property="txtFullname" destination="7ax-MB-O7b" id="rGF-OA-ptB"/>
@@ -816,7 +838,7 @@ craft beer candidates.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydh-S6-FMY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="192"/>
+            <point key="canvasLocation" x="1638.75" y="191.19718309859155"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="DOb-uG-W8M">
@@ -1287,7 +1309,7 @@ craft beer candidates.</string>
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                                         </imageView>
                                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="get_in_started0" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-CO-cCb">
-                                                            <rect key="frame" x="40" y="50" width="240" height="213"/>
+                                                            <rect key="frame" x="40" y="50" width="240.00000000000011" height="213"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="b1v-CO-cCb" secondAttribute="height" multiplier="239:212" id="zAd-1U-7sD"/>
                                                             </constraints>

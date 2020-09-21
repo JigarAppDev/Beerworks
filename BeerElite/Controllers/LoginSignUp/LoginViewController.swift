@@ -12,11 +12,13 @@ import NVActivityIndicatorView
 import SwiftyJSON
 import GoogleSignIn
 import MapKit
+import AuthenticationServices
 
-class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate {
+class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate, ASAuthorizationControllerDelegate {
     
     @IBOutlet var txtEmail: UITextField!
     @IBOutlet var txtPassword: UITextField!
+    @IBOutlet weak var appleView: UIView!
     var isForSocial = false
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -39,6 +41,12 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
             print(currentLocation.coordinate.longitude)
             self.lati = "\(currentLocation.coordinate.latitude)"
             self.longi = "\(currentLocation.coordinate.longitude)"
+        }
+        
+        if #available(iOS 13.0, *) {
+            self.setUpSignInAppleButtonInView()
+        } else {
+            // Fallback on earlier versions
         }
             
     }
@@ -267,6 +275,64 @@ class LoginViewController: UIViewController, NVActivityIndicatorViewable, GIDSig
                 }
             }
         }.resume()
+    }
+    
+    //MARK: Apple Login
+    @available(iOS 13.0, *)
+    func setUpSignInAppleButtonInView() {
+        let authorizationButton = ASAuthorizationAppleIDButton()
+        authorizationButton.addTarget(self, action: #selector(handleAppleIdRequest), for: .touchUpInside)
+        //authorizationButton.cornerRadius = 10
+        self.appleView.addSubview(authorizationButton)
+    }
+    
+    @available(iOS 13.0, *)
+    @objc func handleAppleIdRequest() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.performRequests()
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+         
+            //Authorise User
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            appleIDProvider.getCredentialState(forUserID: userIdentifier) {  (credentialState, error) in
+                 switch credentialState {
+                    case .authorized:
+                        // The Apple ID credential is valid.
+                        DispatchQueue.main.async {
+                            self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "2")
+                        }
+                        break
+                    case .revoked:
+                        // The Apple ID credential is revoked.
+                        self.showAlert(title: App_Title, msg: "The Apple ID credential is revoked.")
+                        break
+                    case .notFound:
+                        // No credential was found, so show the sign-in UI
+                        self.showAlert(title: App_Title, msg: "No credential was found.")
+                        break
+                    default:
+                        break
+                 }
+            }
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        // Handle error.
+        print(error)
     }
 }
 

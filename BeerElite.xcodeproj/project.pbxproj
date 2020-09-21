@@ -39,6 +39,7 @@
 		048A91D223CC833D00BDAFC3 /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */; };
 		048A91D323CC833D00BDAFC3 /* AppUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */; };
 		048A91D423CC833D00BDAFC3 /* ServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91D023CC833D00BDAFC3 /* ServiceCall.swift */; };
+		048D385A2517981C00AC68B8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048D38592517981C00AC68B8 /* StoreKit.framework */; };
 		048E6F4D2498EE4100898C69 /* SavedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E6F4C2498EE4100898C69 /* SavedListViewController.swift */; };
 		0492EFC5245088EA00FD10B0 /* newgiflogo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0492EFC4245088EA00FD10B0 /* newgiflogo.gif */; };
 		049F13CB23D3345A00BCC960 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F13CA23D3345A00BCC960 /* BrowseViewController.swift */; };
@@ -96,6 +97,7 @@
 		048A91CE23CC833D00BDAFC3 /* GlobalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		048A91CF23CC833D00BDAFC3 /* AppUtilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtilites.swift; sourceTree = "<group>"; };
 		048A91D023CC833D00BDAFC3 /* ServiceCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCall.swift; sourceTree = "<group>"; };
+		048D38592517981C00AC68B8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		048E6F4C2498EE4100898C69 /* SavedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListViewController.swift; sourceTree = "<group>"; };
 		0492EFC4245088EA00FD10B0 /* newgiflogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newgiflogo.gif; sourceTree = "<group>"; };
 		049F13CA23D3345A00BCC960 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5440A6E91900147798898FE /* Pods_BeerElite.framework in Frameworks */,
+				048D385A2517981C00AC68B8 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +332,7 @@
 		40025FE29D95FB1BF0507EA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				048D38592517981C00AC68B8 /* StoreKit.framework */,
 				84F7EFED623F7D701D50570E /* Pods_BeerElite.framework */,
 			);
 			name = Frameworks;
@@ -673,7 +677,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dev_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dev_Profile1;
 				SWIFT_OBJC_BRIDGING_HEADER = BeerElite/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -697,7 +701,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dist_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dist_Profile1;
 				SWIFT_OBJC_BRIDGING_HEADER = BeerElite/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
