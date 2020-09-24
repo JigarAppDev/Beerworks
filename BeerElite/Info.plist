@@ -28,19 +28,21 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAllowsArbitraryLoads</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>BeerElite need access your camera for upload profile image.</string>
+	<string>BeerElite need access your camera to upload profile image.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>BeerElite records your location to get the current location of user and address.</string>
+	<string>BeerElite access your location to get the current address like City &amp; State.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>BeerElite access your location to get the current address like City &amp; State.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>BeerElite records your location to get the current location of user and address.</string>
+	<string>BeerElite access your location to get the current address like City &amp; State.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>BeerElite need access your photo library for upload profile image.</string>
+	<string>BeerElite need access your photo library to upload profile image.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -81,7 +83,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSLocationUsageDescription</key>
-	<string>BeerElite records your location to get the current location of user and address.</string>
 </dict>
 </plist>

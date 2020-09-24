@@ -668,6 +668,7 @@
 				CODE_SIGN_ENTITLEMENTS = BeerElite/BeerElite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: David Mora (R586PW7HW6)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93392H49X2;
 				INFOPLIST_FILE = BeerElite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -692,6 +693,7 @@
 				CODE_SIGN_ENTITLEMENTS = BeerElite/BeerElite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: David Mora (93392H49X2)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 93392H49X2;
 				INFOPLIST_FILE = BeerElite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

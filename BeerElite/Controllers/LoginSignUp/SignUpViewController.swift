@@ -315,8 +315,20 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
                  switch credentialState {
                     case .authorized:
                         // The Apple ID credential is valid.
-                        DispatchQueue.main.async {
-                            self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "2")
+                        if fullName?.givenName == "" || fullName?.givenName == nil {
+                            DispatchQueue.main.async {
+                                if let emailId = UserDefaults.standard.value(forKey: "emailId") as? String {
+                                    let fname = UserDefaults.standard.value(forKey: "fullname") as? String
+                                    self.loginBySocial(name: fname!, id: userIdentifier, email: emailId, type: "2")
+                                }
+                            }
+                        } else {
+                            UserDefaults.standard.set(fullName?.givenName, forKey: "fullname")
+                            UserDefaults.standard.set(email, forKey: "emailId")
+                            UserDefaults.standard.synchronize()
+                             DispatchQueue.main.async {
+                                self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "2")
+                            }
                         }
                         break
                     case .revoked:
