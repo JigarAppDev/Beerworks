@@ -46,7 +46,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         self.mapKitView.isUserInteractionEnabled = false
         
         if self.isFrom == "SignUp" {
-            self.showAlert(title: App_Title, msg: "You're one step closer to hiring an elite beer staff! Please complete company profile before posting your first job!")
+            self.showAlert(title: App_Title, msg: "Please complete your company profile before posting your first job!")
         }
     }
     
@@ -64,13 +64,24 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
                 self.getCompanyInfo()
             }
         } else {
-            self.btnUpdateInfo.isHidden = false
-            self.btnUpdateAbout.isHidden = false
-            self.btnUpdateAddress.isHidden = false
-            self.btnUpdateImage.isHidden = false
-            self.btnUpdateCompanyName.isHidden = false
-            self.btnProfileImage.isHidden = false
-            self.getCompanyInfoByPro()
+            if self.isFrom == "EMP" {
+                self.btnUpdateInfo.isHidden = true
+                self.btnUpdateAbout.isHidden = true
+                self.btnUpdateAddress.isHidden = true
+                self.btnUpdateImage.isHidden = true
+                self.btnUpdateCompanyName.isHidden = true
+                self.btnProfileImage.isHidden = true
+                self.getCompanyInfo()
+            } else {
+                self.btnUpdateInfo.isHidden = false
+                self.btnUpdateAbout.isHidden = false
+                self.btnUpdateAddress.isHidden = false
+                self.btnUpdateImage.isHidden = false
+                self.btnUpdateCompanyName.isHidden = false
+                self.btnProfileImage.isHidden = false
+                self.getCompanyInfoByPro()
+            }
+            
         }
     }
     

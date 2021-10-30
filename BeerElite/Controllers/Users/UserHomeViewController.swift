@@ -12,6 +12,10 @@ import NVActivityIndicatorView
 import SwiftyJSON
 import Kingfisher
 
+protocol ClickDelegate {
+    func btnClickNow()
+}
+
 class tblJobsListCell: UITableViewCell {
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblTitle: UILabel!
@@ -24,8 +28,9 @@ class tblJobsListCell: UITableViewCell {
     @IBOutlet var imgFav: UIImageView!
 }
 
-class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
+class UserHomeViewController: UIViewController, NVActivityIndicatorViewable, ClickDelegate {
 
+    @IBOutlet var lblTitle: UILabel!
     @IBOutlet var tblJobsList: UITableView!
     var jobList = [JobsDataModel]()
     var selectedJob: JobsDataModel!
@@ -50,6 +55,14 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable {
             let proVC = userStoryBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
             self.navigationController?.pushViewController(proVC, animated: true)
         }
+        
+        if self.isFrom == "EMP" {
+            self.lblTitle.text = "Local Jobs"
+        }
+    }
+    
+    func btnClickNow() {
+        print("Clicked")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -259,6 +272,7 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.lblTitle.text = obj.jobTitle
         cell.lblDescr.text = obj.description
+        cell.lblDescr.numberOfLines = 10
         cell.lblSubTitle.text = obj.company_name
         cell.lblWages.text = "Salary/hourly wage: " + obj.salary!
         cell.btnChat.tag = indexPath.row
@@ -285,6 +299,12 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.btnFav.tag = indexPath.row
         cell.btnFav.addTarget(self, action: #selector(self.addToSave(sender:)), for: .touchUpInside)
         
+        if self.isFrom == "EMP" {
+            cell.imgFav.isHidden = true
+            cell.btnFav.isHidden = true
+            cell.btnChat.isHidden = true
+        }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -293,6 +313,8 @@ extension UserHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
         detailsVC.dataObj = self.jobList[indexPath.row]
+        detailsVC.isFrom = self.isFrom
+        detailsVC.clickDelegate = self
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

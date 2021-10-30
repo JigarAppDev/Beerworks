@@ -88,11 +88,20 @@ class ProviderHomeViewController: UIViewController, NVActivityIndicatorViewable,
         if txtJobTitle.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Job Title")
             boolVal = false
-        } else if txtCompanyName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+        }else if txtJobTitle.text?.trimmingCharacters(in: .whitespaces).count ?? 0 > 50 {
+            showAlert(title: App_Title, msg: "Please Enter Job Title upto 50 characters")
+            boolVal = false
+        }else if txtCompanyName.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Business Name")
+            boolVal = false
+        }else if txtCompanyName.text?.trimmingCharacters(in: .whitespaces).count ?? 0 > 50 {
+            showAlert(title: App_Title, msg: "Please Enter Business Name upto 50 characters")
             boolVal = false
         }else if txtSalary.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter Salary")
+            boolVal = false
+        }else if txtSalary.text?.trimmingCharacters(in: .whitespaces).count ?? 0 > 50 {
+            showAlert(title: App_Title, msg: "Please Enter Salary upto 50 characters")
             boolVal = false
         }else if txvDescription.text?.trimmingCharacters(in: .whitespaces).isEmpty == true || txvDescription.text == "Enter job activites, responsibilities and requirements" {
             showAlert(title: App_Title, msg: "Please Enter Description")

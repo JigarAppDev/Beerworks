@@ -76,7 +76,8 @@ class AddStatusViewController: UIViewController, NVActivityIndicatorViewable {
             if responseObject != nil{
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
-                    self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
+                    self.showAlert(title: App_Title, msg: "User Current Status Updated Successfully.")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }

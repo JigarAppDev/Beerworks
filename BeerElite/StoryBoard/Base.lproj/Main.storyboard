@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hdd-3B-QEe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hdd-3B-QEe">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="oMc-qU-H40">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="oMc-qU-H40">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onBoard" translatesAutoresizingMaskIntoConstraints="NO" id="aOn-jn-lvo">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onBoard" translatesAutoresizingMaskIntoConstraints="NO" id="aOn-jn-lvo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUx-aB-9l8">
@@ -36,15 +36,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-lQ-bey">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIe-sI-7YY">
+                                                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIe-sI-7YY">
                                                         <rect key="frame" x="20" y="518" width="280" height="40"/>
-                                                        <color key="backgroundColor" red="0.96078431372549022" green="0.89411764705882346" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="oj0-aK-Por"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="I'M AN EMPLOYER">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -55,14 +55,14 @@
                                                             <action selector="btnSelectUserWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39V-vU-hny"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-9q-bfz">
+                                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-9q-bfz">
                                                         <rect key="frame" x="20" y="468" width="280" height="40"/>
-                                                        <color key="backgroundColor" red="0.87450980392156863" green="0.65490196078431373" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="wdA-0o-59q"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="I'M A JOB SEEKER">
+                                                        <state key="normal" title="I'M A JOB SEEKER" backgroundImage="btnBg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -92,18 +92,19 @@ craft beer candidates.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon_white" translatesAutoresizingMaskIntoConstraints="NO" id="5Zr-0z-4Dh">
-                                                        <rect key="frame" x="20" y="318" width="280" height="150"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5Zr-0z-4Dh">
+                                                        <rect key="frame" x="22.5" y="146.5" width="275" height="275"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="5Zr-0z-4Dh" secondAttribute="height" multiplier="28:15" id="prv-Wu-LFe"/>
+                                                            <constraint firstAttribute="height" constant="275" id="lVe-yg-a52"/>
+                                                            <constraint firstAttribute="width" secondItem="5Zr-0z-4Dh" secondAttribute="height" multiplier="1:1" id="prv-Wu-LFe"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="AFB-9q-bfz" secondAttribute="trailing" constant="20" id="2jO-E3-dBh"/>
+                                                    <constraint firstItem="5Zr-0z-4Dh" firstAttribute="centerX" secondItem="cwA-lQ-bey" secondAttribute="centerX" id="4rc-RB-hoY"/>
                                                     <constraint firstAttribute="bottom" secondItem="MIe-sI-7YY" secondAttribute="bottom" constant="10" id="6dh-b7-h3L"/>
-                                                    <constraint firstItem="5Zr-0z-4Dh" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="8Cx-1e-Of6"/>
                                                     <constraint firstItem="79c-Bi-GwD" firstAttribute="top" secondItem="cwA-lQ-bey" secondAttribute="top" constant="40" id="8bg-yi-rxX"/>
                                                     <constraint firstAttribute="trailing" secondItem="79c-Bi-GwD" secondAttribute="trailing" constant="40" id="CPy-7q-E0y"/>
                                                     <constraint firstItem="AFB-9q-bfz" firstAttribute="top" secondItem="ri2-4b-wZG" secondAttribute="bottom" constant="10" id="F0V-XK-ner"/>
@@ -111,11 +112,10 @@ craft beer candidates.</string>
                                                     <constraint firstItem="MIe-sI-7YY" firstAttribute="top" secondItem="AFB-9q-bfz" secondAttribute="bottom" constant="10" id="Q8B-80-5Ak"/>
                                                     <constraint firstItem="79c-Bi-GwD" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="40" id="U26-tb-DKI"/>
                                                     <constraint firstItem="MIe-sI-7YY" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="bhU-TC-4eZ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="5Zr-0z-4Dh" secondAttribute="trailing" constant="20" id="d6E-Wg-6Wg"/>
                                                     <constraint firstItem="AFB-9q-bfz" firstAttribute="leading" secondItem="cwA-lQ-bey" secondAttribute="leading" constant="20" id="ib5-j6-bLS"/>
                                                     <constraint firstAttribute="trailing" secondItem="ri2-4b-wZG" secondAttribute="trailing" constant="20" id="jzb-k2-ZuN"/>
+                                                    <constraint firstItem="5Zr-0z-4Dh" firstAttribute="centerY" secondItem="cwA-lQ-bey" secondAttribute="centerY" id="mOu-Xs-O5I"/>
                                                     <constraint firstAttribute="trailing" secondItem="MIe-sI-7YY" secondAttribute="trailing" constant="20" id="oNO-Zx-Tnr"/>
-                                                    <constraint firstItem="ri2-4b-wZG" firstAttribute="top" secondItem="5Zr-0z-4Dh" secondAttribute="bottom" constant="-10" id="ujA-eR-hCC"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -138,7 +138,8 @@ craft beer candidates.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aOn-jn-lvo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2Fi-bL-xbB"/>
                             <constraint firstItem="wUx-aB-9l8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Ux-F9-Bro"/>
@@ -153,9 +154,11 @@ craft beer candidates.</string>
                             <constraint firstItem="wUx-aB-9l8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nhC-vs-CoM"/>
                             <constraint firstItem="oMc-qU-H40" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="r8P-Bf-bQJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qbp-ju-odL"/>
+                    <connections>
+                        <outlet property="btnEmp" destination="MIe-sI-7YY" id="Eng-W4-Ywb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +189,7 @@ craft beer candidates.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="k82-T5-ATV">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="k82-T5-ATV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-y4-SgG">
@@ -198,7 +201,7 @@ craft beer candidates.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOa-XO-JDv">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-aJ-VY5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pOJ-aJ-VY5">
                                                         <rect key="frame" x="97.5" y="50" width="125" height="125"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="BGq-eB-bvI"/>
@@ -211,7 +214,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcw-BG-aFu">
-                                                        <rect key="frame" x="134" y="205" width="52.5" height="24"/>
+                                                        <rect key="frame" x="134" y="218.5" width="52" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -222,7 +225,7 @@ craft beer candidates.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml7-fc-ksR">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml7-fc-ksR">
                                                         <rect key="frame" x="172" y="559.5" width="42" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="27" id="QVv-0V-0oH"/>
@@ -236,7 +239,7 @@ craft beer candidates.</string>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCD-3b-3YI" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="259" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="272.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ChE-YJ-yMv">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -274,7 +277,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE3-SP-NhB" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="309" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="322.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kpJ-J6-0Kc">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -311,8 +314,8 @@ craft beer candidates.</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4P-qm-nHr">
-                                                        <rect key="frame" x="204" y="357" width="106" height="27"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4P-qm-nHr">
+                                                        <rect key="frame" x="204" y="370.5" width="106" height="27"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                         <state key="normal" title="Forgot Password?">
                                                             <color key="titleColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -321,11 +324,11 @@ craft beer candidates.</string>
                                                             <action selector="btnForgotClickWithSender:" destination="ojX-ph-Og4" eventType="touchUpInside" id="PRx-Ej-hAC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-9v-P40" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="505.5" width="135" height="40"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-9v-P40" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="30" y="515.5" width="125" height="30"/>
                                                         <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="2HL-e4-Fpd"/>
+                                                            <constraint firstAttribute="height" constant="30" id="2HL-e4-Fpd"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Google">
@@ -336,21 +339,21 @@ craft beer candidates.</string>
                                                                 <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
+                                                                <real key="value" value="7"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="btnGoogleLoginClickWithSender:" destination="ojX-ph-Og4" eventType="touchUpInside" id="53l-7d-49n"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9V-fm-XT2" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="417.5" width="300" height="40"/>
-                                                        <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9V-fm-XT2" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="427.5" width="300" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="idX-Qf-QVh"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Login">
+                                                        <state key="normal" title="Login" backgroundImage="btnBg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -365,14 +368,14 @@ craft beer candidates.</string>
                                                             <action selector="btnLoginClickWithSender:" destination="ojX-ph-Og4" eventType="touchUpInside" id="iG5-NW-ICO"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIa-3f-rZ4">
-                                                        <rect key="frame" x="149" y="472.5" width="22" height="18"/>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIa-3f-rZ4">
+                                                        <rect key="frame" x="149" y="482.5" width="22" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2x-hh-QQw">
-                                                        <rect key="frame" x="175" y="510.5" width="135" height="30"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2x-hh-QQw">
+                                                        <rect key="frame" x="185" y="515.5" width="125" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="HtO-eT-Kou"/>
@@ -384,7 +387,7 @@ craft beer candidates.</string>
                                                     <constraint firstItem="d2x-hh-QQw" firstAttribute="centerY" secondItem="GJZ-9v-P40" secondAttribute="centerY" id="6LK-I3-fcH"/>
                                                     <constraint firstItem="P9V-fm-XT2" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="83q-qk-kpq"/>
                                                     <constraint firstAttribute="trailing" secondItem="FE3-SP-NhB" secondAttribute="trailing" constant="10" id="BES-uy-0UI"/>
-                                                    <constraint firstItem="P9V-fm-XT2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i4P-qm-nHr" secondAttribute="bottom" constant="27.5" id="EGa-hK-T72"/>
+                                                    <constraint firstItem="P9V-fm-XT2" firstAttribute="top" secondItem="i4P-qm-nHr" secondAttribute="bottom" constant="30" id="EGa-hK-T72"/>
                                                     <constraint firstItem="ml7-fc-ksR" firstAttribute="centerY" secondItem="hYI-iN-Qrk" secondAttribute="centerY" id="Frl-aY-UFa"/>
                                                     <constraint firstItem="pcw-BG-aFu" firstAttribute="centerX" secondItem="KOa-XO-JDv" secondAttribute="centerX" id="Fso-5k-J1V"/>
                                                     <constraint firstAttribute="bottom" secondItem="hYI-iN-Qrk" secondAttribute="bottom" constant="20" id="HVL-nZ-4Zj"/>
@@ -395,7 +398,7 @@ craft beer candidates.</string>
                                                     <constraint firstItem="pOJ-aJ-VY5" firstAttribute="centerX" secondItem="KOa-XO-JDv" secondAttribute="centerX" id="OqY-Ge-Fco"/>
                                                     <constraint firstItem="i4P-qm-nHr" firstAttribute="top" secondItem="FE3-SP-NhB" secondAttribute="bottom" constant="8" id="SWn-Hi-dB9"/>
                                                     <constraint firstItem="FE3-SP-NhB" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Uvc-xa-lgi"/>
-                                                    <constraint firstItem="GJZ-9v-P40" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Wd8-bq-vgD"/>
+                                                    <constraint firstItem="GJZ-9v-P40" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="30" id="Wd8-bq-vgD"/>
                                                     <constraint firstItem="RCD-3b-3YI" firstAttribute="leading" secondItem="KOa-XO-JDv" secondAttribute="leading" constant="10" id="Zao-pG-9S9"/>
                                                     <constraint firstItem="d2x-hh-QQw" firstAttribute="leading" secondItem="GJZ-9v-P40" secondAttribute="trailing" constant="30" id="ZzO-xR-6Wy"/>
                                                     <constraint firstAttribute="trailing" secondItem="RCD-3b-3YI" secondAttribute="trailing" constant="10" id="cL4-mH-qG5"/>
@@ -405,7 +408,7 @@ craft beer candidates.</string>
                                                     <constraint firstAttribute="trailing" secondItem="P9V-fm-XT2" secondAttribute="trailing" constant="10" id="lOE-lI-PsP"/>
                                                     <constraint firstItem="hYI-iN-Qrk" firstAttribute="centerX" secondItem="pcw-BG-aFu" secondAttribute="centerX" constant="-20" id="liU-5N-itQ"/>
                                                     <constraint firstItem="pOJ-aJ-VY5" firstAttribute="top" secondItem="KOa-XO-JDv" secondAttribute="top" constant="50" id="p0i-rx-MkU"/>
-                                                    <constraint firstItem="pcw-BG-aFu" firstAttribute="top" secondItem="pOJ-aJ-VY5" secondAttribute="bottom" constant="30" id="pDe-h9-Bjw"/>
+                                                    <constraint firstItem="pcw-BG-aFu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pOJ-aJ-VY5" secondAttribute="bottom" constant="30" id="pDe-h9-Bjw"/>
                                                     <constraint firstItem="FE3-SP-NhB" firstAttribute="top" secondItem="RCD-3b-3YI" secondAttribute="bottom" constant="10" id="pMc-8F-aN8"/>
                                                     <constraint firstAttribute="trailing" secondItem="i4P-qm-nHr" secondAttribute="trailing" constant="10" id="tMZ-Gk-Epe"/>
                                                     <constraint firstItem="VIa-3f-rZ4" firstAttribute="top" secondItem="P9V-fm-XT2" secondAttribute="bottom" constant="15" id="yG7-RG-1Yn"/>
@@ -431,7 +434,8 @@ craft beer candidates.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yx1-ZG-l5I"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k82-T5-ATV" firstAttribute="leading" secondItem="yx1-ZG-l5I" secondAttribute="leading" id="4Gt-LJ-N7O"/>
                             <constraint firstItem="k82-T5-ATV" firstAttribute="top" secondItem="UqL-Ik-WvI" secondAttribute="top" id="9SE-IS-XrN"/>
@@ -442,7 +446,6 @@ craft beer candidates.</string>
                             <constraint firstAttribute="bottom" secondItem="k82-T5-ATV" secondAttribute="bottom" id="hHY-dp-pLm"/>
                             <constraint firstItem="uH9-y4-SgG" firstAttribute="leading" secondItem="yx1-ZG-l5I" secondAttribute="leading" id="n7S-Sp-sE4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="yx1-ZG-l5I"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZGM-oh-8nR"/>
                     <size key="freeformSize" width="320" height="600"/>
@@ -480,7 +483,7 @@ craft beer candidates.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="c7R-a7-Ra3">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="c7R-a7-Ra3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="680"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28Q-K3-F6n">
@@ -490,9 +493,9 @@ craft beer candidates.</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="680"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOU-2V-Kkh">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="661.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="680"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0td-wC-42q">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0td-wC-42q">
                                                         <rect key="frame" x="97.5" y="50" width="125" height="125"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="L4B-nb-7D0"/>
@@ -505,13 +508,13 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create account!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDm-RL-H0e">
-                                                        <rect key="frame" x="84" y="205" width="152" height="24"/>
+                                                        <rect key="frame" x="85" y="233.5" width="150.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFY-7b-ObJ" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="309" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="337.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDH-dj-SIX">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -550,7 +553,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vm-Pc-39X" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="359" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="387.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gt6-en-JOs">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -589,7 +592,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5X-Vo-GR8" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="259" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="287.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ax-MB-O7b">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -628,7 +631,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHo-8j-mZk" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="409" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="437.5" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QuG-ng-d8d">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -678,13 +681,13 @@ craft beer candidates.</string>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Existing user?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfP-i3-nM3">
-                                                        <rect key="frame" x="100.5" y="627" width="79" height="14.5"/>
+                                                        <rect key="frame" x="100.5" y="645.5" width="79" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywj-wM-Vqi">
-                                                        <rect key="frame" x="181.5" y="621" width="33" height="27"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywj-wM-Vqi">
+                                                        <rect key="frame" x="181.5" y="639.5" width="33" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="27" id="7yB-rY-gUF"/>
                                                         </constraints>
@@ -696,11 +699,11 @@ craft beer candidates.</string>
                                                             <action selector="btnLoginClickWithSender:" destination="sZb-aH-6iF" eventType="touchUpInside" id="Cgi-3m-wU5"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F75-nV-dDD" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="567" width="135" height="40"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F75-nV-dDD" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="30" y="595.5" width="125" height="30"/>
                                                         <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="NZt-C3-AIy"/>
+                                                            <constraint firstAttribute="height" constant="30" id="NZt-C3-AIy"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Google">
@@ -711,21 +714,21 @@ craft beer candidates.</string>
                                                                 <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
+                                                                <real key="value" value="7"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="btnGoogleLoginClickWithSender:" destination="sZb-aH-6iF" eventType="touchUpInside" id="f5T-wu-Kob"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gJ-uW-oLg" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="479" width="300" height="40"/>
-                                                        <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gJ-uW-oLg" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="507.5" width="300" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="yN2-R5-flm"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Signup">
+                                                        <state key="normal" title="Signup" backgroundImage="btnBg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -741,14 +744,14 @@ craft beer candidates.</string>
                                                             <action selector="btnSignUpClickWithSender:" destination="sZb-aH-6iF" eventType="touchUpInside" id="hQI-Iw-7FV"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmk-9f-uoe">
-                                                        <rect key="frame" x="149" y="534" width="22" height="18"/>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmk-9f-uoe">
+                                                        <rect key="frame" x="149" y="562.5" width="22" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp2-l1-vPD">
-                                                        <rect key="frame" x="175" y="572" width="135" height="30"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp2-l1-vPD">
+                                                        <rect key="frame" x="185" y="595.5" width="125" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="YUt-Rt-iCC"/>
@@ -766,14 +769,14 @@ craft beer candidates.</string>
                                                     <constraint firstItem="5gJ-uW-oLg" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="6rj-GX-0Ip"/>
                                                     <constraint firstItem="Pp2-l1-vPD" firstAttribute="width" secondItem="F75-nV-dDD" secondAttribute="width" id="6tk-pu-K3V"/>
                                                     <constraint firstAttribute="trailing" secondItem="5gJ-uW-oLg" secondAttribute="trailing" constant="10" id="8EG-0B-4Hy"/>
-                                                    <constraint firstItem="dDm-RL-H0e" firstAttribute="top" secondItem="0td-wC-42q" secondAttribute="bottom" constant="30" id="8bK-5C-G4U"/>
+                                                    <constraint firstItem="dDm-RL-H0e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0td-wC-42q" secondAttribute="bottom" constant="30" id="8bK-5C-G4U"/>
                                                     <constraint firstItem="KHo-8j-mZk" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="8yC-mj-VX9"/>
                                                     <constraint firstItem="lmk-9f-uoe" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="9QY-yB-D6n"/>
                                                     <constraint firstItem="mfP-i3-nM3" firstAttribute="centerX" secondItem="dDm-RL-H0e" secondAttribute="centerX" constant="-20" id="BA9-Bo-xsY"/>
                                                     <constraint firstAttribute="trailing" secondItem="WFY-7b-ObJ" secondAttribute="trailing" constant="10" id="CeJ-An-kpS"/>
                                                     <constraint firstItem="Pp2-l1-vPD" firstAttribute="leading" secondItem="F75-nV-dDD" secondAttribute="trailing" constant="30" id="Evb-Fs-OPQ"/>
                                                     <constraint firstItem="dDm-RL-H0e" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="F1F-Lb-QaM"/>
-                                                    <constraint firstItem="F75-nV-dDD" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="10" id="F5B-I4-je7"/>
+                                                    <constraint firstItem="F75-nV-dDD" firstAttribute="leading" secondItem="IOU-2V-Kkh" secondAttribute="leading" constant="30" id="F5B-I4-je7"/>
                                                     <constraint firstItem="0td-wC-42q" firstAttribute="centerX" secondItem="IOU-2V-Kkh" secondAttribute="centerX" id="NuZ-op-Nmo"/>
                                                     <constraint firstItem="WFY-7b-ObJ" firstAttribute="top" secondItem="a5X-Vo-GR8" secondAttribute="bottom" constant="10" id="OHE-R5-mCN"/>
                                                     <constraint firstAttribute="trailing" secondItem="a5X-Vo-GR8" secondAttribute="trailing" constant="10" id="Pae-R4-jDN"/>
@@ -813,7 +816,8 @@ craft beer candidates.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JLg-OE-JKt"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JLg-OE-JKt" firstAttribute="trailing" secondItem="c7R-a7-Ra3" secondAttribute="trailing" id="23A-s4-DsE"/>
                             <constraint firstItem="c7R-a7-Ra3" firstAttribute="leading" secondItem="JLg-OE-JKt" secondAttribute="leading" id="5d3-sl-C3Z"/>
@@ -824,7 +828,6 @@ craft beer candidates.</string>
                             <constraint firstItem="28Q-K3-F6n" firstAttribute="leading" secondItem="JLg-OE-JKt" secondAttribute="leading" id="pe0-zF-0x3"/>
                             <constraint firstItem="28Q-K3-F6n" firstAttribute="top" secondItem="JLg-OE-JKt" secondAttribute="top" id="rZN-hs-QN2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JLg-OE-JKt"/>
                     </view>
                     <navigationItem key="navigationItem" id="oBi-Pc-tbI"/>
                     <size key="freeformSize" width="320" height="680"/>
@@ -848,7 +851,7 @@ craft beer candidates.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="TRr-pb-v3q">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="TRr-pb-v3q">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNk-kG-5d1">
@@ -860,7 +863,7 @@ craft beer candidates.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIb-1l-og7">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-Ah-58y">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-Ah-58y">
                                                         <rect key="frame" x="97.5" y="50" width="125" height="125"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="125" id="MVT-8h-V5X"/>
@@ -873,13 +876,13 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91F-mM-Y9E">
-                                                        <rect key="frame" x="80.5" y="205" width="159" height="24"/>
+                                                        <rect key="frame" x="80.5" y="364" width="159" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-uw-Idb" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="259" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="418" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVc-c7-PqZ">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -917,14 +920,14 @@ craft beer candidates.</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lP-MI-0UZ" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lP-MI-0UZ" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="508" width="300" height="40"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Qjz-nC-VuW"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Send">
+                                                        <state key="normal" title="Send" backgroundImage="btnBg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -954,7 +957,7 @@ craft beer candidates.</string>
                                                     <constraint firstItem="AwK-Sv-VOe" firstAttribute="leading" secondItem="nIb-1l-og7" secondAttribute="leading" constant="15" id="6jW-7W-emA"/>
                                                     <constraint firstAttribute="trailing" secondItem="aJt-uw-Idb" secondAttribute="trailing" constant="10" id="9gg-3K-zdk"/>
                                                     <constraint firstAttribute="bottom" secondItem="5lP-MI-0UZ" secondAttribute="bottom" constant="20" id="JJk-T3-KPy"/>
-                                                    <constraint firstItem="5lP-MI-0UZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aJt-uw-Idb" secondAttribute="bottom" constant="50" id="Ntb-7q-vlT"/>
+                                                    <constraint firstItem="5lP-MI-0UZ" firstAttribute="top" secondItem="aJt-uw-Idb" secondAttribute="bottom" constant="50" id="Ntb-7q-vlT"/>
                                                     <constraint firstItem="aJt-uw-Idb" firstAttribute="leading" secondItem="nIb-1l-og7" secondAttribute="leading" constant="10" id="OGa-AS-rbq"/>
                                                     <constraint firstAttribute="trailing" secondItem="5lP-MI-0UZ" secondAttribute="trailing" constant="10" id="P9z-Dp-aAR"/>
                                                     <constraint firstItem="91F-mM-Y9E" firstAttribute="centerX" secondItem="nIb-1l-og7" secondAttribute="centerX" id="QIP-9d-fpG"/>
@@ -962,7 +965,7 @@ craft beer candidates.</string>
                                                     <constraint firstItem="2CA-Ah-58y" firstAttribute="top" secondItem="nIb-1l-og7" secondAttribute="top" constant="50" id="YGc-eO-DUC"/>
                                                     <constraint firstItem="5lP-MI-0UZ" firstAttribute="leading" secondItem="nIb-1l-og7" secondAttribute="leading" constant="10" id="Yi5-sW-Ygx"/>
                                                     <constraint firstItem="2CA-Ah-58y" firstAttribute="top" secondItem="AwK-Sv-VOe" secondAttribute="bottom" constant="5" id="aUR-qp-2dq"/>
-                                                    <constraint firstItem="91F-mM-Y9E" firstAttribute="top" secondItem="2CA-Ah-58y" secondAttribute="bottom" constant="30" id="gh8-OA-HHf"/>
+                                                    <constraint firstItem="91F-mM-Y9E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2CA-Ah-58y" secondAttribute="bottom" constant="30" id="gh8-OA-HHf"/>
                                                     <constraint firstItem="2CA-Ah-58y" firstAttribute="centerX" secondItem="nIb-1l-og7" secondAttribute="centerX" id="ovT-CL-pAf"/>
                                                 </constraints>
                                             </view>
@@ -986,7 +989,8 @@ craft beer candidates.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bGT-ku-giM"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WNk-kG-5d1" firstAttribute="leading" secondItem="bGT-ku-giM" secondAttribute="leading" id="07Q-oA-dfz"/>
                             <constraint firstItem="WNk-kG-5d1" firstAttribute="top" secondItem="bGT-ku-giM" secondAttribute="top" id="78Q-IA-2A1"/>
@@ -997,7 +1001,6 @@ craft beer candidates.</string>
                             <constraint firstItem="TRr-pb-v3q" firstAttribute="top" secondItem="ho4-BX-69M" secondAttribute="top" id="ct0-2P-eHh"/>
                             <constraint firstItem="bGT-ku-giM" firstAttribute="trailing" secondItem="TRr-pb-v3q" secondAttribute="trailing" id="eof-lj-Mz0"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bGT-ku-giM"/>
                     </view>
                     <navigationItem key="navigationItem" id="FHb-d1-ZXa"/>
                     <connections>
@@ -1016,7 +1019,7 @@ craft beer candidates.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="6XW-hp-IQ6">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="6XW-hp-IQ6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ada-8E-lp1">
@@ -1035,13 +1038,13 @@ craft beer candidates.</string>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3O-2r-XXt">
-                                                        <rect key="frame" x="84.5" y="205" width="151" height="24"/>
+                                                        <rect key="frame" x="85" y="259" width="150" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkz-zB-L6Y" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="259" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="313" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Temporary Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZzB-2w-LVe">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -1079,14 +1082,14 @@ craft beer candidates.</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFh-ka-Qp0" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFh-ka-Qp0" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="503" width="300" height="40"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="i3B-ar-eW9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Submit">
+                                                        <state key="normal" title="Submit" backgroundImage="btnBg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -1111,7 +1114,7 @@ craft beer candidates.</string>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-GS-FFM" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="309" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="363" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuO-4s-VZL">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -1150,7 +1153,7 @@ craft beer candidates.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6O-TG-g0p" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="359" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="413" width="300" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5z-oZ-36H">
                                                                 <rect key="frame" x="10" y="0.0" width="257" height="40"/>
@@ -1187,7 +1190,7 @@ craft beer candidates.</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nO-i5-lIx">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nO-i5-lIx">
                                                         <rect key="frame" x="134.5" y="553" width="51" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="27" id="bSj-M5-T6N"/>
@@ -1210,8 +1213,8 @@ craft beer candidates.</string>
                                                     <constraint firstAttribute="trailing" secondItem="gkz-zB-L6Y" secondAttribute="trailing" constant="10" id="AIQ-Hg-qWN"/>
                                                     <constraint firstItem="9nO-i5-lIx" firstAttribute="centerX" secondItem="RUS-Sc-Qf4" secondAttribute="centerX" id="BPS-Zx-ghs"/>
                                                     <constraint firstItem="a3O-2r-XXt" firstAttribute="centerX" secondItem="RUS-Sc-Qf4" secondAttribute="centerX" id="IlE-zz-qu7"/>
-                                                    <constraint firstItem="a3O-2r-XXt" firstAttribute="top" secondItem="ihn-4c-aDJ" secondAttribute="bottom" constant="30" id="Jfp-tJ-UDE"/>
-                                                    <constraint firstItem="KFh-ka-Qp0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="d6O-TG-g0p" secondAttribute="bottom" constant="50" id="L7v-Zu-BUl"/>
+                                                    <constraint firstItem="a3O-2r-XXt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ihn-4c-aDJ" secondAttribute="bottom" constant="30" id="Jfp-tJ-UDE"/>
+                                                    <constraint firstItem="KFh-ka-Qp0" firstAttribute="top" secondItem="d6O-TG-g0p" secondAttribute="bottom" constant="50" id="L7v-Zu-BUl"/>
                                                     <constraint firstItem="ihn-4c-aDJ" firstAttribute="top" secondItem="eOY-W5-pmY" secondAttribute="bottom" constant="5" id="OQl-ia-Yic"/>
                                                     <constraint firstItem="gkz-zB-L6Y" firstAttribute="top" secondItem="a3O-2r-XXt" secondAttribute="bottom" constant="30" id="Oyo-kW-bMi"/>
                                                     <constraint firstItem="KFh-ka-Qp0" firstAttribute="leading" secondItem="RUS-Sc-Qf4" secondAttribute="leading" constant="10" id="Ql5-E5-bNp"/>
@@ -1249,7 +1252,8 @@ craft beer candidates.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XZJ-cv-Pq7"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6XW-hp-IQ6" firstAttribute="top" secondItem="u5Y-kK-y50" secondAttribute="top" id="1tt-V3-qKG"/>
                             <constraint firstAttribute="bottom" secondItem="6XW-hp-IQ6" secondAttribute="bottom" id="2bO-aN-o8d"/>
@@ -1260,7 +1264,6 @@ craft beer candidates.</string>
                             <constraint firstItem="6XW-hp-IQ6" firstAttribute="leading" secondItem="XZJ-cv-Pq7" secondAttribute="leading" id="jTp-S9-JV7"/>
                             <constraint firstItem="XZJ-cv-Pq7" firstAttribute="trailing" secondItem="ada-8E-lp1" secondAttribute="trailing" id="oG2-Hw-fTY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XZJ-cv-Pq7"/>
                     </view>
                     <navigationItem key="navigationItem" id="YYZ-Dw-X5k"/>
                     <size key="freeformSize" width="320" height="600"/>
@@ -1282,7 +1285,7 @@ craft beer candidates.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="0GG-3V-Xk5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0GG-3V-Xk5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DWx-bj-nxn">
@@ -1314,17 +1317,17 @@ craft beer candidates.</string>
                                                                 <constraint firstAttribute="width" secondItem="b1v-CO-cCb" secondAttribute="height" multiplier="239:212" id="zAd-1U-7sD"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29G-fB-nYB">
+                                                        <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29G-fB-nYB">
                                                             <rect key="frame" x="37" y="304" width="246" height="138"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals give you purpose and a reason to wake up each day." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9b-Bj-p0i">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post jobs for hundreds of local Craft Beer professionals." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9b-Bj-p0i">
                                                             <rect key="frame" x="45" y="362" width="230" height="72"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-Pf-7YV">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-Pf-7YV">
                                                             <rect key="frame" x="0.0" y="312" width="320" height="30"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="textColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1384,7 +1387,7 @@ craft beer candidates.</string>
                                     <outlet property="delegate" destination="ztt-Kp-LY4" id="cAc-L3-nhd"/>
                                 </connections>
                             </collectionView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kr-OY-pDe">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kr-OY-pDe">
                                 <rect key="frame" x="15" y="528" width="90" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PsR-l4-ve5"/>
@@ -1398,7 +1401,7 @@ craft beer candidates.</string>
                                     <action selector="skipClickWithSender:" destination="ztt-Kp-LY4" eventType="touchUpInside" id="mb3-da-Shg"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQI-ru-457">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQI-ru-457">
                                 <rect key="frame" x="215" y="528" width="90" height="40"/>
                                 <color key="backgroundColor" red="0.99241763350000001" green="0.74371117350000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1419,24 +1422,21 @@ craft beer candidates.</string>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="aVd-8U-6G2">
-                                <rect key="frame" x="140.5" y="529.5" width="39" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="39" id="bB2-FQ-Ap2"/>
-                                    <constraint firstAttribute="height" constant="37" id="kEB-HG-fLn"/>
-                                </constraints>
+                                <rect key="frame" x="99" y="540.5" width="122.5" height="27.5"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QsI-48-Ibc"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0GG-3V-Xk5" firstAttribute="leading" secondItem="QsI-48-Ibc" secondAttribute="leading" id="2DO-rD-TMx"/>
                             <constraint firstItem="DWx-bj-nxn" firstAttribute="top" secondItem="VKk-xq-638" secondAttribute="top" id="2s1-EZ-Y1i"/>
                             <constraint firstAttribute="bottom" secondItem="DWx-bj-nxn" secondAttribute="bottom" id="92d-1m-r36"/>
                             <constraint firstItem="aVd-8U-6G2" firstAttribute="centerX" secondItem="VKk-xq-638" secondAttribute="centerX" id="Drv-Df-UFu"/>
+                            <constraint firstItem="QsI-48-Ibc" firstAttribute="bottom" secondItem="aVd-8U-6G2" secondAttribute="bottom" id="En1-SP-k1y"/>
                             <constraint firstItem="QsI-48-Ibc" firstAttribute="bottom" secondItem="xQI-ru-457" secondAttribute="bottom" id="Ere-WH-Av9"/>
                             <constraint firstItem="0GG-3V-Xk5" firstAttribute="trailing" secondItem="QsI-48-Ibc" secondAttribute="trailing" id="Gsh-Hs-KG3"/>
-                            <constraint firstItem="aVd-8U-6G2" firstAttribute="centerY" secondItem="xQI-ru-457" secondAttribute="centerY" id="Jgc-MR-nbs"/>
                             <constraint firstItem="DWx-bj-nxn" firstAttribute="trailing" secondItem="QsI-48-Ibc" secondAttribute="trailing" id="MJS-wS-CSQ"/>
                             <constraint firstItem="0GG-3V-Xk5" firstAttribute="top" secondItem="VKk-xq-638" secondAttribute="top" id="Pli-ji-lMA"/>
                             <constraint firstItem="6kr-OY-pDe" firstAttribute="leading" secondItem="QsI-48-Ibc" secondAttribute="leading" constant="15" id="V1n-a5-lFp"/>
@@ -1445,7 +1445,6 @@ craft beer candidates.</string>
                             <constraint firstAttribute="bottom" secondItem="0GG-3V-Xk5" secondAttribute="bottom" id="wHh-5X-gbp"/>
                             <constraint firstItem="QsI-48-Ibc" firstAttribute="trailing" secondItem="xQI-ru-457" secondAttribute="trailing" constant="15" id="zZH-4U-blh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QsI-48-Ibc"/>
                     </view>
                     <connections>
                         <outlet property="btnNext" destination="xQI-ru-457" id="tOr-W1-ZSC"/>
@@ -1458,16 +1457,37 @@ craft beer candidates.</string>
             <point key="canvasLocation" x="225" y="135.21126760563379"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5gJ-uW-oLg">
+            <size key="intrinsicContentSize" width="1487" height="138"/>
+        </designable>
+        <designable name="5lP-MI-0UZ">
+            <size key="intrinsicContentSize" width="1487" height="138"/>
+        </designable>
+        <designable name="F75-nV-dDD">
+            <size key="intrinsicContentSize" width="51" height="30"/>
+        </designable>
+        <designable name="GJZ-9v-P40">
+            <size key="intrinsicContentSize" width="51" height="30"/>
+        </designable>
+        <designable name="KFh-ka-Qp0">
+            <size key="intrinsicContentSize" width="1487" height="138"/>
+        </designable>
+        <designable name="P9V-fm-XT2">
+            <size key="intrinsicContentSize" width="1487" height="138"/>
+        </designable>
+    </designables>
     <resources>
-        <image name="1image" width="3744" height="5616"/>
+        <image name="1image" width="572" height="1238"/>
         <image name="back_arrow" width="320" height="222"/>
         <image name="bg" width="720" height="1280"/>
+        <image name="btnBg" width="1487" height="138"/>
         <image name="check_otp" width="170" height="131"/>
         <image name="email" width="157" height="124"/>
         <image name="get_in_started0" width="498" height="444"/>
         <image name="get_in_started_1" width="497" height="441"/>
-        <image name="ios_icon" width="1024" height="1024"/>
-        <image name="ios_icon_white" width="1024" height="1024"/>
+        <image name="ios_icon" width="3510" height="2480"/>
+        <image name="newLogo" width="512" height="512"/>
         <image name="onBoard" width="3456" height="5184"/>
         <image name="password" width="177" height="170"/>
         <image name="user" width="150" height="150"/>

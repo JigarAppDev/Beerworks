@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 import SwiftyJSON
 import Kingfisher
 
-class AddAboutCompanyViewController: UIViewController, NVActivityIndicatorViewable {
+class AddAboutCompanyViewController: UIViewController, NVActivityIndicatorViewable, UITextViewDelegate {
 
     var companyId = ""
     var about = ""
@@ -21,7 +21,11 @@ class AddAboutCompanyViewController: UIViewController, NVActivityIndicatorViewab
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.txvAboutView.text = self.about
+        if about == "" {
+            self.txvAboutView.text = "Tell us about your company"
+        } else {
+            self.txvAboutView.text = self.about
+        }
     }
     
     // MARK: - Back Click
@@ -59,5 +63,18 @@ class AddAboutCompanyViewController: UIViewController, NVActivityIndicatorViewab
         }
         
         service.PostWithAlamofireHeader(Parameters: param as? [String : AnyObject], action: UPDATECOMPANYAPI as NSString, success: successed, failure: failure)
+    }
+    
+    //MARK: Textfield delegate methods
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        //if textView.text == "Tell us about your company" {
+           textView.text = ""
+        //}
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Tell us about your company"
+        }
     }
 }

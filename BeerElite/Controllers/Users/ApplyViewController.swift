@@ -92,7 +92,7 @@ class ApplyViewController: UIViewController, NVActivityIndicatorViewable, UIImag
                 let dataObj : JSON = JSON.init(responseObject)
                 if(dataObj["status"].stringValue == "1") {
                     //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
-                    self.showAlert(title: App_Title, msg: "Applied! Good Luck!")
+                    self.showAlert(title: App_Title, msg: "Done and Done! Now's the time to polish your application and increase your chances of landing that interview!")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }

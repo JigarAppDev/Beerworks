@@ -612,6 +612,19 @@ func checkPermission() -> Bool{
             }
         })
         return false;
+    case .limited:
+        // same same
+        print("User has limited the permission.")
+        PHPhotoLibrary.requestAuthorization({
+            (newStatus) in
+            print("status is \(newStatus)")
+            if newStatus ==  PHAuthorizationStatus.authorized {
+                /* do stuff here */
+                print("success")
+                
+            }
+        })
+        return false;
     }
 }
 

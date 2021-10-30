@@ -17,10 +17,14 @@ class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var lblSubName: UILabel!
     @IBOutlet var lblSalary: UILabel!
     @IBOutlet var lblDescr: UILabel!
+    @IBOutlet var btnChat: UIButton!
+    @IBOutlet var btnQuickApply: UIButton!
     
     var dataObj: JobsDataModel!
     var allUserData = [JSON]()
     var selUser: JSON = JSON()
+    var isFrom = ""
+    var clickDelegate: ClickDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,11 @@ class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
         if SocketHelper.CheckSocketIsConnectOrNot() == false {
             //Connect to socket
             SocketHelper.connectSocket()
+        }
+        
+        if self.isFrom == "EMP" {
+            self.btnChat.isHidden = true
+            self.btnQuickApply.isHidden = true
         }
     }
     
@@ -60,6 +69,8 @@ class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK: Apply Click
     @IBAction func btnApplyClick(sender: UIButton) {
+        //self.clickDelegate.btnClickNow()
+        
         if dataObj.applied_by_me == "1" {
             self.showAlert(title: App_Title, msg: "You have applied for this job already.")
             return
@@ -85,7 +96,7 @@ class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
                 if(dataObj["status"].stringValue == "1") {
                     //self.showAlert(title: App_Title, msg: dataObj["message"].stringValue)
                     self.dataObj.applied_by_me = "1"
-                    self.showAlert(title: App_Title, msg: "Applied! Good Luck!")
+                    self.showAlert(title: App_Title, msg: "Done and Done! Now's the time to polish your application and increase your chances of landing that interview!")
                 }else{
                     self.showAlert(title: App_Title, msg: responseObject.value(forKeyPath: "message") as! String)
                 }
@@ -104,6 +115,7 @@ class JobDetailsViewController: UIViewController, NVActivityIndicatorViewable {
         let proStoryBoard = UIStoryboard.init(name: "Provider", bundle: nil)
         let compVC = proStoryBoard.instantiateViewController(withIdentifier: "CompanyPageViewController") as! CompanyPageViewController
         compVC.companyId = self.dataObj.company_id!
+        compVC.isFrom = self.isFrom
         self.navigationController?.pushViewController(compVC, animated: true)
     }
     

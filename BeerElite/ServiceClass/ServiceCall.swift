@@ -79,7 +79,7 @@ class ServiceCall{
                                 do {
                                     dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as NSDictionary?
                                     if dictonary != nil{
-                                        print(dictonary ?? nil!)
+                                        //print(dictonary ?? nil!)
                                         let status = dictonary?.value(forKey: "status")
                                         if "\(status)" != "0" {
                                             return success(dictonary!)

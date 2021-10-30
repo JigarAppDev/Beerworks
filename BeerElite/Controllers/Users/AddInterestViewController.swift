@@ -21,6 +21,7 @@ class AddInterestViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var btnSales_rep: UIButton!
     @IBOutlet var btnServer_restaurant: UIButton!
     @IBOutlet var btnOther: UIButton!
+    @IBOutlet var btnManagement: UIButton!
     
     var interestArray = [String]()
     
@@ -36,10 +37,11 @@ class AddInterestViewController: UIViewController, NVActivityIndicatorViewable {
         self.btnSales_rep.isSelected = false
         self.btnBartending.isSelected = false
         self.btnBartending_liquor.isSelected = false
+        self.btnManagement.isSelected = false
         
         if self.interestArray.count > 0 {
             for val in self.interestArray {
-                if val.lowercased() == "sales rep" {
+                if val.lowercased() == "sales rep" || val.lowercased() == "restaurant server" {
                     self.btnSales_rep.isSelected = true
                 } else if val.lowercased() == "brewing" {
                     self.btnBrewing.isSelected = true
@@ -49,12 +51,14 @@ class AddInterestViewController: UIViewController, NVActivityIndicatorViewable {
                     self.btnAdministrative.isSelected = true
                 } else if val.lowercased() == "bar back" {
                     self.btnBar_back.isSelected = true
-                } else if val.lowercased() == "server restaurant" {
+                } else if val.lowercased() == "server restaurant" || val.lowercased() == "sales and marketing" {
                     self.btnServer_restaurant.isSelected = true
-                } else if val.lowercased() == "bartending liquor" {
+                } else if val.lowercased() == "bartending liquor" || val.lowercased() == "craft cocktails" {
                     self.btnBartending_liquor.isSelected = true
                 } else if val.lowercased() == "bartending" {
                     self.btnBartending.isSelected = true
+                } else if val.lowercased() == "management" {
+                    self.btnManagement.isSelected = true
                 }
             }
         }
@@ -115,6 +119,12 @@ class AddInterestViewController: UIViewController, NVActivityIndicatorViewable {
             } else {
                 self.btnOther.isSelected = false
             }
+        } else if sender.tag == 109 {
+            if self.btnManagement.isSelected == false {
+                self.btnManagement.isSelected = true
+            } else {
+                self.btnManagement.isSelected = false
+            }
         }
     }
 
@@ -132,6 +142,7 @@ class AddInterestViewController: UIViewController, NVActivityIndicatorViewable {
         param.setValue(self.btnSales_rep.isSelected, forKey: "sales_rep")
         param.setValue(self.btnServer_restaurant.isSelected, forKey: "server_restaurant")
         param.setValue(self.btnOther.isSelected, forKey: "other")
+        param.setValue(self.btnManagement.isSelected, forKey: "management")
         print(param)
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()

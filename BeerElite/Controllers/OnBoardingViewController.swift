@@ -25,24 +25,29 @@ class OnBoardingViewController: UIViewController {
     @IBOutlet var btnNext: UIButton!
     
     var selectedIndex = 0
-    var titleArray = ["Create your profile","Search craft beer jobs","Let employers find you"]
-    var textArray = ["You're commited to your craft. We're commited to finding you the best jobs in the industry. Complete your Beer Elite profile and interview to begin!","Browse local craft beer postings and have new jobs delivered straight to your inbox.","Don't see you're favorite brewery? Don't worry, they can see you! Employers browse Beer Elite profiles daily!"]
+    var titleArray = ["Create your profile","Let employers find you","Search craft beer jobs"]
+    var textArray = ["","",""]
     var lastContentOffset: CGFloat = 0.0
-    var imgArray = ["1image","2image","3image"]
+    //var imgArray = ["1image","3image","2image"]
+    var imgArray = ["Candidate_2","Candidate_3","Candidate_4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         if userType == "Provider" {
-            self.titleArray = ["Unlimited job postings","Find Talent","Connect and hire"]
-            self.textArray = ["Post jobs for hundreds of local craft beer professionals.","Beer elite profiles offer insight on beer knowledge and personality.","Instantly connect with candidates through messaging and live chat."]
+            //self.textArray = ["Post jobs for hundreds of local Craft Beer professionals.","Developed by a Certified Cicerone® and owner of a California Craft Beer bar.","Elite profiles offer insight on candidate personality and Craft Beer mastery."]
+            imgArray = ["Employer_2","Employer_3","Employer_4"]
+        } else {
+            imgArray = ["Candidate_2","Candidate_3","Candidate_4"]
+            //self.textArray = ["The best jobs in the Craft Beer industry, all in one place.","Customize your Elite Profile and start applying to bars and breweries!","Browse local openings. Allow push notifications and be the first to apply!"]
         }
+        
     }
 
     //MARK:- Skip button click
     @IBAction func skipClick(sender: UIButton) {
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
@@ -53,7 +58,7 @@ class OnBoardingViewController: UIViewController {
             self.sliderCollection.selectItem(at: IndexPath(item: self.selectedIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
             self.pagerConrol.currentPage = self.selectedIndex
         } else {
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
             self.navigationController?.pushViewController(loginVC, animated: true)
         }
     }
@@ -88,7 +93,7 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             // swipes from Right to left
             if self.selectedIndex == 2 {
-                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
                 self.navigationController?.pushViewController(loginVC, animated: true)
             }
         }

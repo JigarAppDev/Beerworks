@@ -13,6 +13,8 @@ import SwiftyJSON
 
 class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
 
+    @IBOutlet var btnLocalJobs: UIButton!
+    @IBOutlet var btnLocalJobsHeight: NSLayoutConstraint!
     @IBOutlet var btnMenu1: UIButton!
     @IBOutlet var btnMenu2: UIButton!
     @IBOutlet var btnMenu3: UIButton!
@@ -82,6 +84,8 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
         self.lblEmail.text = email
         self.btnCity.setTitle(city, for: .normal)
         
+        self.btnLocalJobs.isHidden = true
+        self.btnLocalJobsHeight.constant = 0
         self.btnMenu1.isHidden = false
         self.btnMenu2.isHidden = false
         self.btnMenu3.isHidden = false
@@ -93,11 +97,13 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
             self.btnMenu5.isHidden = true
             self.btnMenu6.isHidden = true
             self.btnMenu1.setTitle("Job List", for: .normal)
-            self.btnMenu2.setTitle("My Resume", for: .normal)
+            self.btnMenu2.setTitle("Application", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
             self.btnMenu4.setTitle("Saved Jobs", for: .normal)
         } else {
-            self.btnMenu1.setTitle("Post Job", for: .normal)
+            self.btnLocalJobs.isHidden = false
+            self.btnLocalJobsHeight.constant = 30
+            self.btnMenu1.setTitle("Post a Job", for: .normal)
             self.btnMenu2.setTitle("Candidates", for: .normal)
             self.btnMenu3.setTitle("Messages", for: .normal)
             self.btnMenu4.setTitle("My Postings", for: .normal)
@@ -136,9 +142,10 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 //Logout
                 let alert = UIAlertController.init(title: App_Title, message: "Are you sure you want to logout?", preferredStyle: .alert)
                 let yesAction = UIAlertAction.init(title: "Yes", style: .default) { (action) in
-                    self.clearAllUserDefault()
-                    let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
-                    self.navigationController?.pushViewController(loginVC, animated: true)
+                    self.LogoutAPI()
+                    //self.clearAllUserDefault()
+                    //let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserSelectionViewController") as! UserSelectionViewController
+                    //self.navigationController?.pushViewController(loginVC, animated: true)
                 }
                 let noAction = UIAlertAction.init(title: "No", style: .cancel, handler: nil)
                 alert.addAction(yesAction)
@@ -193,6 +200,11 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
                 //Favorites
                 let favVC = proStoryBoard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
                 self.navigationController?.pushViewController(favVC, animated: true)
+            } else if sender.tag == 201 {
+                //JobList
+                let homeVC = userStoryBoard.instantiateViewController(withIdentifier: "UserHomeViewController") as! UserHomeViewController
+                homeVC.isFrom = "EMP"
+                self.navigationController?.pushViewController(homeVC, animated: true)
             }
         }
     }
@@ -201,8 +213,8 @@ class LeftMenuViewController: UIViewController, NVActivityIndicatorViewable {
     func LogoutAPI(){
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
         let param : NSMutableDictionary =  NSMutableDictionary()
-        let identifier = UUID()
-        param.setValue(identifier.uuidString, forKey: "device_id")
+        //let identifier = UUID()
+        //param.setValue(identifier.uuidString, forKey: "device_id")
         if let did: String = Defaults.value(forKey: "deviceId") as? String {
             param.setValue(did, forKey: "device_id")
         }

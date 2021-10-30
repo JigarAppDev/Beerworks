@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -35,9 +35,7 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>BeerElite need access your camera to upload profile image.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>BeerElite access your location to get the current address like City &amp; State.</string>
-	<key>NSLocationUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>BeerElite access your location to get the current address like City &amp; State.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>BeerElite access your location to get the current address like City &amp; State.</string>

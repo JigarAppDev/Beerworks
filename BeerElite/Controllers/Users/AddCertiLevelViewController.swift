@@ -21,6 +21,10 @@ class AddCertiLevelViewController: UIViewController, NVActivityIndicatorViewable
     @IBOutlet var btnSales_rep: UIButton!
     @IBOutlet var btnDoemens_bier: UIButton!
     @IBOutlet var btnNone: UIButton!
+    @IBOutlet var btnFoodManager: UIButton!
+    @IBOutlet var btnFoodHandler: UIButton!
+    @IBOutlet var btnAlcohol: UIButton!
+    @IBOutlet var btnAllergen: UIButton!
     
     var levelArray = [String]()
     
@@ -36,6 +40,10 @@ class AddCertiLevelViewController: UIViewController, NVActivityIndicatorViewable
         self.btnSales_rep.isSelected = false
         self.btnDoemens_bier.isSelected = false
         self.btnNone.isSelected = false
+        self.btnFoodManager.isSelected = false
+        self.btnFoodHandler.isSelected = false
+        self.btnAlcohol.isSelected = false
+        self.btnAllergen.isSelected = false
         
         if self.levelArray.count > 0 {
             for val in self.levelArray {
@@ -55,6 +63,18 @@ class AddCertiLevelViewController: UIViewController, NVActivityIndicatorViewable
                     self.btnMaster_cicerone.isSelected = true
                 } else if val.lowercased() == "doemens bier" {
                     self.btnDoemens_bier.isSelected = true
+                }
+                else if val.lowercased() == "servsafe food manager" {
+                    self.btnFoodManager.isSelected = true
+                }
+                else if val.lowercased() == "servsafe food handler" {
+                    self.btnFoodHandler.isSelected = true
+                }
+                else if val.lowercased() == "servsafe alcohol" {
+                    self.btnAlcohol.isSelected = true
+                }
+                else if val.lowercased() == "servsafe allergens" {
+                    self.btnAllergen.isSelected = true
                 }
             }
         }
@@ -116,6 +136,34 @@ class AddCertiLevelViewController: UIViewController, NVActivityIndicatorViewable
                 self.btnNone.isSelected = false
             }
         }
+        else if sender.tag == 109 {
+            if self.btnFoodManager.isSelected == false {
+                self.btnFoodManager.isSelected = true
+            } else {
+                self.btnFoodManager.isSelected = false
+            }
+        }
+        else if sender.tag == 110 {
+            if self.btnFoodHandler.isSelected == false {
+                self.btnFoodHandler.isSelected = true
+            } else {
+                self.btnFoodHandler.isSelected = false
+            }
+        }
+        else if sender.tag == 111 {
+            if self.btnAlcohol.isSelected == false {
+                self.btnAlcohol.isSelected = true
+            } else {
+                self.btnAlcohol.isSelected = false
+            }
+        }
+        else if sender.tag == 112 {
+            if self.btnAllergen.isSelected == false {
+                self.btnAllergen.isSelected = true
+            } else {
+                self.btnAllergen.isSelected = false
+            }
+        }
     }
     
     //MARK: API Calling on Submit
@@ -132,6 +180,10 @@ class AddCertiLevelViewController: UIViewController, NVActivityIndicatorViewable
         param.setValue(self.btnSales_rep.isSelected, forKey: "sales_rep")
         param.setValue(self.btnDoemens_bier.isSelected, forKey: "doemens_bier")
         param.setValue(self.btnNone.isSelected, forKey: "none")
+        param.setValue(self.btnFoodManager.isSelected, forKey: "servsafe_food_manager")
+        param.setValue(self.btnFoodHandler.isSelected, forKey: "servsafe_food_handler")
+        param.setValue(self.btnAlcohol.isSelected, forKey: "servsafe_alcohol")
+        param.setValue(self.btnAllergen.isSelected, forKey: "servsafe_allergens")
         print(param)
         let successed = {(responseObject: AnyObject) -> Void in
             self.stopAnimating()

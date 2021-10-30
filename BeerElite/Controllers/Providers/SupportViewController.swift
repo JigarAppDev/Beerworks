@@ -35,7 +35,7 @@ class SupportViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK: Send Mail
     @IBAction func btnSendMail(sender: UIButton) {
-        let email = "thebeerelite@gmail.com"
+        let email = "info@beereliteapp.com"
         if let url = URL(string: "mailto:\(email)") {
           if #available(iOS 10.0, *) {
             UIApplication.shared.open(url)

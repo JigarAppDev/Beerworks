@@ -12,13 +12,17 @@ import SwiftyGif
 class UserSelectionViewController: UIViewController {
 
     let logoAnimationView = LogoAnimationView()
-    
+    @IBOutlet var btnEmp: UIButton!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //view.addSubview(logoAnimationView)
         //logoAnimationView.pinEdgesToSuperView()
         //logoAnimationView.logoGifImageView.delegate = self
+        
+        btnEmp.layer.borderWidth = 1.0
+        btnEmp.layer.borderColor = UIColor.white.cgColor
 
         //Checked for already login user with type of user
         let isLoggedIn = Defaults.bool(forKey: "is_logged_in")

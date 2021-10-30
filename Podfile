@@ -11,6 +11,7 @@ target 'BeerElite' do
     pod 'Kingfisher' #, '~> 4.0'
     pod 'KSToastView', '0.5.7'
     pod 'GoogleSignIn'
+    pod 'Firebase/Crashlytics'
     pod 'Firebase/Analytics'
     pod 'Firebase/Messaging'
     pod 'JSQMessagesViewController'

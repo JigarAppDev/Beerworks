@@ -37,6 +37,19 @@ class ProfileCell: UITableViewCell {
     }
 }
 
+class AvailabilityCell: UITableViewCell {
+    @IBOutlet var btnEdit: UIButton!
+    @IBOutlet var lblAvailTime: UILabel!
+    @IBOutlet var lblTransport: UILabel!
+    @IBOutlet var mornigStack: UIStackView!
+    @IBOutlet var noonStack: UIStackView!
+    @IBOutlet var eveningStack: UIStackView!
+    
+    override func awakeFromNib() {
+        
+    }
+}
+
 class StatusCell: UITableViewCell {
     @IBOutlet var btnEdit: UIButton!
     @IBOutlet var levelCollectionView : UICollectionView!
@@ -175,8 +188,11 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
     var statusArray = [""]
     
     //QuesArray
-    var quesArray = ["Favorite Brewery? What makes it so special?","Favorite Beer? How would you recommend it to someone?","How would you explain the difference between an ale and a lager?","Favorite style of IPA? Name and describe two of your favorite hops from that style.","Describe the vibe of your favorite brewery, bar or restaurant?","What made you want to work in craft beer?","Your thoughts on independent craft vs Big Beer?","What styles would you recommend to someone who doesn't like IPAs?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","Describe your personality.","How well do you work in a fast-paced environment?","How many hours are you looking for and what's your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
-    var ansArray = ["Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer"]
+    var quesArray = ["Experience Summary","Cover Letter","Desired Wage Per Hour or Exempt (Annual)","How many years of professional craft beer industry experience do you have?","Please describe any experience you have managing others.","Do you have any homebrewing/commercial brewing experience? If so, please give a brief summary.","Do you have any previous marketing/content creation experience? If so, please give a brief summary.","Add anything else you want to share."]
+        
+        //["Why do you want to be a part of the craft beer industry?","If you could choose just ONE style of beer for the rest of your life. What would it be and why?","Explain the difference between an ale and a lager.","Describe the vibe of your favorite brewery, bar or restaurant.","What is your dream job?","How would you describe yourself?","Who or what has been the biggest influence on your career?","Anything else you would like to add?"]
+        //["Favorite Brewery? What makes it so special?","Favorite Beer? How would you recommend it to someone?","How would you explain the difference between an ale and a lager?","Favorite style of IPA? Name and describe two of your favorite hops from that style.","Describe the vibe of your favorite brewery, bar or restaurant?","What made you want to work in craft beer?","Your thoughts on independent craft vs Big Beer?","What styles would you recommend to someone who doesn't like IPAs?","Describe your favorite food and beer combo?","What would you do if one of your patrons has clearly had too much to drink?","Describe your personality.","How well do you work in a fast-paced environment?","How many hours are you looking for and what's your availability?","Any days/nights you can't work?","Anything you'd like to add?"]
+    var ansArray = ["Answer","Answer","Answer","Answer","Answer","Answer","Answer","Answer"]
     
     var eduArray = [JSON]()
     var expArray = [JSON]()
@@ -186,6 +202,12 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
     var selectedFileData = Data()
     var imgName = ""
     var fileName = ""
+    var workingHour = ""
+    var isTransport = false
+    var availArray = [JSON]()
+    var monArr = [Bool]()
+    var noonArr = [Bool]()
+    var eveArr = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -274,6 +296,18 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
         self.navigationController?.pushViewController(statusVC, animated: true)
     }
     
+    @objc func updateAvailClick(sender: UIButton) {
+        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let availVC = userStoryBoard.instantiateViewController(withIdentifier: "AddAvailabilityViewController") as! AddAvailabilityViewController
+        availVC.isTransport = self.isTransport
+        availVC.availArray = self.availArray
+        availVC.workingHour = self.workingHour
+        availVC.monArr = self.monArr
+        availVC.noonArr = self.noonArr
+        availVC.eveArr = self.eveArr
+        self.navigationController?.pushViewController(availVC, animated: true)
+    }
+    
     @objc func addWorkClick(sender: UIButton) {
         let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
         let expVC = userStoryBoard.instantiateViewController(withIdentifier: "AddExperienceViewController") as! AddExperienceViewController
@@ -339,6 +373,36 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
                     let status = data["user_current_status"]?.stringValue
                     self.email = data["email"]!.stringValue
                     self.address = data["city"]!.stringValue
+                    self.workingHour = data["work_hour_per_week"]!.stringValue
+                    if data["is_reliable_transportation"]!.stringValue == "1" {
+                        self.isTransport = true
+                    } else {
+                        self.isTransport = false
+                    }
+                    self.availArray = data["working_hour"]!.arrayValue
+                    self.monArr.removeAll()
+                    self.noonArr.removeAll()
+                    self.eveArr.removeAll()
+                    for obj in self.availArray {
+                        let monVal = obj["morning"].stringValue
+                        if monVal == "1" {
+                            self.monArr.append(true)
+                        } else {
+                            self.monArr.append(false)
+                        }
+                        let noonVal = obj["afternoon"].stringValue
+                        if noonVal == "1" {
+                            self.noonArr.append(true)
+                        } else {
+                            self.noonArr.append(false)
+                        }
+                        let eveVal = obj["evening"].stringValue
+                        if eveVal == "1" {
+                            self.eveArr.append(true)
+                        } else {
+                            self.eveArr.append(false)
+                        }
+                    }
                     
                     let resume = data["resume"]!.dictionaryValue
                     if resume.count > 0 {
@@ -383,7 +447,15 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
                     for (key,val) in intData! {
                         if val.intValue == 1 {
                             let k = key.replacingOccurrences(of: "_", with: " ")
-                            self.interestArray.append(k.capitalized)
+                            if k.lowercased() == "bartending liquor" {
+                                self.interestArray.append("Craft Cocktails")
+                            } else if k.lowercased() == "sales rep" {
+                                self.interestArray.append("Restaurant Server")
+                            } else if k.lowercased() == "server restaurant" {
+                                self.interestArray.append("Sales and Marketing")
+                            }else {
+                                self.interestArray.append(k.capitalized)
+                            }
                         }
                     }
                     
@@ -521,9 +593,9 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             return self.eduArray.count
         }
         if userType == "User" {
-            return 8
+            return 9
         }
-        return 7
+        return 8
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 111 {
@@ -554,6 +626,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
         let profCell = self.tblResume.dequeueReusableCell(withIdentifier: "ProfileCell") as! ProfileCell
         let levelCell = self.tblResume.dequeueReusableCell(withIdentifier: "LevelCell") as! LevelCell
         let statusCell = self.tblResume.dequeueReusableCell(withIdentifier: "StatusCell") as! StatusCell
+        let availCell = self.tblResume.dequeueReusableCell(withIdentifier: "AvailabilityCell") as! AvailabilityCell
         let expCell = self.tblResume.dequeueReusableCell(withIdentifier: "ExpCell") as! ExpCell
         let beerCell = self.tblResume.dequeueReusableCell(withIdentifier: "BeerBioCell") as! BeerBioCell
         let interestCell = self.tblResume.dequeueReusableCell(withIdentifier: "InterestCell") as! InterestCell
@@ -598,6 +671,44 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             statusCell.levelCollectionViewHeight.constant = height
             return statusCell
         } else if indexPath.row == 2 {
+            if userType == "User" { availCell.btnEdit.isHidden = false } else { availCell.btnEdit.isHidden = true }
+            availCell.btnEdit.addTarget(self, action: #selector(self.updateAvailClick(sender:)), for: .touchUpInside)
+            availCell.lblAvailTime.text = "I'm not available for now."
+            if self.workingHour != "" {
+                availCell.lblAvailTime.text = "I am looking to work \(self.workingHour) hours per week."
+            }
+            if self.isTransport {
+                availCell.lblTransport.text = "Yes, I am at least 21 years of age."
+            } else {
+                availCell.lblTransport.text = "No, I am not at least 21 years of age."
+            }
+            
+            //morning
+            for (index, val) in self.monArr.enumerated() {
+                    let img = availCell.mornigStack.subviews[index].subviews[0] as! UIImageView
+                if img.tag == index + 1 {
+                    img.isHighlighted = val
+                }
+            }
+            
+            //noon
+            for (index, val) in self.noonArr.enumerated() {
+                    let img = availCell.noonStack.subviews[index].subviews[0] as! UIImageView
+                if img.tag == index + 1 {
+                    img.isHighlighted = val
+                }
+            }
+            
+            //evening
+            for (index, val) in self.eveArr.enumerated() {
+                    let img = availCell.eveningStack.subviews[index].subviews[0] as! UIImageView
+                if img.tag == index + 1 {
+                    img.isHighlighted = val
+                }
+            }
+            
+            return availCell
+        } else if indexPath.row == 3 {
             if userType == "User" { levelCell.btnEdit.isHidden = false } else { levelCell.btnEdit.isHidden = true }
             levelCell.btnEdit.addTarget(self, action: #selector(self.updateLevelClick(sender:)), for: .touchUpInside)
             levelCell.levelCollectionView.tag = 101
@@ -607,7 +718,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             let height = levelCell.levelCollectionView.collectionViewLayout.collectionViewContentSize.height
             levelCell.levelCollectionViewHeight.constant = height
             return levelCell
-        }else if indexPath.row == 3 {
+        }else if indexPath.row == 4 {
             if userType == "User" { expCell.btnAdd.isHidden = false } else { expCell.btnAdd.isHidden = true }
             expCell.btnAdd.addTarget(self, action: #selector(self.addWorkClick(sender:)), for: .touchUpInside)
             expCell.tblExp.delegate = self
@@ -616,7 +727,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             expCell.tblExpHeight.constant = CGFloat(110 * self.expArray.count)
             expCell.tblExp.reloadData()
             return expCell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             if userType == "User" { beerCell.btnEdit.isHidden = false } else { beerCell.btnEdit.isHidden = true }
             beerCell.btnEdit.addTarget(self, action: #selector(self.updateBioClick(sender:)), for: .touchUpInside)
             beerCell.lblQue1.text = self.quesArray[0]
@@ -635,7 +746,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             beerCell.lblAns7.text = self.ansArray[6]
             beerCell.lblQue8.text = self.quesArray[7]
             beerCell.lblAns8.text = self.ansArray[7]
-            beerCell.lblQue9.text = self.quesArray[8]
+            /*beerCell.lblQue9.text = self.quesArray[8]
             beerCell.lblAns9.text = self.ansArray[8]
             beerCell.lblQue10.text = self.quesArray[9]
             beerCell.lblAns10.text = self.ansArray[9]
@@ -648,9 +759,9 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             beerCell.lblQue14.text = self.quesArray[13]
             beerCell.lblAns14.text = self.ansArray[13]
             beerCell.lblQue15.text = self.quesArray[14]
-            beerCell.lblAns15.text = self.ansArray[14]
+            beerCell.lblAns15.text = self.ansArray[14]*/
             return beerCell
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             if userType == "User" { interestCell.btnEdit.isHidden = false } else { interestCell.btnEdit.isHidden = true }
             interestCell.btnEdit.addTarget(self, action: #selector(self.updateInterestClick(sender:)), for: .touchUpInside)
             interestCell.interestCollectionView.tag = 102
@@ -660,7 +771,7 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
             let height = interestCell.interestCollectionView.collectionViewLayout.collectionViewContentSize.height
             interestCell.interestCollectionViewHeight.constant = height
             return interestCell
-        } else if indexPath.row == 6 {
+        } else if indexPath.row == 7 {
             if userType == "User" { eduCell.btnAdd.isHidden = false } else { eduCell.btnAdd.isHidden = true }
             eduCell.btnAdd.addTarget(self, action: #selector(self.addEducationClick(sender:)), for: .touchUpInside)
             eduCell.tblEdu.delegate = self

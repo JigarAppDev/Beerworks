@@ -14,7 +14,7 @@ import GoogleSignIn
 import MapKit
 import AuthenticationServices
 
-class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate, ASAuthorizationControllerDelegate {
+class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSignInDelegate, ASAuthorizationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var txtFullname: UITextField!
     @IBOutlet var txtEmail: UITextField!
@@ -23,17 +23,27 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     @IBOutlet weak var appleView: UIView!
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
-    var lati = "21.17"
-    var longi = "72.83"
+    var lati = "37.09"
+    var longi = "95.71"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        locManager.requestWhenInUseAuthorization()
+        // Ask for Authorisation from the User.
+        self.locManager.requestAlwaysAuthorization()
 
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+        // For use in foreground
+        self.locManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locManager.delegate = self
+            locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locManager.startUpdatingLocation()
+        }
+        
+        /*if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             guard let currentLocation = locManager.location else {
                 return
@@ -42,7 +52,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             print(currentLocation.coordinate.longitude)
             self.lati = "\(currentLocation.coordinate.latitude)"
             self.longi = "\(currentLocation.coordinate.longitude)"
-        }
+        }*/
         
         if userType == "Provider" {
             self.txtFullname.placeholder = "Business Name"
@@ -57,6 +67,17 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.lati = "\(locValue.latitude)"
+        self.longi = "\(locValue.longitude)"
+        if self.lati != "" && self.longi != "" {
+            self.locManager.stopUpdatingLocation()
+        }
+    }
+    
     // MARK: - Back Click
     @IBAction func btnBackClick(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -64,7 +85,8 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     
     //MARK: Login Click
     @IBAction func btnLoginClick(sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     //MARK: Sign Up Click
@@ -98,6 +120,13 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             boolVal = false
         }else if txtPassword.text != txtConfirmPassword.text {
             showAlert(title: App_Title, msg: "Password Must Match")
+            boolVal = false
+        }else if DEVICETOKEN == "" {
+            showAlert(title: App_Title, msg: "DeviceToken is not generated so kindly try it later or  by refreshing app!")
+            boolVal = false
+        }else if self.lati == "" || self.longi == "" {
+            showAlert(title: App_Title, msg: "Your location is not found so kindly try it later or by refreshing app!")
+            locManager.startUpdatingLocation()
             boolVal = false
         }
         return boolVal
@@ -224,7 +253,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
      
     //MARK: Login by Social
     func loginBySocial(name:String,id:String,email:String,type:String) {
-        let type = "1"
+        //let type = "1"
         var emailId = email
         if email == "" {
             emailId = name
@@ -242,7 +271,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         } else {
             uType = "2" //user_type = 1 = user , 2 = provider
         }
-        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=123456789&device_type=2&device_id=\(deviceId)&latitude=\(self.lati)&longitude=\(self.longi)&user_type=\(uType)"
+        let paramString = "username=\(name)&thirdparty_id=\(id)&email=\(emailId)&login_type=\(type)&device_token=\(DEVICETOKEN)&device_type=2&device_id=\(deviceId)&latitude=\(self.lati)&longitude=\(self.longi)&user_type=\(uType)"
         request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let session = URLSession.shared
@@ -255,14 +284,17 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
             }
             if let data = data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
                     let dataObj = json as! NSDictionary
-                    if dataObj.value(forKey: "status") as! Int == 1 {
-                        print(dataObj)
-                    }
+                    //if dataObj.value(forKey: "status") as! Int == 1 {
+                    //    print(dataObj)
+                    //}
                     let dataObj1 = JSON.init(json)
                     if dataObj1["status"].intValue == 1 {
                         print(dataObj1)
+                        DispatchQueue.main.async {
+                            self.setDefaultData(responseObject: dataObj)
+                        }
                     } else {
                         DispatchQueue.main.async {
                             if dataObj1["message"].stringValue == "Unauthorised" {
@@ -272,11 +304,10 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
                             }
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.setDefaultData(responseObject: dataObj)
-                    }
+                    
                 } catch {
                     print(error)
+                    self.showAlert(title: App_Title, msg: error.localizedDescription)
                 }
             }
         }.resume()
@@ -285,9 +316,8 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     //MARK: Apple Login
     @available(iOS 13.0, *)
     func setUpSignInAppleButtonInView() {
-        let authorizationButton = ASAuthorizationAppleIDButton()
+        let authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: ASAuthorizationAppleIDButton.ButtonType.default, authorizationButtonStyle: ASAuthorizationAppleIDButton.Style.white)
         authorizationButton.addTarget(self, action: #selector(handleAppleIdRequest), for: .touchUpInside)
-        //authorizationButton.cornerRadius = 10
         self.appleView.addSubview(authorizationButton)
     }
     
@@ -298,6 +328,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
         request.requestedScopes = [.fullName, .email]
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
     
@@ -319,7 +350,11 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
                             DispatchQueue.main.async {
                                 if let emailId = UserDefaults.standard.value(forKey: "emailId") as? String {
                                     let fname = UserDefaults.standard.value(forKey: "fullname") as? String
-                                    self.loginBySocial(name: fname!, id: userIdentifier, email: emailId, type: "2")
+                                    self.loginBySocial(name: fname!, id: userIdentifier, email: emailId, type: "3")
+                                } else {
+                                    DispatchQueue.main.async {
+                                       self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "3")
+                                   }
                                 }
                             }
                         } else {
@@ -327,7 +362,7 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
                             UserDefaults.standard.set(email, forKey: "emailId")
                             UserDefaults.standard.synchronize()
                              DispatchQueue.main.async {
-                                self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "2")
+                                self.loginBySocial(name: fullName?.givenName ?? "", id: userIdentifier, email: email ?? "", type: "3")
                             }
                         }
                         break
@@ -350,5 +385,13 @@ class SignUpViewController: UIViewController, NVActivityIndicatorViewable, GIDSi
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
         print(error)
+    }
+}
+
+@available(iOS 13.0, *)
+extension SignUpViewController: ASAuthorizationControllerPresentationContextProviding {
+    /// - Tag: provide_presentation_anchor
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
 }
