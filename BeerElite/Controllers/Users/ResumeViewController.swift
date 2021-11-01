@@ -31,6 +31,11 @@ class ProfileCell: UITableViewCell {
     @IBOutlet var btnCity: UIButton!
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var btnChat: UIButton!
+    @IBOutlet var btnChat2: UIButton!
+    @IBOutlet var lblChat: UILabel!
+    @IBOutlet var btnCall: UIButton!
+    @IBOutlet var btnCall2: UIButton!
+    @IBOutlet var lblCall: UILabel!
     
     override func awakeFromNib() {
         
@@ -208,6 +213,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
     var monArr = [Bool]()
     var noonArr = [Bool]()
     var eveArr = [Bool]()
+    var phoneNumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -373,6 +379,7 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
                     let status = data["user_current_status"]?.stringValue
                     self.email = data["email"]!.stringValue
                     self.address = data["city"]!.stringValue
+                    self.phoneNumber = data["phone_number"]!.stringValue
                     self.workingHour = data["work_hour_per_week"]!.stringValue
                     if data["is_reliable_transportation"]!.stringValue == "1" {
                         self.isTransport = true
@@ -541,6 +548,24 @@ class ResumeViewController: UIViewController, NVActivityIndicatorViewable, UIIma
         }
     }
     
+    @IBAction func makePhoneCall(sender: UIButton) {
+        if self.phoneNumber == "" {
+            self.showAlert(title: App_Title, msg: "No Phone Number Found!")
+            return
+        }
+        if let phoneURL = NSURL(string: ("tel://" + phoneNumber)) {
+            let alert = UIAlertController(title: ("Call " + phoneNumber + "?"), message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { (action) in
+                UIApplication.shared.open(phoneURL as URL, options: [:], completionHandler: nil)
+
+              }))
+      
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func submitResumePhoto(sender: UIButton) {
         
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)
@@ -646,6 +671,11 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
                 profCell.btnCity.setTitle(self.address, for: .normal)
                 profCell.btnCity.titleLabel?.adjustsFontSizeToFitWidth = true
                 profCell.btnChat.isHidden = true
+                profCell.btnChat2.isHidden = true
+                profCell.lblChat.isHidden = true
+                profCell.btnCall.isHidden = true
+                profCell.btnCall2.isHidden = true
+                profCell.lblCall.isHidden = true
             } else {
                 let name = self.selectedObj.username
                 let email = self.email

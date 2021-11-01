@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
     @IBOutlet var lblName: UILabel!
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtEmail: UITextField!
+    @IBOutlet var txtPhone: UITextField!
     @IBOutlet var txtCity: UITextField!
     @IBOutlet var txtCurrOcupation: UITextField!
     @IBOutlet var userProfile: UIImageView!
@@ -37,6 +38,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
             self.userProButton.isHidden = true
             self.txtName.isUserInteractionEnabled = false
             self.txtEmail.isUserInteractionEnabled = false
+            self.txtPhone.isUserInteractionEnabled = false
             self.txtCity.isUserInteractionEnabled = false
             self.txtCurrOcupation.isUserInteractionEnabled = false
         } else {
@@ -74,6 +76,9 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
                     self.txtName.text = data["username"]!.stringValue
                     self.txtEmail.text = data["email"]!.stringValue
                     self.txtCity.text = data["city"]!.stringValue
+                    if data["phone_number"]?.stringValue != "" {
+                        self.txtPhone.text = data["phone_number"]?.stringValue
+                    }
                     self.txtCurrOcupation.text = data["current_occupation"]!.stringValue
                     let pic = data["profile_pic"]!.stringValue
                     if pic == "" {
@@ -120,6 +125,9 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
         }else if AppUtilities.sharedInstance.isValidEmail(emailAddressString: txtEmail.text!) == false {
             showAlert(title: App_Title, msg: "Please Enter Valid Email")
             boolVal = false
+        }else if txtPhone.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
+            showAlert(title: App_Title, msg: "Please Enter Phone Number")
+            boolVal = false
         }else if txtCity.text?.trimmingCharacters(in: .whitespaces).isEmpty == true {
             showAlert(title: App_Title, msg: "Please Enter City, State & Zip")
             boolVal = false
@@ -137,6 +145,7 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable, UIIm
         param.setValue(self.txtName.text!, forKey: "username")
         param.setValue(self.txtEmail.text!, forKey: "email")
         param.setValue(self.txtCity.text!, forKey: "city")
+        param.setValue(self.txtPhone.text!, forKey: "phone_number")
         param.setValue(self.txtCurrOcupation.text!, forKey: "current_occupation")
         
         let profileArray : NSMutableDictionary =  NSMutableDictionary()

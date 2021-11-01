@@ -469,22 +469,73 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-98-A3C">
+                                                            <rect key="frame" x="15" y="15" width="22" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="Fkt-gP-8ww"/>
+                                                                <constraint firstAttribute="width" constant="22" id="QuN-UK-qRf"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" image="phone"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eop-Ck-iXC">
+                                                            <rect key="frame" x="11" y="42" width="30.5" height="24"/>
+                                                            <string key="text">Call 
+Phone</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0J-ZR-KlQ">
+                                                            <rect key="frame" x="243.5" y="38" width="43" height="24"/>
+                                                            <string key="text">Send
+Message</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caI-sY-DuE">
+                                                            <rect key="frame" x="243.5" y="15" width="46.5" height="47"/>
+                                                            <connections>
+                                                                <action selector="btnCreateChatWithSender:" destination="Roh-0g-NiE" eventType="touchUpInside" id="Ran-rB-pS8"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-sz-FW5">
+                                                            <rect key="frame" x="0.0" y="15" width="41.5" height="51"/>
+                                                            <connections>
+                                                                <action selector="makePhoneCallWithSender:" destination="Roh-0g-NiE" eventType="touchUpInside" id="YJq-en-xFM"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="caI-sY-DuE" secondAttribute="trailing" id="0Kv-WC-hr7"/>
                                                         <constraint firstItem="x7b-v5-2vA" firstAttribute="top" secondItem="d5N-v7-wxE" secondAttribute="bottom" constant="15" id="0hM-rz-suC"/>
+                                                        <constraint firstItem="eop-Ck-iXC" firstAttribute="top" secondItem="kWq-98-A3C" secondAttribute="bottom" constant="5" id="1Sp-PD-sod"/>
+                                                        <constraint firstItem="kWq-98-A3C" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" constant="15" id="1ZY-dZ-mvj"/>
+                                                        <constraint firstItem="kWq-98-A3C" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="15" id="4Ie-nA-KRz"/>
+                                                        <constraint firstItem="Q0J-ZR-KlQ" firstAttribute="centerX" secondItem="mEn-RU-kgO" secondAttribute="centerX" id="4Wm-E5-qIK"/>
+                                                        <constraint firstItem="Q0J-ZR-KlQ" firstAttribute="top" secondItem="mEn-RU-kgO" secondAttribute="bottom" constant="5" id="7WM-vY-nql"/>
                                                         <constraint firstItem="ahk-z6-53C" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" constant="15" id="8QL-EA-oqb"/>
                                                         <constraint firstAttribute="trailing" secondItem="ahk-z6-53C" secondAttribute="trailing" constant="15" id="8Zg-hn-tLm"/>
                                                         <constraint firstAttribute="trailing" secondItem="mEn-RU-kgO" secondAttribute="trailing" constant="15" id="Afx-cU-wd2"/>
+                                                        <constraint firstItem="caI-sY-DuE" firstAttribute="leading" secondItem="Q0J-ZR-KlQ" secondAttribute="leading" id="DUr-n3-TFK"/>
                                                         <constraint firstItem="XMb-In-Mav" firstAttribute="centerX" secondItem="jdS-og-OIg" secondAttribute="centerX" id="Dca-MJ-jPk"/>
+                                                        <constraint firstItem="Ido-sz-FW5" firstAttribute="trailing" secondItem="eop-Ck-iXC" secondAttribute="trailing" id="Iq7-fk-pP7"/>
+                                                        <constraint firstItem="Ido-sz-FW5" firstAttribute="bottom" secondItem="eop-Ck-iXC" secondAttribute="bottom" id="Uje-qy-JWD"/>
                                                         <constraint firstItem="d5N-v7-wxE" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" constant="15" id="W4l-6J-ih0"/>
                                                         <constraint firstAttribute="bottom" secondItem="x7b-v5-2vA" secondAttribute="bottom" constant="20" id="erv-zf-sV7"/>
+                                                        <constraint firstItem="eop-Ck-iXC" firstAttribute="centerX" secondItem="kWq-98-A3C" secondAttribute="centerX" id="fsT-7Y-Vsl"/>
                                                         <constraint firstItem="x7b-v5-2vA" firstAttribute="centerX" secondItem="d5N-v7-wxE" secondAttribute="centerX" id="gN2-sa-EUg"/>
                                                         <constraint firstItem="mEn-RU-kgO" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="15" id="hbk-K6-wqv"/>
                                                         <constraint firstAttribute="trailing" secondItem="d5N-v7-wxE" secondAttribute="trailing" constant="15" id="nEz-Gv-ZwS"/>
                                                         <constraint firstItem="ahk-z6-53C" firstAttribute="top" secondItem="XMb-In-Mav" secondAttribute="bottom" constant="15" id="q8L-Ub-Kam"/>
+                                                        <constraint firstItem="Ido-sz-FW5" firstAttribute="leading" secondItem="jdS-og-OIg" secondAttribute="leading" id="rXL-TZ-0Y4"/>
+                                                        <constraint firstItem="Ido-sz-FW5" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="15" id="sRY-hm-HUF"/>
+                                                        <constraint firstItem="caI-sY-DuE" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="15" id="t5S-cA-Zqw"/>
                                                         <constraint firstItem="XMb-In-Mav" firstAttribute="top" secondItem="jdS-og-OIg" secondAttribute="top" constant="20" id="wGn-Hr-2pv"/>
                                                         <constraint firstItem="d5N-v7-wxE" firstAttribute="top" secondItem="ahk-z6-53C" secondAttribute="bottom" constant="6" id="xhL-DZ-u3t"/>
+                                                        <constraint firstItem="caI-sY-DuE" firstAttribute="bottom" secondItem="Q0J-ZR-KlQ" secondAttribute="bottom" id="z12-EZ-3ol"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -503,9 +554,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="btnCall" destination="kWq-98-A3C" id="gi6-KK-Nei"/>
+                                            <outlet property="btnCall2" destination="Ido-sz-FW5" id="xkE-C3-DgL"/>
                                             <outlet property="btnChat" destination="mEn-RU-kgO" id="DuI-gF-UXk"/>
+                                            <outlet property="btnChat2" destination="caI-sY-DuE" id="Kjm-Z3-pzd"/>
                                             <outlet property="btnCity" destination="x7b-v5-2vA" id="Acf-2n-hQh"/>
                                             <outlet property="imgProfile" destination="XMb-In-Mav" id="poY-DA-x18"/>
+                                            <outlet property="lblCall" destination="eop-Ck-iXC" id="rGG-wW-ASg"/>
+                                            <outlet property="lblChat" destination="Q0J-ZR-KlQ" id="ams-sN-Pwm"/>
                                             <outlet property="lblEmail" destination="d5N-v7-wxE" id="7QN-Xe-u2q"/>
                                             <outlet property="lblName" destination="ahk-z6-53C" id="Oho-IO-0yY"/>
                                         </connections>
@@ -5579,11 +5635,11 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lvb-9p-8by" customClass="ProfileViewController" customModule="BeerElite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y6p-uK-am6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="885"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Xdf-AU-UOW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="885"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtY-Ds-96g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -5617,13 +5673,13 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7T-Yd-Aq5">
-                                <rect key="frame" x="0.0" y="44" width="320" height="726"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="841"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-kv-byf">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="726"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="841"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alK-kb-ipD">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="726"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="841"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAM-hY-Lwx" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="290" height="125"/>
@@ -5766,8 +5822,54 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbw-Rf-rkn" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
+                                                        <rect key="frame" x="15" y="390" width="290" height="100"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fs-kd-fGZ">
+                                                                <rect key="frame" x="15" y="15" width="106.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-Ea-CXV" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="45" width="260" height="40"/>
+                                                                <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="2eP-CR-JtS"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="AbX-n3-SJh"/>
+                                                            <constraint firstAttribute="trailing" secondItem="9ic-Ea-CXV" secondAttribute="trailing" constant="15" id="FfR-a3-Qiu"/>
+                                                            <constraint firstAttribute="bottom" secondItem="9ic-Ea-CXV" secondAttribute="bottom" constant="15" id="Pgp-bE-ZtK"/>
+                                                            <constraint firstItem="9ic-Ea-CXV" firstAttribute="leading" secondItem="sbw-Rf-rkn" secondAttribute="leading" constant="15" id="XTq-yU-PjR"/>
+                                                            <constraint firstItem="6fs-kd-fGZ" firstAttribute="top" secondItem="sbw-Rf-rkn" secondAttribute="top" constant="15" id="grH-bj-oO6"/>
+                                                            <constraint firstItem="6fs-kd-fGZ" firstAttribute="leading" secondItem="sbw-Rf-rkn" secondAttribute="leading" constant="15" id="kIw-DN-F32"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMv-De-fUx" customClass="CustomButton" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="646" width="200" height="50"/>
+                                                        <rect key="frame" x="60" y="761" width="200" height="50"/>
                                                         <color key="backgroundColor" red="0.87450980389999999" green="0.65490196079999996" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="6ab-QY-672"/>
@@ -5790,7 +5892,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPL-fy-Q5U" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="390" width="290" height="100"/>
+                                                        <rect key="frame" x="15" y="505" width="290" height="100"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, State and Zip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwJ-Og-0Rd">
                                                                 <rect key="frame" x="15" y="15" width="131.5" height="18"/>
@@ -5836,7 +5938,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1Z-Wx-Dyz" customClass="CustomView" customModule="BeerElite" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="505" width="290" height="108"/>
+                                                        <rect key="frame" x="15" y="620" width="290" height="108"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb6-Yc-D0S">
                                                                 <rect key="frame" x="15" y="15" width="138.5" height="18"/>
@@ -5886,8 +5988,11 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                 <constraints>
                                                     <constraint firstItem="RMv-De-fUx" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="60" id="5Sw-5S-StG"/>
                                                     <constraint firstItem="RMv-De-fUx" firstAttribute="top" secondItem="n1Z-Wx-Dyz" secondAttribute="bottom" constant="33" id="6kg-AY-6qM"/>
+                                                    <constraint firstItem="sbw-Rf-rkn" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="7kS-wa-LPc"/>
                                                     <constraint firstAttribute="trailing" secondItem="rPL-fy-Q5U" secondAttribute="trailing" constant="15" id="AbI-Kl-M39"/>
                                                     <constraint firstItem="Qdp-g4-6es" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="Gdg-uG-Ifh"/>
+                                                    <constraint firstItem="sbw-Rf-rkn" firstAttribute="top" secondItem="VYl-ZX-1GO" secondAttribute="bottom" constant="15" id="Hnn-2O-OA1"/>
+                                                    <constraint firstItem="rPL-fy-Q5U" firstAttribute="top" secondItem="sbw-Rf-rkn" secondAttribute="bottom" constant="15" id="Jt9-QS-OjW"/>
                                                     <constraint firstAttribute="trailing" secondItem="VYl-ZX-1GO" secondAttribute="trailing" constant="15" id="K8e-Be-15X"/>
                                                     <constraint firstItem="rPL-fy-Q5U" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="KAO-Yd-ZJh"/>
                                                     <constraint firstItem="EAM-hY-Lwx" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="KBV-32-c2g"/>
@@ -5901,8 +6006,8 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                     <constraint firstItem="Qdp-g4-6es" firstAttribute="top" secondItem="EAM-hY-Lwx" secondAttribute="bottom" constant="15" id="gDE-Pl-pZu"/>
                                                     <constraint firstAttribute="trailing" secondItem="EAM-hY-Lwx" secondAttribute="trailing" constant="15" id="hzJ-lZ-K2J"/>
                                                     <constraint firstItem="VYl-ZX-1GO" firstAttribute="leading" secondItem="alK-kb-ipD" secondAttribute="leading" constant="15" id="pTE-uZ-AUx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sbw-Rf-rkn" secondAttribute="trailing" constant="15" id="qJc-Hr-r8U"/>
                                                     <constraint firstAttribute="trailing" secondItem="Qdp-g4-6es" secondAttribute="trailing" constant="15" id="s42-jM-gKD"/>
-                                                    <constraint firstItem="rPL-fy-Q5U" firstAttribute="top" secondItem="VYl-ZX-1GO" secondAttribute="bottom" constant="15" id="z41-YZ-2bc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -5941,13 +6046,14 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                             <constraint firstAttribute="trailing" secondItem="RtY-Ds-96g" secondAttribute="trailing" id="yEB-Tq-0Hk"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="320" height="770"/>
+                    <size key="freeformSize" width="320" height="885"/>
                     <connections>
                         <outlet property="lblName" destination="vfr-g3-WeR" id="AqW-5D-l3t"/>
                         <outlet property="txtCity" destination="CU0-Al-r3Q" id="1JV-9n-Z3f"/>
                         <outlet property="txtCurrOcupation" destination="n1w-dJ-CJk" id="a7J-PM-vcS"/>
                         <outlet property="txtEmail" destination="EUa-gI-Rap" id="vxQ-Vx-Btn"/>
                         <outlet property="txtName" destination="3UH-Gl-e7U" id="Xud-o1-9B8"/>
+                        <outlet property="txtPhone" destination="9ic-Ea-CXV" id="6qX-46-ZfY"/>
                         <outlet property="updateButton" destination="RMv-De-fUx" id="w8Y-fx-8n0"/>
                         <outlet property="userProButton" destination="nEw-dx-h0s" id="iE6-FM-rAl"/>
                         <outlet property="userProfile" destination="dOD-eY-Esh" id="4ii-Id-sY9"/>
@@ -5955,7 +6061,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAg-HT-gFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="-710"/>
+            <point key="canvasLocation" x="983" y="-851"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="DLa-Pm-gPN">
@@ -7249,6 +7355,9 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
         <designable name="4dJ-a8-Pv5">
             <size key="intrinsicContentSize" width="191" height="32"/>
         </designable>
+        <designable name="9ic-Ea-CXV">
+            <size key="intrinsicContentSize" width="170" height="17.5"/>
+        </designable>
         <designable name="BBh-3I-KHZ">
             <size key="intrinsicContentSize" width="103" height="32"/>
         </designable>
@@ -7373,6 +7482,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
         <image name="ios_icon" width="3510" height="2480"/>
         <image name="menu" width="333" height="229"/>
         <image name="newTransLogo" width="2267" height="1956"/>
+        <image name="phone" width="64" height="64"/>
         <image name="upload_photo" width="262" height="262"/>
     </resources>
 </document>

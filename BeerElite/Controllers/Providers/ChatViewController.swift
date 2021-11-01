@@ -314,6 +314,7 @@ class ChatViewController: JSQMessagesViewController {
                 selectedObj.username =  self.userObj["username"].stringValue
                 selectedObj.user_resume = ""
                 selectedObj.user_image = ""
+                selectedObj.phone_number = self.userObj["phone_number"].stringValue
                 resumeVC.selectedObj = selectedObj
                 self.navigationController?.pushViewController(resumeVC, animated: true)
             } else {
