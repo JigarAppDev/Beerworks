@@ -102,6 +102,15 @@ class UserHomeViewController: UIViewController, NVActivityIndicatorViewable, Cli
         present(menu, animated: true, completion: nil)
     }
     
+    //MARK: Map Icon Click
+    @IBAction func btnMapIconClick(sender: UIButton) {
+        let userStoryBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let mapVC = userStoryBoard.instantiateViewController(withIdentifier: "FindJobsMapViewController") as! FindJobsMapViewController
+        mapVC.jobList = self.jobList
+        mapVC.isFrom = self.isFrom
+        self.navigationController?.pushViewController(mapVC, animated: true)
+    }
+    
     //MARK: Get All Jobs List
     func getAllJobsList() {
         startAnimating(Loadersize, message: "", type: NVActivityIndicatorType.ballSpinFadeLoader)

@@ -46,7 +46,7 @@ class CompanyPageViewController: UIViewController, NVActivityIndicatorViewable, 
         self.mapKitView.isUserInteractionEnabled = false
         
         if self.isFrom == "SignUp" {
-            self.showAlert(title: App_Title, msg: "Please complete your company profile before posting your first job!")
+            self.showAlert(title: "Welcome to Beer Elite Job Search!", msg: "Please complete your company profile before posting your first job!")
         }
     }
     

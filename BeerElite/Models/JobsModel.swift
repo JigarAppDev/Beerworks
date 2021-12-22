@@ -44,6 +44,8 @@ class JobsDataModel {
     var created_at: String?
     var isSaved: Int?
     var exp_date: String?
+    var latitude: Double?
+    var longitude: Double?
 
     init(jsonDic: JSON) {
         self.id = jsonDic["id"].stringValue
@@ -63,6 +65,8 @@ class JobsDataModel {
         self.created_at = jsonDic["created_at"].stringValue
         self.isSaved = jsonDic["is_saved"].intValue
         self.exp_date = jsonDic["expire_at"].stringValue
+        self.latitude = jsonDic["latitude"].doubleValue
+        self.longitude = jsonDic["longitude"].doubleValue
     }
     
     public func dictionaryRepresentation() -> NSDictionary {

@@ -52,6 +52,7 @@
 		04A5293F23CC7623003E2EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A5293E23CC7623003E2EDA /* Assets.xcassets */; };
 		04A5294223CC7623003E2EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5294023CC7623003E2EDA /* LaunchScreen.storyboard */; };
 		04B944A124209DF9008C498C /* AddCompanyNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */; };
+		04C906CB2772FC3E009FEABA /* FindJobsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C906CA2772FC3E009FEABA /* FindJobsMapViewController.swift */; };
 		04C941F023FA8D06003BF1D1 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */; };
 		04C941F123FA8D06003BF1D1 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */; };
 		04E982CB23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E982CA23D5B7F500F7CC26 /* AddAboutCompanyViewController.swift */; };
@@ -114,6 +115,7 @@
 		04A5294123CC7623003E2EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A5294323CC7623003E2EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B944A024209DF9008C498C /* AddCompanyNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyNameViewController.swift; sourceTree = "<group>"; };
+		04C906CA2772FC3E009FEABA /* FindJobsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindJobsMapViewController.swift; sourceTree = "<group>"; };
 		04C941EC23FA8D06003BF1D1 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
 		04C941EE23FA8D06003BF1D1 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
 		04C941EF23FA8D06003BF1D1 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				048E6F4C2498EE4100898C69 /* SavedListViewController.swift */,
 				040AC08F249B7E2F00B198EA /* AddStatusViewController.swift */,
 				049C964125D7A4EA007892F3 /* AddAvailabilityViewController.swift */,
+				04C906CA2772FC3E009FEABA /* FindJobsMapViewController.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				04EC734C23D08E0C0076666A /* FilterViewController.swift in Sources */,
 				046CB3392484C9D600EA6E63 /* FavoriteViewController.swift in Sources */,
 				04EC734823D086900076666A /* ProviderHomeViewController.swift in Sources */,
+				04C906CB2772FC3E009FEABA /* FindJobsMapViewController.swift in Sources */,
 				048A91C923CC7A1100BDAFC3 /* ForgotPasswordViewController.swift in Sources */,
 				048A91D423CC833D00BDAFC3 /* ServiceCall.swift in Sources */,
 				04EC734A23D087A60076666A /* LeftMenuViewController.swift in Sources */,
@@ -704,7 +708,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dev_Profile1;
@@ -730,7 +734,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beerelite.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = BeerElite_Dist_Profile1;

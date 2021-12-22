@@ -1433,6 +1433,11 @@
                                                                     <constraint firstAttribute="width" constant="100" id="8aP-Y6-lNO"/>
                                                                     <constraint firstAttribute="height" constant="100" id="TJw-aO-I4f"/>
                                                                 </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="titleEdgeInsets" minX="0.0" minY="105" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="Upload Logo!">
+                                                                    <color key="titleColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="selectProfilePicWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="VaP-Xg-ary"/>
                                                                 </connections>
@@ -1497,12 +1502,16 @@
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-v0-Bge">
-                                                                <rect key="frame" x="255" y="15" width="20" height="20"/>
+                                                                <rect key="frame" x="175" y="15" width="100" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="AaI-4z-c8A"/>
-                                                                    <constraint firstAttribute="width" constant="20" id="cEQ-1h-EWR"/>
+                                                                    <constraint firstAttribute="width" constant="100" id="cEQ-1h-EWR"/>
                                                                 </constraints>
-                                                                <state key="normal" image="edit"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="80" maxY="0.0"/>
+                                                                <state key="normal" title="Edit About!" image="edit">
+                                                                    <color key="titleColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="btnAddAboutUsWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="WhT-wc-aaJ"/>
                                                                 </connections>
@@ -1561,12 +1570,16 @@
                                                         <rect key="frame" x="15" y="994" width="290" height="220"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNv-YE-kWc">
-                                                                <rect key="frame" x="255" y="15" width="20" height="20"/>
+                                                                <rect key="frame" x="180" y="15" width="95" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="WRj-kX-0dX"/>
-                                                                    <constraint firstAttribute="width" constant="20" id="eN9-6c-oIa"/>
+                                                                    <constraint firstAttribute="width" constant="95" id="eN9-6c-oIa"/>
                                                                 </constraints>
-                                                                <state key="normal" image="edit"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="75" maxY="0.0"/>
+                                                                <state key="normal" title="Edit More!" image="edit">
+                                                                    <color key="titleColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="btnEditWebLocationWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="Vyn-yI-Qcq"/>
                                                                 </connections>
@@ -1650,12 +1663,16 @@
                                                         <rect key="frame" x="15" y="240" width="290" height="80"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcy-ye-pVw">
-                                                                <rect key="frame" x="255" y="15" width="20" height="20"/>
+                                                                <rect key="frame" x="180" y="15" width="95" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="U2d-KZ-vxX"/>
-                                                                    <constraint firstAttribute="width" constant="20" id="uHd-b2-KBx"/>
+                                                                    <constraint firstAttribute="width" constant="95" id="uHd-b2-KBx"/>
                                                                 </constraints>
-                                                                <state key="normal" image="edit"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="75" maxY="0.0"/>
+                                                                <state key="normal" title="Edit Name" image="edit">
+                                                                    <color key="titleColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="btnAddCNameWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="Gmb-4H-EmF"/>
                                                                 </connections>
@@ -1732,17 +1749,21 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwX-E4-D5x">
-                                                                <rect key="frame" x="255" y="15" width="20" height="20"/>
+                                                                <rect key="frame" x="165" y="15" width="110" height="20"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="20" id="OjA-7j-GOb"/>
+                                                                    <constraint firstAttribute="width" constant="110" id="OjA-7j-GOb"/>
                                                                     <constraint firstAttribute="height" constant="20" id="nTA-5P-nuM"/>
                                                                 </constraints>
-                                                                <state key="normal" image="add"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="90" maxY="0.0"/>
+                                                                <state key="normal" title="Add a photo!" image="add">
+                                                                    <color key="titleColor" red="0.88378340010000001" green="0.66262042519999997" blue="0.18924093249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="clkAddFilesWithSender:" destination="NqX-5a-ZfP" eventType="touchUpInside" id="YiR-3y-ovW"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-ZC-wuK">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newBg" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-ZC-wuK">
                                                                 <rect key="frame" x="15" y="43" width="260" height="192"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2590,6 +2611,7 @@
         <image name="ic_fav" width="128" height="128"/>
         <image name="ios_icon" width="3510" height="2480"/>
         <image name="menu" width="333" height="229"/>
+        <image name="newBg" width="1200" height="600"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

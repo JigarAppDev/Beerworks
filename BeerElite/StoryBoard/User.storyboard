@@ -198,16 +198,29 @@
                                             <action selector="btnFilterClickWithSender:" destination="7dh-P8-CEp" eventType="touchUpInside" id="80F-vU-Ffa"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-wJ-NLM">
+                                        <rect key="frame" x="241" y="15" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="dhi-rX-Dm7"/>
+                                            <constraint firstAttribute="width" constant="26" id="sJZ-Jh-2DO"/>
+                                        </constraints>
+                                        <state key="normal" image="map"/>
+                                        <connections>
+                                            <action selector="btnMapIconClickWithSender:" destination="7dh-P8-CEp" eventType="touchUpInside" id="rEe-bf-G32"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="xdh-gW-JPr"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1zA-Kp-hKn"/>
                                     <constraint firstItem="Kc6-ch-BDo" firstAttribute="centerX" secondItem="BqA-cS-fip" secondAttribute="centerX" id="HJM-Fv-gi6"/>
+                                    <constraint firstItem="pmK-wJ-NLM" firstAttribute="centerY" secondItem="vks-ru-stZ" secondAttribute="centerY" id="OsA-Ka-4s2"/>
                                     <constraint firstAttribute="bottom" secondItem="GDk-rN-JAu" secondAttribute="bottom" constant="5" id="V21-PV-Kga"/>
                                     <constraint firstItem="GDk-rN-JAu" firstAttribute="leading" secondItem="BqA-cS-fip" secondAttribute="leading" constant="15" id="VzC-up-z90"/>
                                     <constraint firstItem="xdh-gW-JPr" firstAttribute="trailing" secondItem="vks-ru-stZ" secondAttribute="trailing" constant="15" id="bJ8-FP-lzQ"/>
                                     <constraint firstItem="xdh-gW-JPr" firstAttribute="bottom" secondItem="vks-ru-stZ" secondAttribute="bottom" constant="5" id="hne-S4-tYm"/>
+                                    <constraint firstItem="vks-ru-stZ" firstAttribute="leading" secondItem="pmK-wJ-NLM" secondAttribute="trailing" constant="12" id="ruz-e9-n2j"/>
                                     <constraint firstAttribute="bottom" secondItem="Kc6-ch-BDo" secondAttribute="bottom" constant="5" id="xiM-Mu-XAV"/>
                                 </constraints>
                             </view>
@@ -5831,7 +5844,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-Ea-CXV" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ic-Ea-CXV" customClass="KTextField" customModule="BeerElite" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="45" width="260" height="40"/>
                                                                 <color key="backgroundColor" red="0.1185077205" green="0.11853460220000001" blue="0.11850202830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -7344,6 +7357,79 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
             </objects>
             <point key="canvasLocation" x="3084.375" y="1540.1408450704225"/>
         </scene>
+        <!--Find Jobs Map View Controller-->
+        <scene sceneID="2Ff-3W-0So">
+            <objects>
+                <viewController storyboardIdentifier="FindJobsMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qyv-Ol-ICT" customClass="FindJobsMapViewController" customModule="BeerElite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S1m-L3-Yao">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="A9I-1j-vPI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKn-dI-ee6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgT-EP-Xr7">
+                                        <rect key="frame" x="120" y="17.5" width="80" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbY-oL-UzL">
+                                        <rect key="frame" x="15" y="19" width="30" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="WE8-oz-zrU"/>
+                                            <constraint firstAttribute="width" constant="30" id="oxH-is-oSO"/>
+                                        </constraints>
+                                        <state key="normal" image="back_arrow"/>
+                                        <connections>
+                                            <action selector="btnBackClickWithSender:" destination="qyv-Ol-ICT" eventType="touchUpInside" id="WQF-fb-IUG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="17D-ul-mer"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SbY-oL-UzL" firstAttribute="leading" secondItem="WKn-dI-ee6" secondAttribute="leading" constant="15" id="Dea-jo-p1L"/>
+                                    <constraint firstAttribute="bottom" secondItem="SbY-oL-UzL" secondAttribute="bottom" constant="5" id="djC-2U-bKf"/>
+                                    <constraint firstItem="XgT-EP-Xr7" firstAttribute="centerX" secondItem="WKn-dI-ee6" secondAttribute="centerX" id="hO8-2R-HnR"/>
+                                    <constraint firstAttribute="height" constant="44" id="mEo-0d-5pS"/>
+                                    <constraint firstAttribute="bottom" secondItem="XgT-EP-Xr7" secondAttribute="bottom" constant="5" id="qHC-dE-4Bp"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-Lj-fBd">
+                                <rect key="frame" x="0.0" y="54" width="320" height="514"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qyv-Ol-ICT" id="dlf-gL-V3r"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aWt-iu-Srb"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="A9I-1j-vPI" secondAttribute="bottom" id="2cZ-xd-ev3"/>
+                            <constraint firstItem="aWt-iu-Srb" firstAttribute="trailing" secondItem="aBH-Lj-fBd" secondAttribute="trailing" id="6tf-Wc-ppy"/>
+                            <constraint firstItem="WKn-dI-ee6" firstAttribute="trailing" secondItem="aWt-iu-Srb" secondAttribute="trailing" id="EBq-Pj-5sK"/>
+                            <constraint firstItem="A9I-1j-vPI" firstAttribute="leading" secondItem="aWt-iu-Srb" secondAttribute="leading" id="FW9-2i-XVm"/>
+                            <constraint firstItem="A9I-1j-vPI" firstAttribute="trailing" secondItem="aWt-iu-Srb" secondAttribute="trailing" id="HpI-GD-Gbm"/>
+                            <constraint firstAttribute="bottom" secondItem="aBH-Lj-fBd" secondAttribute="bottom" id="Md5-ov-iHP"/>
+                            <constraint firstItem="WKn-dI-ee6" firstAttribute="leading" secondItem="aWt-iu-Srb" secondAttribute="leading" id="Qzf-Gh-M8K"/>
+                            <constraint firstItem="aBH-Lj-fBd" firstAttribute="leading" secondItem="aWt-iu-Srb" secondAttribute="leading" id="cuw-8l-Sim"/>
+                            <constraint firstItem="A9I-1j-vPI" firstAttribute="top" secondItem="S1m-L3-Yao" secondAttribute="top" id="g6P-dt-6mx"/>
+                            <constraint firstItem="WKn-dI-ee6" firstAttribute="top" secondItem="aWt-iu-Srb" secondAttribute="top" id="xOu-VY-fy8"/>
+                            <constraint firstItem="aBH-Lj-fBd" firstAttribute="top" secondItem="WKn-dI-ee6" secondAttribute="bottom" constant="10" id="ykK-dZ-Up3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aBH-Lj-fBd" id="8Ee-7z-73v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U82-XT-iOx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-489" y="2298"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="3UH-Gl-e7U">
@@ -7356,7 +7442,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
             <size key="intrinsicContentSize" width="191" height="32"/>
         </designable>
         <designable name="9ic-Ea-CXV">
-            <size key="intrinsicContentSize" width="170" height="17.5"/>
+            <size key="intrinsicContentSize" width="174" height="17.5"/>
         </designable>
         <designable name="BBh-3I-KHZ">
             <size key="intrinsicContentSize" width="103" height="32"/>
@@ -7480,6 +7566,7 @@ A label can contain an arbitrary amount of text, but UILabel may shrink, wrap, o
         <image name="ic_noonEmpty" width="300" height="300"/>
         <image name="ic_noonFill" width="300" height="300"/>
         <image name="ios_icon" width="3510" height="2480"/>
+        <image name="map" width="512" height="512"/>
         <image name="menu" width="333" height="229"/>
         <image name="newTransLogo" width="2267" height="1956"/>
         <image name="phone" width="64" height="64"/>
