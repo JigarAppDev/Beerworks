@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-var BASEURL: String = "http://159.89.236.101/beer_elite/api/"
-var SOCKETURL: String = "http://159.89.236.101:8001/"
+var BASEURL: String = ""
+var SOCKETURL: String = ""
 let App_Title: String = "Beer Elite"
 
 var LoaderType:Int = 14
